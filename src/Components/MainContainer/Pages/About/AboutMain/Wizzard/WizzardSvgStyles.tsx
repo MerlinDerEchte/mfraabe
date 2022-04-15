@@ -1,18 +1,64 @@
 import { css } from "@emotion/css";
+import { keyframes } from "@emotion/react";
+import { colors } from "../../../../../../constants/css/colors";
 
 
 const WIZZARD_DISTANCE_TOP = '100px';
 const WIZZARD_DISTANCE_RIGHT = '50px';
-export const WIZZARD_VIEWBOX_MARGIN_LEFT = 100;
-export const WIZZARD_VIEWBOX_MARGIN_TOP = 125;
-export const WIZZARD_VIEWBOX_WIDTH = 150;
-export const WIZZARD_VIEWBOX_HEIGHT = 225;
+
+export const WIZZARD_WIDTH = '200px'
+export const WIZZARD_HEIGHT = `calc(1.75 * ${WIZZARD_WIDTH})`;
 
 
-export const WizzardSvgStyles = css({
+
+
+
+const HeadAnimation = keyframes`
+    0%{
+        transform:rotate(0deg);
+    }
+    50%{
+        transform:rotate(1deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+`;
+const LeftArmAnimation = keyframes`
+0%{
+    transform:rotate(0deg);
+}
+50%{
+    transform:rotate(-1deg);
+}
+100%{
+    transform:rotate(0deg);
+}
+`;
+
+
+export const WizzardWrapperStyles = css({
     position: 'absolute',
-    width: '150px',
-    height: '200px',
+    width: WIZZARD_WIDTH,
+    height: WIZZARD_HEIGHT,
     right: WIZZARD_DISTANCE_RIGHT,
     top: WIZZARD_DISTANCE_TOP,
+    'svg':{
+        stroke: colors.LIGHTORANGE,
+        fill: colors.DARKBLUE,
+
+        '#head':{
+           
+        },
+        
+        '#right-arm':{
+          
+        },
+        '#left-arm':{
+            
+        },
+        '#magicwand':{
+
+        }
+    }
 })
