@@ -26,16 +26,26 @@ const HeadAnimation = keyframes`
 `;
 const LeftArmAnimation = keyframes`
 0%{
-    transform:rotate(0deg);
+    transform:rotate(0)
 }
 50%{
-    transform:rotate(-1deg);
+    transform:rotate(1deg);
 }
 100%{
-    transform:rotate(0deg);
+    transform:rotate(0);
 }
 `;
-
+const RightArmAnimation = keyframes`
+0%{
+    transform:rotate(0)
+}
+50%{
+    transform:rotate(90deg);
+}
+100%{
+    transform:rotate(0);
+}
+`;
 
 export const WizzardWrapperStyles = css({
     position: 'absolute',
@@ -44,6 +54,7 @@ export const WizzardWrapperStyles = css({
     right: WIZZARD_DISTANCE_RIGHT,
     top: WIZZARD_DISTANCE_TOP,
     'svg':{
+        position: 'relative',
         stroke: colors.LIGHTORANGE,
         fill: colors.DARKBLUE,
 
@@ -52,10 +63,15 @@ export const WizzardWrapperStyles = css({
         },
         
         '#right-arm':{
-          
+
+            transformOrigin: '0 100px',
+            transform: 'rotate(90deg)',
         },
         '#left-arm':{
-            
+  
+            animation: `${LeftArmAnimation} 1s ease-in-out infinite`,
+            transformOrigin: '60% 52%',
+        
         },
         '#magicwand':{
 
