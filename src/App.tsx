@@ -1,16 +1,12 @@
 import react, {useState, useMemo, useEffect} from 'react';
 import { mainPath } from './constants/paths';
 import {GlobalContext} from './GlobalContext';
-
-
 import {appStyles} from './AppStyles';
 import {CompanyLogo} from './Components/CompanyLogo/CompanyLogo'
 import {Menu} from './Components/Menu/Menu';
 import {MainContainer} from './Components/MainContainer/MainContainer';
 import { applicationStatus } from './constants/ApplicationStatus';
 import { BrowserRouter } from 'react-router-dom';
-
-
 
 const startAnimationDuration = 1000;
 function App() {
