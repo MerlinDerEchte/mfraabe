@@ -34,13 +34,13 @@ function App() {
   const isInit = appStatus === applicationStatus.INIT;
   const isRun = appStatus === applicationStatus.RUN;
 
-  const value = ({activePath,appStatus, setFirstPath})
+  const value = ({activePath,appStatus, isInit, isStart, isRun, setFirstPath})
 
 
   const StyledApp = () => <div className={appStyles}>
-      <CompanyLogo />
-      <Menu />
-      {!isInit && <MainContainer />}
+    <CompanyLogo />
+    <Menu />
+    <MainContainer />
   </div>;
  
   return (

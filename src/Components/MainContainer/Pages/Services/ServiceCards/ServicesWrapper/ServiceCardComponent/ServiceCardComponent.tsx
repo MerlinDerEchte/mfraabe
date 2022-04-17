@@ -11,16 +11,13 @@ export const ServiceCardComponent:react.FC<{service:EServiceType,index:number, c
     
     
 
-    const {appStatus} = useContext(GlobalContext);
+    const { isInit, isStart, isRun} = useContext(GlobalContext);
     const { selectedService, setSelectedService, isDeselecting} = useContext(ServiceContext);
 
     const isOneSelected = selectedService !== EServiceType.NONE;
     const isSelected = getIsSelected(service, selectedService);
     const isSelectedAndDeselecting = getIsSelectedAndDeselecting(service, selectedService,isDeselecting);
     const isOtherSelectedAndDeselecting = getIsOtherDeselecting(service, selectedService, isDeselecting);
-    const isInit = appStatus === applicationStatus.INIT;
-    const isStart = appStatus === applicationStatus.START;
-    const isRun = appStatus === applicationStatus.RUN;
     const serviceCardStyles = createServiceCardStyles( index, isInit, isStart, isRun, isSelected, isOneSelected,isSelectedAndDeselecting, isOtherSelectedAndDeselecting );
     const StyledServiceCard = styled.div(serviceCardStyles);
    

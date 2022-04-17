@@ -20,7 +20,12 @@ const MENU_LEFT_START_POSITION_LEFT = 50;
 
 
 
-export const createMenuItemStyle:any = (index:number,isInit:boolean, isStart:boolean,isSelected:boolean) => {
+export const createMenuItemStyle:any = (
+    index:number,
+    isInit:boolean,
+    isStart:boolean,
+    isSelected:boolean,
+    isStartPath:boolean) => {
     
    
     const menuItemAnimation = createMenuItemAnimation(index,isInit, isStart,isSelected);
@@ -35,8 +40,8 @@ export const createMenuItemStyle:any = (index:number,isInit:boolean, isStart:boo
             alignItems:'center',
             position: 'absolute',
             zIndex: 10,
-            top: isInit ? MENU_MID_START_POSITION_TOP: MENU_ITEM_LEFT_LEFT,
-            left:  isInit ? MENU_ITEM_START_LEFT : `${MENU_LEFT_START_POSITION_LEFT}px`,
+            top: isInit && isStartPath ? MENU_MID_START_POSITION_TOP: MENU_ITEM_LEFT_LEFT,
+            left:  isInit && isStartPath ? MENU_ITEM_START_LEFT : `${MENU_LEFT_START_POSITION_LEFT}px`,
             fontSize: 30,
             fontWeight: 50,
             width: MENU_ITEM_WIDTH,

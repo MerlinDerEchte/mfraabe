@@ -10,5 +10,4 @@ export const AboutMainStyles = css({
     left:0,
     width: ABOUT_MAIN_WIDTH,
     height:ABOUT_MAIN_HEIGHT,
-    background: colors.DARKWHITE,
 });

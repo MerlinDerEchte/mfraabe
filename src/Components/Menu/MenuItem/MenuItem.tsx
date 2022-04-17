@@ -9,12 +9,11 @@ import { Link } from 'react-router-dom';
 
 export const MenuItem:react.FC<{title:mainPath, index:number}> = ({title,index}) => {
 
-    const { setFirstPath,appStatus, activePath} = useContext(GlobalContext);
+    const { setFirstPath,isInit, isStart} = useContext(GlobalContext);
     const location = useLocation();
     const isSelected = "/" + title === location.pathname;
-    const isInit:boolean =  appStatus === applicationStatus.INIT;
-    const isStart:boolean = appStatus === applicationStatus.START;
-    const itemStyles = createMenuItemStyle(index,isInit,isStart,isSelected);
+    const isStartPath = location.pathname === "/";
+    const itemStyles = createMenuItemStyle(index,isInit,isStart,isSelected,isStartPath);
     const StyledMenuItem = styled.div(itemStyles);
 
     

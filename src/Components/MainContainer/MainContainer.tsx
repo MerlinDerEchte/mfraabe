@@ -11,18 +11,13 @@ import { Route,Routes } from 'react-router-dom';
 
 export const MainContainer:react.FC = () => {
 
-    const {appStatus, activePath} = useContext(GlobalContext);
-    const isInit = appStatus === applicationStatus.INIT;
-    const isServices = activePath === mainPath.SERVICES;
-    const isAbout = activePath === mainPath.ABOUT;
-    const isProjects = activePath === mainPath.PROJECTS;
-    const isContact = activePath === mainPath.CONTACT;
-
+    const { isInit } = useContext(GlobalContext);
     return(
         <>
         {!isInit && 
             <div className={mainContainerStyles}>
                 <Routes>
+                    <Route path='/' element={<div></div>}/>
                     <Route path={'/'+ mainPath.SERVICES } element={<Services/>} />    
                     <Route path={'/'+ mainPath.ABOUT } element ={<About />} />
                     <Route  path={'/'+ mainPath.PROJECTS } element = {<Project />} />

@@ -53,6 +53,7 @@ export const WizzardWrapperStyles = css({
     height: WIZZARD_HEIGHT,
     right: WIZZARD_DISTANCE_RIGHT,
     top: WIZZARD_DISTANCE_TOP,
+    
     'svg':{
         position: 'relative',
         stroke: colors.LIGHTORANGE,
@@ -63,9 +64,8 @@ export const WizzardWrapperStyles = css({
         },
         
         '#right-arm':{
-
-            transformOrigin: '0 100px',
-            transform: 'rotate(90deg)',
+            transform:'translateY(20px) translateX(20px) rotate(90deg)',
+            transformOrigin: '45% 44%',
         },
         '#left-arm':{
   

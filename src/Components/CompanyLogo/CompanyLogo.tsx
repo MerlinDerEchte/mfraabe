@@ -4,14 +4,16 @@ import { GlobalContext } from '../../GlobalContext';
 import { applicationStatus } from '../../constants/ApplicationStatus';
 import { createCompanyLogoStyles } from './CompanyLogoStyles';
 import { SloganLetter } from './SloganLetter/SloganLetter';
+import { useLocation } from 'react-router';
 
 
 export const CompanyLogo = () => {
-    const { appStatus } = useContext(GlobalContext);
-    const isInit:boolean = appStatus === applicationStatus.INIT;
-    const isStart:boolean = appStatus === applicationStatus.START;
-    const isRun:boolean = appStatus === applicationStatus.RUN;
-    const companyLogoStyles = createCompanyLogoStyles(isInit,isStart,isRun);
+    const { isInit, isStart } = useContext(GlobalContext);
+    const location = useLocation();
+  
+  
+    const isInitialPath = location.pathname === '/';
+    const companyLogoStyles = createCompanyLogoStyles(isInit, isStart, isInitialPath );
     const StyledCompanyLogoDiv = styled.div(companyLogoStyles)
     
     return(
@@ -43,9 +45,9 @@ export const CompanyLogo = () => {
                     
                     <SloganLetter title="b" index={2} isSpace></SloganLetter>
 
-                    <SloganLetter title={'&'} index={3} isSpace></SloganLetter>
+                    <SloganLetter title='&' index={3} isSpace></SloganLetter>
                     
-                    <SloganLetter title={'S'} index={4} ></SloganLetter>
+                    <SloganLetter title='S' index={4} ></SloganLetter>
                     
                     <SloganLetter title="c" index={5}></SloganLetter>
 

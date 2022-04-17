@@ -1,6 +1,7 @@
 import { mainPath } from '../../constants/paths';
 import {MenuItem} from './MenuItem/MenuItem'
 export const Menu = () => {
+
     return(
         <nav>
           <MenuItem title={mainPath.SERVICES} index={0} />

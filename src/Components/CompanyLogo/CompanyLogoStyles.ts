@@ -47,33 +47,33 @@ const SLOGAN_MID_MARGIN_TOP = `calc((${SLOGAN_MID_HEIGHT} - ${SLOGAN_MID_TOTAL_H
 const SLOGAN_LEFT_MARGIN_TOP = `calc((${SLOGAN_LEFT_HEIGHT} - ${SLOGAN_LEFT_TOTAL_HEIGHT}) / 2 )`;
 const STROKE_LENGTH = 22585;
 
-export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean,isRun:boolean) => {
+export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean, isInitialPath:boolean) => {
     
-    const svgAnimation = createSVGAnimation(isInit);
+    const svgAnimation = createSVGAnimation(isInit, isInitialPath);
     const underlineAnimation = createUnderlineAnimation(isInit);
 
     const styles = css({
         zIndex: 12,
         position: 'absolute',
-        top: isInit ? COMPANY_LOGO_MID_TOP : COMPANY_LOGO_LEFT_TOP,
-        left: isInit ? COMPANY_LOGO_MID_LEFT : COMPANY_LOGO_LEFT_LEFT,
-        width: isInit ? COMPANY_LOGO_MID_WIDTH : COMPANY_LOGO_LEFT_WIDTH,
-        height: isInit ? COMPANY_LOGO_MID_HEIGHT : COMPANY_LOGO_LEFT_HEIGHT,
+        top: isInit && isInitialPath ? COMPANY_LOGO_MID_TOP : COMPANY_LOGO_LEFT_TOP,
+        left: isInit && isInitialPath ? COMPANY_LOGO_MID_LEFT : COMPANY_LOGO_LEFT_LEFT,
+        width: isInit && isInitialPath ? COMPANY_LOGO_MID_WIDTH : COMPANY_LOGO_LEFT_WIDTH,
+        height: isInit && isInitialPath ? COMPANY_LOGO_MID_HEIGHT : COMPANY_LOGO_LEFT_HEIGHT,
         display: 'flex',
         flexDirection: 'row',
-        gap: isInit ? COMPANY_LOGO_MID_GAP : COMPANY_LOGO_LEFT_GAP,
+        gap: isInit && isInitialPath ? COMPANY_LOGO_MID_GAP : COMPANY_LOGO_LEFT_GAP,
         justifyContent: 'space-around',
         animation: isStart ? `${LogoContainerStartAnimation} ${START_ANIMATION_TIME} ease-out backwards`: '',
 
         '#LogoSvg': {
-            width: isInit ? SVG_MID_WIDHT :SVG_LEFT_WIDTH ,
-            height: isInit ? SVG_MID_WIDHT :SVG_LEFT_WIDTH ,
+            width: isInit && isInitialPath ? SVG_MID_WIDHT :SVG_LEFT_WIDTH ,
+            height: isInit && isInitialPath ? SVG_MID_WIDHT :SVG_LEFT_WIDTH ,
             color: colors.DARKBLUE,
-            paddingTop: isInit ? SVG_MID_MARGIN_TOP : SVG_LEFT_MARGIN_TOP,
+            paddingTop: isInit && isInitialPath ? SVG_MID_MARGIN_TOP : SVG_LEFT_MARGIN_TOP,
             animation: isStart ? `${LogoSvgStartAnimation}  ${START_ANIMATION_TIME} ease-out backwards`: '',
             'svg':{
                 strokeDasharray: STROKE_LENGTH ,
-                strokeDashoffset: isInit ? STROKE_LENGTH : 0,
+                strokeDashoffset: isInit && isInitialPath ? STROKE_LENGTH : 0,
                 height: '100%',
                 width: '100%',
                 strokeWidth: '10',
@@ -85,13 +85,13 @@ export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean,isRun:bo
         },
 
         '.CompanySlogan':{
-            marginTop: isInit ? SLOGAN_MID_MARGIN_TOP : SLOGAN_LEFT_MARGIN_TOP,
-            height: isInit ? SLOGAN_MID_TOTAL_HEIGHT : SLOGAN_LEFT_TOTAL_HEIGHT ,
-            width: isInit ? SLOGAN_MID_WIDTH : SLOGAN_LEFT_WIDTH,
+            marginTop: isInit && isInitialPath ? SLOGAN_MID_MARGIN_TOP : SLOGAN_LEFT_MARGIN_TOP,
+            height: isInit && isInitialPath ? SLOGAN_MID_TOTAL_HEIGHT : SLOGAN_LEFT_TOTAL_HEIGHT ,
+            width: isInit && isInitialPath ? SLOGAN_MID_WIDTH : SLOGAN_LEFT_WIDTH,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'start',
-            fontSize: isInit ? fontSizes.HUGE : fontSizes.NORMAL,
+            fontSize: isInit && isInitialPath ? fontSizes.HUGE : fontSizes.NORMAL,
             animation: isStart ? `${SloganStartAnimation}  ${START_ANIMATION_TIME} ease-out backwards`: '',
            
             ".CompanySloganRow":{
@@ -99,24 +99,24 @@ export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean,isRun:bo
                 flex: '1 1 initial',
                 display: 'flex',
                 flexDirection: 'row',
-                height: isInit ? `${fontSizes.HUGE}` : `${fontSizes.NORMAL}`,
+                height: isInit && isInitialPath ? `${fontSizes.HUGE}` : `${fontSizes.NORMAL}`,
                 alignItems:'center',
                 animation: isStart ? `${SloganRowStartAnimation}  ${START_ANIMATION_TIME} ease-out backwards`: '',
                 
                 '&:first-of-type':{
-                    marginBottom: isInit ? SLOGAN_MID_INNER_MARGIN : SLOGAN_LEFT_INNER_MARGIN,
+                    marginBottom: isInit && isInitialPath ? SLOGAN_MID_INNER_MARGIN : SLOGAN_LEFT_INNER_MARGIN,
                 },
             },
             
         },
         '#Underline':{
             position:'absolute',
-            left: 0,
+            left:  isInit && isInitialPath  ? 0 : '5%',
             backgroundColor: colors.LIGHTORANGE,
             bottom: 0,
             height: 3,
             borderRadius: '5px',
-            width: '100%',
+            width: isInit && isInitialPath ? '100%' : '90%',
             animation: underlineAnimation,
           }
 
@@ -124,8 +124,8 @@ export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean,isRun:bo
     return styles
 }
 
-const createSVGAnimation = (isInit:boolean) => {
-    if(isInit) return`${PaintSvgInitAnimation} ${INIT_SVG_ANIMATION_TIME} ease-in backwards`;
+const createSVGAnimation = (isInit:boolean, isInitialPath:boolean) => {
+    if(isInit && isInitialPath) return`${PaintSvgInitAnimation} ${INIT_SVG_ANIMATION_TIME} ease-in backwards`;
 
     return'';
 }
