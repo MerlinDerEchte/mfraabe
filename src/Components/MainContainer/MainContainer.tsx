@@ -1,21 +1,26 @@
-import react,{ useContext} from 'react';
+import react,{ useContext, useState, MouseEvent} from 'react';
 import { GlobalContext } from '../../GlobalContext';
 import { mainContainerStyles } from './MainContainerStyles';
-import { Services } from './Pages/Services/Services';
-import { applicationStatus } from '../../constants/ApplicationStatus';
+import { MousePositionContext } from './Pages/About/AboutMain/MousePositionContext';
 import { mainPath } from '../../constants/paths';
 import { About } from './Pages/About/About';
 import { Project } from './Pages/Projects/Projects';
 import { Contact } from './Pages/Contact/Contact';
+import { Services } from './Pages/Services/Services';
 import { Route,Routes } from 'react-router-dom';
+import { IPosition } from '../../Types/IPosition';
 
 export const MainContainer:react.FC = () => {
 
     const { isInit } = useContext(GlobalContext);
+  
+
+
     return(
         <>
         {!isInit && 
-            <div className={mainContainerStyles}>
+            <div className={mainContainerStyles} >
+                
                 <Routes>
                     <Route path='/' element={<div></div>}/>
                     <Route path={'/'+ mainPath.SERVICES } element={<Services/>} />    
@@ -23,6 +28,7 @@ export const MainContainer:react.FC = () => {
                     <Route  path={'/'+ mainPath.PROJECTS } element = {<Project />} />
                     <Route path={'/'+ mainPath.CONTACT } element={<Contact />} />
                 </Routes>
+               
             </div>
         }
         </>

@@ -1,4 +1,4 @@
-import react, {useState, useMemo, useEffect} from 'react';
+import react, {useState, MouseEvent, useEffect} from 'react';
 import { mainPath } from './constants/paths';
 import {GlobalContext} from './GlobalContext';
 import {appStyles} from './AppStyles';
@@ -7,11 +7,13 @@ import {Menu} from './Components/Menu/Menu';
 import {MainContainer} from './Components/MainContainer/MainContainer';
 import { applicationStatus } from './constants/ApplicationStatus';
 import { BrowserRouter } from 'react-router-dom';
+import { IPosition } from './Types/IPosition';
+import { MousePositionContext } from './Components/MainContainer/Pages/About/AboutMain/MousePositionContext';
 
 const startAnimationDuration = 1000;
 function App() {
 
-  
+ 
   const [activePath, setActivePath] = useState(mainPath.NONE);
 
   const [appStatus, setAppStatus] = useState(applicationStatus.INIT);
@@ -25,26 +27,26 @@ function App() {
       },1000);
     }
   }
+
  
   const isStart = appStatus === applicationStatus.START;
   const isInit = appStatus === applicationStatus.INIT;
   const isRun = appStatus === applicationStatus.RUN;
 
-  const value = ({activePath,appStatus, isInit, isStart, isRun, setFirstPath})
 
-
-  const StyledApp = () => <div className={appStyles}>
-    <CompanyLogo />
-    <Menu />
-    <MainContainer />
-  </div>;
+  const globalContextValue = ({activePath,appStatus, isInit, isStart, isRun, setFirstPath}); 
  
   return (
-  <GlobalContext.Provider value={value}>
-     <BrowserRouter>
-         <StyledApp />
+
+    <GlobalContext.Provider value={globalContextValue}>
+      <BrowserRouter>
+        <div className={appStyles}>        
+            <CompanyLogo />
+            <Menu />
+            <MainContainer />
+        </div>
       </BrowserRouter>
-  </GlobalContext.Provider>
+    </GlobalContext.Provider>
   );
 }
 
