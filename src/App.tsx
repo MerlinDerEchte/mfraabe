@@ -1,4 +1,4 @@
-import react, {useState, MouseEvent, useEffect} from 'react';
+import react, {useState, useEffect} from 'react';
 import { mainPath } from './constants/paths';
 import {GlobalContext} from './GlobalContext';
 import {appStyles} from './AppStyles';
@@ -6,18 +6,17 @@ import {CompanyLogo} from './Components/CompanyLogo/CompanyLogo'
 import {Menu} from './Components/Menu/Menu';
 import {MainContainer} from './Components/MainContainer/MainContainer';
 import { applicationStatus } from './constants/ApplicationStatus';
-import { BrowserRouter } from 'react-router-dom';
-import { IPosition } from './Types/IPosition';
-import { MousePositionContext } from './Components/MainContainer/Pages/About/AboutMain/MousePositionContext';
+import { BrowserRouter,useLocation } from 'react-router-dom';
 
-const startAnimationDuration = 1000;
-function App() {
+function AppComponent() {
 
  
   const [activePath, setActivePath] = useState(mainPath.NONE);
 
   const [appStatus, setAppStatus] = useState(applicationStatus.INIT);
- 
+  const location = useLocation();
+  console.log(location.pathname);
+  
   const setFirstPath = (path:mainPath) => {
     if(appStatus === applicationStatus.INIT){
 
@@ -27,27 +26,35 @@ function App() {
       },1000);
     }
   }
-
  
   const isStart = appStatus === applicationStatus.START;
   const isInit = appStatus === applicationStatus.INIT;
   const isRun = appStatus === applicationStatus.RUN;
 
 
-  const globalContextValue = ({activePath,appStatus, isInit, isStart, isRun, setFirstPath}); 
- 
+  const globalContextValue = ({activePath, appStatus, isInit, isStart, isRun, setFirstPath}); 
+  useEffect(()=>{
+    if(location.pathname!== "/"){
+      setAppStatus(applicationStatus.RUN);
+    }
+  },[]);
   return (
 
     <GlobalContext.Provider value={globalContextValue}>
-      <BrowserRouter>
         <div className={appStyles}>        
             <CompanyLogo />
             <Menu />
             <MainContainer />
         </div>
-      </BrowserRouter>
     </GlobalContext.Provider>
   );
+}
+function App() {
+  return(
+    <BrowserRouter>
+      <AppComponent />
+    </BrowserRouter>
+  )
 }
 
 export default App;

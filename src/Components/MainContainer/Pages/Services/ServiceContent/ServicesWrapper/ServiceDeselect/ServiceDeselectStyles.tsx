@@ -22,7 +22,7 @@ export const createServiceDeselectStyles = (isOneSelected:boolean,isDeselecting:
         animation: serviceDeselectAnimation,
         position:'absolute',
         opacity: isOneSelected ? 1 : 0,
-        right:  -100,
+        right:  0,
         top: -150,
         zIndex: 15,
         width:SERVICE_DESELECT_WIDTH,
@@ -104,24 +104,24 @@ const ServiceDeselectInitAnimation = keyframes`
     from{
         opacity:0;
         top: 0px;
-        right: -100px;
+        right: 0px;
     }   
     to{
         opactiy:1;
         top: -150px;
-        right: -100px;
+        right: 0px;
     }
 `;
 const ServiceDeselectDisapperAnimation = keyframes`
     from{
         opactiy:1;
         top: -150px;
-        right: -100px;
+        right: 0px;
     }   
     to{
         opacity:0;
         top: 0px;
-        right: -100px;
+        right: 0px;
     }
 `;
 

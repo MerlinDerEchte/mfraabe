@@ -3,7 +3,8 @@ import { EAboutTypes } from '../../../../Types/EAboutTypes';
 
 export const AboutContext = react.createContext({
     selectedAboutType:EAboutTypes.NONE,
-    setSelectedAboutType: (service:EAboutTypes) => {},
-    deselectAboutType:(service:EAboutTypes) => {},
+    handleSelectAboutType: (service:EAboutTypes ) => {},
+    isSelecting: false,
     isDeselecting: false,
-});
+    isSwitching: false
+   });

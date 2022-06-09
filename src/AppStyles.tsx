@@ -8,7 +8,6 @@ export const appStyles = css({
     background: `${colors.DARKBLUE}`,
     height: '100vh',
     width: '100vw',
-    overflow: 'hidden',
     'a':{
         textDecoration: 'none',
 

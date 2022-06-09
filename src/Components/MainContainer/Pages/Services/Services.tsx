@@ -1,7 +1,7 @@
 import react, { useState } from 'react';
 import { Page } from '../Page';
 
-import { ServiceCards } from './ServiceCards/ServicesComponent';
+import { ServiceCards } from './ServiceContent/ServicesComponent';
 import { ServiceContext } from './ServiceContext';
 import { EServiceType } from '../../../../Types/EServiceType';
 import { getIsSelected } from './ServiceUtils';

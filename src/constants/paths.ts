@@ -1,7 +1,6 @@
 export enum mainPath {
-    SERVICES='Services',
+    SERVICES='Development',
     ABOUT='About',
-    PROJECTS='Projects',
     CONTACT='Contact',
     NONE=''
 }

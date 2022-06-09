@@ -1,6 +1,6 @@
 export enum EServiceType{
-    FREELANCE='Fullstack Freelancing',
-    WEBSITES='Personal Website',
+    DEVELOPMENT_IN_TEAMS='Web Development in teams',
+    WEBSITES='Solo projects',
     SCRIPTING='Excel and Googlesheet Scripts',
     NONE=''
 }

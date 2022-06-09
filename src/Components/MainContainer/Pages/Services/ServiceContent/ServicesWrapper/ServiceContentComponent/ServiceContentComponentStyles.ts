@@ -33,25 +33,37 @@ export const getServiceContentStyles = (isSelected:boolean,isSelectedAndDeselect
 
         'h1':{
             fontSize: fontSizes.BIG,
-            marginLeft:20,
+            fontWeight: 100,
+            textAlign: 'left',
+            marginLeft:30,
             marginRight:20,
             marginTop: 40,
+            marginBottom:15,
             '&:first-of-type':{
                 marginTop: 20,
             }
         },
         'p':{
+            textAlign: 'left',
             fontSize: fontSizes.SMALL,
-            marginLeft: 30,
+            marginLeft: 40,
             marginRight:30,
-            marginTop:30,
+            marginTop:10,
         },
         'ul':{
             margin:'15px 30px 0 0px',
-            listStyleType: 'disclosure-closed',
+            textAlign: 'left',
+            listStyleType: 'none',
             'li':{
                
             }
+        },
+        'a':{
+            textDecoration: `underline`,
+            textDecorationColor: colors.LIGHTORANGE,
+            textDecorationThickness: 1,
+            lineHeight: `${fontSizes.SMALL}px`,
+            cursor: 'pointer',
         },
         '.centered':{
             width: '100%',

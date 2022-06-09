@@ -7,6 +7,6 @@ export const pageStyles = css`
     width:100%;
     box-shadow: 0px -10px  10px -13px ${colors.DARKBLUE} inset;
     background: ${colors.DARKBLUE};
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x:hidden ;
 `;

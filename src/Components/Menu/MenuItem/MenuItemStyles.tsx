@@ -10,7 +10,7 @@ const MENU_ITEM_GAP_Y= 50;
 const MENU_ITEM_GAP_X= 50;
 
 const MENU_MID_START_POSITION_TOP = `max(calc(100vh - 200px), 80vh)`;
-const MENU_MID_START_POSITION_LEFT =  `calc((100vw - 4 * ${MENU_ITEM_WIDTH}px - 3 * ${MENU_ITEM_GAP_X}px) / 2)`;
+const MENU_MID_START_POSITION_LEFT =  `calc((100vw - 3 * ${MENU_ITEM_WIDTH}px - 2 * ${MENU_ITEM_GAP_X}px) / 2)`;
 
 const MENU_LEFT_START_POSITION_TOP = 150
 const MENU_LEFT_START_POSITION_LEFT = 50;
@@ -36,6 +36,7 @@ export const createMenuItemStyle:any = (
     return(
         css({
             display: 'flex',
+            lineHeight: '30px',
             justifyContent:'center',
             alignItems:'center',
             position: 'absolute',
