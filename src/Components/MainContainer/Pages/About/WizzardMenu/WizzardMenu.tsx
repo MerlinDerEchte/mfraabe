@@ -11,9 +11,8 @@ export const WizzardMenu:react.FC<{}> = () => {
 
     return(
         <StyledWizzardMenu id ='wizzardMenu'>
-            <WizzardMenuItem title={EAboutTypes.ME} index={0} />
-            <WizzardMenuItem title={EAboutTypes.CODING} index={1} />
-            <WizzardMenuItem title={EAboutTypes.CV} index={2} />
+            <WizzardMenuItem title={EAboutTypes.ABOUT_ME} index={0} />
+     
         </StyledWizzardMenu>
     )
 } 

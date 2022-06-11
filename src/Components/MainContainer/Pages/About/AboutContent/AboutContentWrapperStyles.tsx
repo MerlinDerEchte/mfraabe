@@ -8,7 +8,6 @@ export const createAboutContentStyles = () => {
         css({
             width:ABOUT_CONTENT_CONSTANTS.WIDTH,
             height: `calc(100vh - ${ABOUT_CONTENT_CONSTANTS.HEIGHT}px )`,
-            
             marginLeft: ABOUT_CONTENT_CONSTANTS.LEFT,
             })
     )

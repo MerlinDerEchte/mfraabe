@@ -22,7 +22,7 @@ export const ServiceCards: react.FC = () => {
             <ServiceCardComponent  service={EServiceType.WEBSITES} index={1} >
                 <WebsiteIcon />
             </ServiceCardComponent>
-            <ServiceCardComponent service={EServiceType.SCRIPTING} index={2} >
+            <ServiceCardComponent service={EServiceType.RECOMMENDATIONS} index={2} >
                   <ScriptIcon />
             </ServiceCardComponent>
             <ServiceContentComponent service={EServiceType.DEVELOPMENT_IN_TEAMS}>
@@ -75,7 +75,9 @@ export const ServiceCards: react.FC = () => {
             </ServiceContentComponent>
             <ServiceContentComponent service={EServiceType.WEBSITES} >
                 <h1>Github</h1>
-                <p><a href="https://github.com/MerlinDerEchte">Check my repository!</a></p>
+                <p><a href="https://github.com/MerlinDerEchte">Go to my github repository.</a></p>
+                <h1>Algorithmic challenges</h1>
+                <p><a href="https://www.codewars.com/users/Raabenilson/completed_solutions">Go to my Codewars solutions</a></p>
                 <h1>Splitscreen chess</h1>
                 <p>
                     I developped a chess web-app that you can use to play chess on the same screen if you only have one device,
@@ -86,7 +88,7 @@ export const ServiceCards: react.FC = () => {
                 <p>
                     I create website for people around me.<br/>
                     For some of them i design the websites too, but i wouldn't consider myself to be a web designer.
-                    Right now the websites for Sc München Süd and Florian Kuhn are in the making.
+                    Right now the websites for Sc München Süd and Florian Kuhn (<a href="https://merlinderechte.github.io/florian-kuhn/#/work">Live demo</a>) are in the making.
                 </p>
                 <h1>Excel and Googlesheets scripting</h1>
                 <p>
@@ -105,8 +107,21 @@ export const ServiceCards: react.FC = () => {
                 </p>
 
             </ServiceContentComponent>
-            <ServiceContentComponent service={EServiceType.SCRIPTING} >
-
+            <ServiceContentComponent service={EServiceType.RECOMMENDATIONS} >
+                <h1>Books</h1>
+                <p><q>Programming TypeScript: Making Your JavaScript Applications Scale</q></p>
+                <p><q>Javascript: The Definitive Guide</q></p>
+                <p><q>Clean Code</q> and <q>Clean Architecture</q></p>
+                <p><q>Node: Up and running</q></p>
+                <h1>Websites</h1>
+                <p><a href="https://www.w3schools.com">w3schools</a></p>
+                <p><a href="https://medium.com/">Medium</a></p>
+                <p><a href="https://www.theodinproject.com/">The Odin Project</a></p>
+                <h1>Youtube channels</h1>
+                <p><a href="https://www.youtube.com/c/WebDevSimplified">Web Dev Simplified</a> - (small Web Development topics perfectly explained)</p>
+                <p><a href="https://www.youtube.com/c/DevEd">Dev Ed</a> - (longer Frontend and Web design tutorials)</p>
+                <p><a href="https://www.youtube.com/c/Fireship">Fireship</a> - (short introductions)</p>
+                <p><a href="https://www.youtube.com/c/programmingwithmosh">Programming with Mosh</a> - (longer Fullstack tutorials)</p>
             </ServiceContentComponent>
 
             <ServiceDeselect />

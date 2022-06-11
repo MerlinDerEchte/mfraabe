@@ -17,12 +17,11 @@ export const MainContainer:react.FC = () => {
         <>
         {!isInit && 
             <div className={mainContainerStyles} >
-                
                 <Routes>
                     <Route path='/' element={<div></div>}/>
-                    <Route path={'/'+ mainPath.SERVICES } element={<Services/>} />    
-                    <Route path={'/'+ mainPath.ABOUT } element ={<About />} />
-                    <Route path={'/'+ mainPath.CONTACT } element={<Contact />} />
+                    <Route path={'/'+ mainPath.SERVICES } element = {<Services/>} />    
+                    <Route path={'/'+ mainPath.ABOUT } element = {<About />} />
+                    <Route path={'/'+ mainPath.CONTACT } element = {<Contact />} />
                 </Routes>
                
             </div>

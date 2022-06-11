@@ -43,6 +43,19 @@ export const getServiceContentStyles = (isSelected:boolean,isSelectedAndDeselect
                 marginTop: 20,
             }
         },
+        h2:{
+            fontSize: fontSizes.NORMAL,
+            fontWeight: 50,
+            textDecoration:'underline',
+            textAlign: 'left',
+            marginLeft:30,
+            marginRight:20,
+            marginTop: 40,
+            marginBottom:15,
+            '&:first-of-type':{
+                marginTop: 20,
+            }
+        },
         'p':{
             textAlign: 'left',
             fontSize: fontSizes.SMALL,

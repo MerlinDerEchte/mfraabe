@@ -1,17 +1,19 @@
 import react from 'react';
-import { createAboutContentStyles } from './AboutContentStyles';
+import { AboutContent } from './AboutContent/AboutContent';
 import { AboutContentBorderTop, AboutContentBorderRight, AboutContentBorderBottom, AboutContentBorderLeft } from './AboutContentBorder/AboutContentBorderLeft';
-export const AboutContent:react.FC<{}> = ()=> {
+import { EAboutTypes } from '../../../../../Types/EAboutTypes';
+export const AboutContentWrapper:react.FC<{}> = ()=> {
 
-    const aboutContentStyles = createAboutContentStyles();
-    
+  
+      
     return(
-        <div >
+        <>
             <AboutContentBorderTop />
             <AboutContentBorderRight />
             <AboutContentBorderBottom />
             <AboutContentBorderLeft />
-        </div>
+            <AboutContent title={EAboutTypes.ABOUT_ME} />
+        </>
        
     )
 

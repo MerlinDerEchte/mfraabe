@@ -10,7 +10,7 @@ import { Page } from '../Page';
 import { EAboutTypes } from '../../../../Types/EAboutTypes';
 import { AboutContext } from './AboutContext';
 import { ABOUT_ANIMATION_CONSTANTS, ABOUT_CONTENT_CONSTANTS } from './AboutConstants';
-import { AboutContent } from './AboutContent/AboutContent';
+import { AboutContentWrapper } from './AboutContent/AboutContentWrapper';
 import { getIsOneAboutTypeSelected, getIsSelected } from './AboutUtils';
 export const About:react.FC<{}> = () => {
     const [mousePositions, setMousePositions] = useState({
@@ -78,12 +78,7 @@ export const About:react.FC<{}> = () => {
             mouseY: mousePositions.mouseY - offset.mouseY
 
         }
-    
-    
     }
-    const timeOut = (duration:number)=>{
-        return new  Promise(resolve => setTimeout(resolve, duration));
-    } 
     function selectAboutTypeFromUnselected(aboutType: EAboutTypes):Promise<void> {
         return new Promise(
             resolve =>{
@@ -147,15 +142,12 @@ export const About:react.FC<{}> = () => {
         if(selectedAboutType === EAboutTypes.NONE){
             selectAboutTypeFromUnselected(aboutType);
         }
-        if(getIsOneAboutTypeSelected(selectedAboutType) && !getIsSelected(aboutType,selectedAboutType)){
+        if(getIsOneAboutTypeSelected(selectedAboutType) && !getIsSelected(aboutType, selectedAboutType)){
             switchSelectedAboutType(aboutType);           
         }
         
     }
 
-
-
-    
     const MousePositionContextValue = {
         mousePositions,
         isMouseOver
@@ -175,12 +167,10 @@ export const About:react.FC<{}> = () => {
             <StyledAboutMain id="AboutMainContainer" onMouseOver={handleMouseOver}>
                 <AboutContext.Provider value={AboutContextValue} >
                 <MousePositionContext.Provider value={MousePositionContextValue}>
-                   
                     <WizzardMenu />
                     <WizzardSVG />
                     <Lightball />
-                    <AboutContent />
-                
+                    <AboutContentWrapper />
                 </MousePositionContext.Provider>
                 </AboutContext.Provider>
             </StyledAboutMain>

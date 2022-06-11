@@ -1,7 +1,7 @@
 import { css, keyframes } from "@emotion/css";
 import { colors } from "../../../../../../constants/css/colors";
 import { Directions } from "../../../../../../constants/Directions";
-import { ABOUT_ANIMATION_CONSTANTS, ABOUT_CONTAINER_CONSTANTS, ABOUT_CONTENT_CONSTANTS } from "../../AboutConstants";
+import { ABOUT_ANIMATION_CONSTANTS, ABOUT_CONTENT_CONSTANTS } from "../../AboutConstants";
 
 export const createAboutContentBorderStyles = (direction:Directions, isOneSelected:boolean, isSelecting:boolean,  isDeselecting:boolean, isSwitching:boolean) => {
 
