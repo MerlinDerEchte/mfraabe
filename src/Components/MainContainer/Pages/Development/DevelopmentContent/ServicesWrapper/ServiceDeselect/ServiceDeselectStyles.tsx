@@ -27,14 +27,13 @@ export const createServiceDeselectStyles = (isOneSelected:boolean,isDeselecting:
         zIndex: 15,
         width:SERVICE_DESELECT_WIDTH,
         height: SERVICE_DESELECT_HEIGHT,
-        background: colors.DARKBLUE,
+        
 
         '.xBackground':{
             position:'absolute',
             content: `''`,
             width: '100%',
             height: SERVICE_DESELECT_LINE_WIDTH,
-            
             borderRadius: 6,
             zIndex: 16,
             top: '50%',
@@ -48,7 +47,6 @@ export const createServiceDeselectStyles = (isOneSelected:boolean,isDeselecting:
             content: `''`,
             width:'100%',
             height: SERVICE_DESELECT_LINE_WIDTH,
-            
             borderRadius: 6,
             top: '50%',
             left: '0',
