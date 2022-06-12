@@ -1,18 +1,17 @@
 import react, {useContext} from 'react';
 import  styled  from '@emotion/styled';
 import { GlobalContext } from '../../GlobalContext';
-import { applicationStatus } from '../../constants/ApplicationStatus';
 import { createCompanyLogoStyles } from './CompanyLogoStyles';
 import { SloganLetter } from './SloganLetter/SloganLetter';
 import { useLocation } from 'react-router';
+import { EPaths } from '../../constants/paths';
 
-
-export const CompanyLogo = () => {
+export const CompanyLogo:react.FC<{}> = () => {
     const { isInit, isStart } = useContext(GlobalContext);
     const location = useLocation();
   
   
-    const isInitialPath = location.pathname === '/';
+    const isInitialPath = location.pathname === EPaths.NONE;
     const companyLogoStyles = createCompanyLogoStyles(isInit, isStart, isInitialPath );
     const StyledCompanyLogoDiv = styled.div(companyLogoStyles)
     
