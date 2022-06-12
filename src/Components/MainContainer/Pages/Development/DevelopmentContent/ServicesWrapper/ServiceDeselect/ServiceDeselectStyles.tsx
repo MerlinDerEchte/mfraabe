@@ -39,7 +39,6 @@ export const createServiceDeselectStyles = (isOneSelected:boolean,isDeselecting:
             zIndex: 16,
             top: '50%',
             left: '0',
-            background: colors.DARKBLUE,
             transform: `rotateZ(45deg)`,
             boxShadow: `0px 0px 3px 1px ${colors.LIGHTORANGE}`
         },
@@ -53,7 +52,6 @@ export const createServiceDeselectStyles = (isOneSelected:boolean,isDeselecting:
             borderRadius: 6,
             top: '50%',
             left: '0',
-            background: 'transparent',
             transform: `rotateZ(-45deg)`,
             boxShadow: `0px 0px 3px 1px ${colors.LIGHTORANGE}`,
 
