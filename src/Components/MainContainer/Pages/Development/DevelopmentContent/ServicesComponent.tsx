@@ -22,7 +22,7 @@ export const ServiceCards: react.FC = () => {
                   <ScriptIcon />
             </ServiceCardComponent>
             <ServiceContentComponent service={EServiceType.DEVELOPMENT_IN_TEAMS}>
-                <h1>Companies i worked for as a developer</h1>
+                <h1>Companies I worked for as a developper</h1>
                 <p>
                     TÜV Süd Industrie Services <br />
                     Magnitude Innovations <br />
@@ -32,19 +32,19 @@ export const ServiceCards: react.FC = () => {
                 
                 <h1>Favourite tech stack</h1>
                 <ul>
-                    <li>React or Angular (both with Typescript and a strong Typesystem)</li>
+                    <li>React or Angular (both with TypeScript and a strong type system)</li>
                     <li>Scss in a style framework or styled components</li>
                     <li>Redux</li>
                     <li>Rest Apis</li>
                     <li>Node and in the best case Express Backend (Typescript)</li>
                 </ul>
 
-                <h1>Working on a big code base</h1>
+                <h1>Working on a big codebase</h1>
                 <p>
                     For me the work on a big code base differs drastically from working on a solo project. <br />
                     In a perfect codebase, everything would be well structured with few dependencies. Everything would be documented, there would be rules how code should be written and tested.<br />
                     The newest technologie would be used and everything would be divided into small components.<br />
-                    To many 'would's ? Well most of the big code bases aren't like the perfect world scenario and miss some of the mentioned points. So working on them is always a mixture of maintance, replacement and implementation of new features. <br />
+                    Too many 'would's ? Well most of the big code bases aren't like the perfect world scenario and miss some of the mentioned points. So working on them is always a mixture of maintance, replacement and implementation of new features. <br />
                     But there is also another difference: Others depend on your work.
                     Sometimes more than one developper works on a task. Therefore more frequent commits and communication about the progress are needed.  
                     
@@ -56,7 +56,7 @@ export const ServiceCards: react.FC = () => {
                     and having fun in the daily business on the other hand.<br/>
                     I also really enjoy a team culture, where everybody is willing to share his knowledge and is open for objective criticism in both directions.<br />
                     Nothing motivates me more than passionated collegues that i can challenge with and learn from. <br />
-                    It is not important to me to share my free time with my collegues but i dont just want to get along with them.
+                    It is not important to me to share my free time with my collegues but i want to have a friendly relationship with them.
                 </p>
                 <h1>Working with Product Managers and Quality Assurers</h1>
                 <p>
