@@ -6,13 +6,9 @@ import { ScriptIcon } from './ServiceIconsSvg/ScriptIcon';
 import { WebsiteIcon } from './ServiceIconsSvg/WebsiteIcon';
 import { EServiceType } from '../../../../../Types/EServiceType';
 import { ServiceContentComponent } from './ServicesWrapper/ServiceContentComponent/ServiceContentComponent';
-import { CallToActionButton } from '../../../../Shared/Button/CallToActionButton';
 import { ServiceDeselect } from './ServicesWrapper/ServiceDeselect/ServiceDeselect';
 
 export const ServiceCards: react.FC = () => {
-    const handleOnContactButtonClick = () => {
-
-    }
     
     return(
         <ServicesWrapper>

@@ -1,12 +1,10 @@
-import react,{ useContext, useState, MouseEvent} from 'react';
+import react,{ useContext } from 'react';
 import { GlobalContext } from '../../GlobalContext';
 import { mainContainerStyles } from './MainContainerStyles';
-import { MousePositionContext } from './Pages/About/MousePositionContext';
 import { mainPath } from '../../constants/paths';
 import { About } from './Pages/About/About';
-import { Project } from './Pages/Projects/Projects';
 import { Contact } from './Pages/Contact/Contact';
-import { Services } from './Pages/Services/Services';
+import { Services } from './Pages/Development/Services';
 import { Route,Routes } from 'react-router-dom';
 
 export const MainContainer:react.FC = () => {

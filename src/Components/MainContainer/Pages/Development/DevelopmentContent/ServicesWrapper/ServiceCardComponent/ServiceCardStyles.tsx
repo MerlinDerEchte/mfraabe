@@ -10,8 +10,6 @@ import {
     SERVICE_CARD_DESELECTION_ANIMATION_DELAY,
     SERVICE_CARD_DESELECTION_ANIMATION_TIME
     } from '../../../../../../../constants/timings';
-import { getIsSelectedAndDeselecting } from '../../../ServiceUtils';
-
 
 const SERVICE_CARD_WIDTH = '200px';
 const SERVICE_CARD_HEIGHT = '200px';

@@ -1,4 +1,3 @@
-import react from 'react';
 import {css, keyframes} from '@emotion/react';
 import { colors } from '../../../../../../../constants/css/colors';
 import { fontSizes } from '../../../../../../../constants/css/fontSizes';
@@ -29,7 +28,7 @@ export const getServiceContentStyles = (isSelected:boolean,isSelectedAndDeselect
         color: colors.DARKWHITE,
         fontSize: fontSizes.SMALL,
         paddingBottom:'30px',
-        overflow:'auto',
+        overflowY:'auto',
 
         'h1':{
             fontSize: fontSizes.BIG,
@@ -43,7 +42,7 @@ export const getServiceContentStyles = (isSelected:boolean,isSelectedAndDeselect
                 marginTop: 20,
             }
         },
-        h2:{
+        'h2':{
             fontSize: fontSizes.NORMAL,
             fontWeight: 50,
             textDecoration:'underline',

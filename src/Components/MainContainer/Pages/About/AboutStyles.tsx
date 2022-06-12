@@ -8,4 +8,5 @@ export const AboutMainStyles = css({
     left:`calc(50% - (${ABOUT_MAIN_WIDTH} / 2))`,
     width: ABOUT_MAIN_WIDTH,
     height:ABOUT_MAIN_HEIGHT,
+    lineHeight: 1,
 });

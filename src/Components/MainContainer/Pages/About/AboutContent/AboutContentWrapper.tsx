@@ -1,18 +1,16 @@
 import react from 'react';
 import { AboutContent } from './AboutContent/AboutContent';
-import { AboutContentBorderTop, AboutContentBorderRight, AboutContentBorderBottom, AboutContentBorderLeft } from './AboutContentBorder/AboutContentBorderLeft';
+import { AboutContentBorderTop, AboutContentBorderRight, AboutContentBorderBottom, AboutContentBorderLeft } from './AboutContentBorder/AboutContentBorder';
 import { EAboutTypes } from '../../../../../Types/EAboutTypes';
 export const AboutContentWrapper:react.FC<{}> = ()=> {
 
-  
-      
     return(
         <>
             <AboutContentBorderTop />
             <AboutContentBorderRight />
             <AboutContentBorderBottom />
             <AboutContentBorderLeft />
-            <AboutContent title={EAboutTypes.ABOUT_ME} />
+            <AboutContent title={EAboutTypes.ABOUT_ME}/>
         </>
        
     )

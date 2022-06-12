@@ -1,4 +1,4 @@
-import react, { Children } from 'react';
+import react from 'react';
 import { ServiceCardWrapperStyles } from './ServicesWrapperStyles';
 import styled from '@emotion/styled';
 

@@ -7,7 +7,7 @@ import { createServiceDeselectStyles } from './ServiceDeselectStyles';
 
 
 
-export const ServiceDeselect:react.FC<{}> = ({}) => {
+export const ServiceDeselect:react.FC<{}> = () => {
 
     const {selectedService, isDeselecting,deselectService} = useContext(ServiceContext);
     const isOneSelected = selectedService !== EServiceType.NONE;

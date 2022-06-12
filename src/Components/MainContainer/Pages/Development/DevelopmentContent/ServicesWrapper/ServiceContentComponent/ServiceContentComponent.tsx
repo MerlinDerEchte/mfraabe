@@ -5,7 +5,8 @@ import { getServiceContentStyles } from './ServiceContentComponentStyles';
 import { ServiceContext } from '../../../ServiceContext';
 import { getIsOtherDeselecting, getIsSelected } from '../../../ServiceUtils';
 import { getIsSelectedAndDeselecting } from '../../../ServiceUtils';
-export const ServiceContentComponent:React.FC<{service:EServiceType,children:any}> = ({service, children}) => {
+
+export const ServiceContentComponent:react.FC<{service:EServiceType,children:any}> = ({service, children}) => {
 
     const { selectedService,isDeselecting } = useContext(ServiceContext);
     const isSelected = getIsSelected(service,selectedService);

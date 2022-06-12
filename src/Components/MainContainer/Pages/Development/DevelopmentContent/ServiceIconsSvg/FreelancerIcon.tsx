@@ -1,6 +1,6 @@
 import react from 'react';
 
-export const FreelancerIcon = () => {
+export const FreelancerIcon:react.FC<{}> = () => {
 
     return (
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102 122.88" >

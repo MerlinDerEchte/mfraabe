@@ -1,14 +1,17 @@
 import { css } from '@emotion/css';
-import { ABOUT_CONTENT_CONSTANTS, WIZZARD_CONSTANTS } from '../AboutConstants';
-import { colors } from '../../../../../constants/css/colors';
+import { ABOUT_CONTENT_CONSTANTS,  } from '../AboutConstants';
+
 
 export const createAboutContentStyles = () => {
 
     return(
         css({
+            position: 'absolute',
+            top:  ABOUT_CONTENT_CONSTANTS.TOP,
             width:ABOUT_CONTENT_CONSTANTS.WIDTH,
-            height: `calc(100vh - ${ABOUT_CONTENT_CONSTANTS.HEIGHT}px )`,
+            height: ABOUT_CONTENT_CONSTANTS.HEIGHT,
             marginLeft: ABOUT_CONTENT_CONSTANTS.LEFT,
+            overflowY: 'scroll',
             })
     )
 }

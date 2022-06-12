@@ -1,10 +1,6 @@
 import react from 'react';
 
-
-
-export const ScriptIcon = () => {
-
-
+export const ScriptIcon:react.FC<{}> = () => {
 
     return(
         

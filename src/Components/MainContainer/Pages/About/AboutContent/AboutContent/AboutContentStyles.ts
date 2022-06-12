@@ -3,14 +3,16 @@ import { css } from "@emotion/css";
 import { keyframes } from "@emotion/css";
 import { fontSizes } from "../../../../../../constants/css/fontSizes";
 import { colors } from "../../../../../../constants/css/colors";
-import { ABOUT_CONTENT_CONSTANTS, ABOUT_ANIMATION_CONSTANTS, ABOUT_CONTAINER_CONSTANTS } from "../../AboutConstants";
+import { ABOUT_CONTENT_CONSTANTS, ABOUT_ANIMATION_CONSTANTS } from "../../AboutConstants";
 export const createAboutContentStyles = (isSelected:boolean, isSelecting:boolean, isDeselecting:boolean) => css({
-    position:'relative',
+    position:'absolute',
+    top: ABOUT_CONTENT_CONSTANTS.TOP,
     opacity: isSelected ? 1 : 0 ,
     width: ABOUT_CONTENT_CONSTANTS.WIDTH,
     paddingLeft: ABOUT_CONTENT_CONSTANTS.LEFT,
     zIndex: 15,
-    overflowX: 'hidden',
+    overflowY: 'scroll',
+    height: ABOUT_CONTENT_CONSTANTS.HEIGHT,
     animation: isSelecting ? 
         `${aboutContentSelectingAnimation}
         ${ABOUT_ANIMATION_CONSTANTS.ACTIVATION_ANIMATION_TIME_CONTENT}ms
@@ -29,7 +31,6 @@ export const createAboutContentStyles = (isSelected:boolean, isSelecting:boolean
             '',
     color: colors.DARKWHITE,
     fontSize: fontSizes.SMALL,
-    paddingBottom:'30px',
 
     'h1':{
         fontSize: fontSizes.BIG,
@@ -43,7 +44,7 @@ export const createAboutContentStyles = (isSelected:boolean, isSelecting:boolean
             marginTop: 20,
         }
     },
-    h2:{
+    'h2':{
         fontSize: fontSizes.NORMAL,
         fontWeight: 50,
         textDecoration:'underline',
