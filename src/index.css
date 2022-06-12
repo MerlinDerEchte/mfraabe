@@ -162,4 +162,8 @@ a {
   all: initial;
   all: unset;
 }
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
 
