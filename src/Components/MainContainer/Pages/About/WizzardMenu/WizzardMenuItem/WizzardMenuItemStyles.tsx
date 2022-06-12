@@ -9,7 +9,7 @@ export const createWizzardItemStyles = ( isSelected:boolean, index:number) => {
         position: "absolute",
         left: WIZZARD_MENU_CONSTANTS.ITEM.BASE_LEFT + (WIZZARD_MENU_CONSTANTS.ITEM.WIDTH + WIZZARD_MENU_CONSTANTS.ITEM.GAP) * index,
         height: WIZZARD_MENU_CONSTANTS.ITEM.HEIGHT,
-        width: WIZZARD_MENU_CONSTANTS.ITEM.HEIGHT,
+        width: WIZZARD_MENU_CONSTANTS.ITEM.WIDTH,
         top: WIZZARD_MENU_CONSTANTS.ITEM.TOP,
         color: colors.DARKWHITE,
         fontSize: fontSizes.BIG,
@@ -19,7 +19,7 @@ export const createWizzardItemStyles = ( isSelected:boolean, index:number) => {
         alignItems:'center',
         lineHeight: fontSizes.NORMAL,
         cursor: 'pointer',
-        borderBottom: isSelected ? `2px solid ${colors.LIGHTORANGE}` :'',
+        borderBottom:`2px solid ${colors.LIGHTORANGE}`,
     })
 
 }

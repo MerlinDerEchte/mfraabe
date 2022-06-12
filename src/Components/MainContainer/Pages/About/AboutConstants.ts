@@ -1,3 +1,5 @@
+import { colors } from "../../../../constants/css/colors"
+
 //Wizzard
 export const WIZZARD_CONSTANTS = {
     DISTANCE_TOP: 100,
@@ -33,14 +35,14 @@ export const LIGHTBALL_CONSTANTS = {
     }
 }
 
-
-
 export const WIZZARD_MENU_CONSTANTS = {
-    WIDTH: 700,
+    WIDTH: 500,
     HEIGHT: 100,
+    LEFT:50,
+    TOP:0,
     ITEM: {
-        BASE_LEFT: 250,
-        HEIGHT: 80,
+        BASE_LEFT: 150,
+        HEIGHT: 40,
         WIDTH: 200,
         TOP: 0,
         GAP: 0,
@@ -56,7 +58,7 @@ export const ABOUT_CONTENT_CONSTANTS = {
     WIDTH: 500,
     HEIGHT: 400,
     LEFT: 50,
-    TOP: WIZZARD_MENU_CONSTANTS.HEIGHT + 20,
+    TOP: WIZZARD_MENU_CONSTANTS.HEIGHT,
     
 }
 
@@ -73,5 +75,15 @@ export const ABOUT_ANIMATION_CONSTANTS = {
     SWITCHING_ANIMATION_TIME_CONTENT_BORDER_IN: 200,
     SWITCHING_ANIMATION_TIME_CONTENT_IN: 0,
     ACTIVATION_STATUS_SET_DELAY: 5,
+}
 
+export const ABOUT_CARD_CONSTANTS={
+    WIDTH: 300,
+    HEIGHT: 300,
+    LEFT: 150,
+    TOP: WIZZARD_MENU_CONSTANTS.HEIGHT ,
+    ABOUT_PHOTO_WRAPPER:{
+        WIDTH: 200,
+        HEIGHT: 200,
+    }
 }

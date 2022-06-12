@@ -2,9 +2,9 @@ import { css } from "@emotion/react";
 import { WIZZARD_MENU_CONSTANTS } from "../AboutConstants";
 
 export const WizzardMenuStyles = css({
-    position: 'relative',
+    position: 'absolute',
     width: WIZZARD_MENU_CONSTANTS.WIDTH,
-    marginLeft:'auto',
-    marginRight:'auto',
+    top: WIZZARD_MENU_CONSTANTS.TOP,
+    left: WIZZARD_MENU_CONSTANTS.LEFT,
     height: WIZZARD_MENU_CONSTANTS.HEIGHT,
 })

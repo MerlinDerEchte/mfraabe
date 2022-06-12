@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,200&family=Ramaraja&display=swap');
 
 body {
@@ -6,8 +7,9 @@ body {
   font-family: 'Ramaraja', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
 }
+
 a {
   animation : none;
   animation-delay : 0;

@@ -1,4 +1,4 @@
 export enum EAboutTypes{
-    ABOUT_ME = "About Me", 
+    ABOUT_ME = "More about Me", 
     NONE = "NONE"
 }

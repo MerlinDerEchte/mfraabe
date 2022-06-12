@@ -19,21 +19,30 @@ export const AboutContent:react.FC<{title:EAboutTypes}> = ({title}) => {
                     As a child i was always fascinated by logical problems.
                     I played lots of chess and strategie games and math was the only subject at school 
                     that i was honestly interested in. 
-                    Unfortunately during school i never came in touch with coding this happened only while i was already studying statsics.
-                    But i was immediately in love. Coding provides exactly the type of logical challenges i like.
-                 </p>
+                    Unfortunately during school i never came in touch with coding. This happened only while i was already studying statsics.
+                    I was immediately fascinated by the possibilties and logical challenges coding provides.
+                    At that time i have been working for Tüv Süd as a working student. I had to transform very big excel sheets and 
+                    had therefore a very practical use for my new (very little) knowledge. Fortunately my superior recognized my interest and gave me 
+                    the chance to work in a web development team. I finsihed my studies but decided to work as a developer. <br />
+                    The feeling to create something in a structured and maintainable way satisfies me more than the work as a statistican. <br />
+                </p>
                  <h1>
-                     Hobbies
+                     Other hobbies
                  </h1>
                  <p>
-                     Football:<br />
-                     I play football in an amateur division for Sc München Süd.
+                     -Football-<br />
+                     I play in an amateur division for Sc München Süd.
                  </p>
                  <p>
-                     Chess
+                     -Chess- <br />
+                     Chess is my favourite game as it is purely logical and there is no luck included at all.
+                     I admire chess pros for their ability to calculate through hundreds of possibilities and to memorize thousands of played positions and the corresponding evaluations.
+                     
                  </p>
                  <p>
-                     Skateboarding:<br />
+                     -Skateboarding-<br />
+                     As teenager i skated everyday for about 2 years. Some injuries later i stopped and 
+                     restarted a year ago but with more focus on the movement rather than on (some times) dangerous tricks.
                  </p>
                      
                   </div>

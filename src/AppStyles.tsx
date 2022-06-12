@@ -8,8 +8,22 @@ export const appStyles = css({
     background: `${colors.DARKBLUE}`,
     height: '100vh',
     width: '100vw',
+    scrollbarWidth: 'thin',
+    scrollbarColor: colors.DARKWHITE,
+    '*::-webkit-scrollbar':{
+        width: 8,
+    },
+    '*::-webkit-scrollbar-track': {
+        background: colors.DARKBLUE,
+    },
+    '*::-webkit-scrollbar-thumb': {
+        background: colors.LIGHTORANGE,
+        borderRadius: 20,
+        border: `2px solid ${colors.DARKBLUE}`,
+    },
+    
     'a':{
         textDecoration: 'none',
-
     }
+    
  })

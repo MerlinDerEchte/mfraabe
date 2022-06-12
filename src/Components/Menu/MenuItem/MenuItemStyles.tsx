@@ -16,10 +16,6 @@ const MENU_LEFT_START_POSITION_TOP = 150
 const MENU_LEFT_START_POSITION_LEFT = 50;
 
 
-
-
-
-
 export const createMenuItemStyle:any = (
     index:number,
     isInit:boolean,

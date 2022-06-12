@@ -10,7 +10,7 @@ export const createAboutContentStyles = (isSelected:boolean, isSelecting:boolean
     opacity: isSelected ? 1 : 0 ,
     width: ABOUT_CONTENT_CONSTANTS.WIDTH,
     paddingLeft: ABOUT_CONTENT_CONSTANTS.LEFT,
-    zIndex: 15,
+    zIndex: 14,
     overflowY: 'scroll',
     height: ABOUT_CONTENT_CONSTANTS.HEIGHT,
     animation: isSelecting ? 
