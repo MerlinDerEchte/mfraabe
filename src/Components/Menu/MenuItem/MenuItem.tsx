@@ -12,6 +12,7 @@ export const MenuItem:react.FC<{path:EPaths, index:number}> = ({path,index}) => 
 
     const { setFirstPath,isInit, isStart} = useContext(GlobalContext);
     const location = useLocation();
+    console.log(location.pathname)
     const isSelected = path === location.pathname;
     const isStartPath = location.pathname === EPaths.NONE;
     const itemStyles = createMenuItemStyle(index,isInit,isStart,isSelected,isStartPath);
