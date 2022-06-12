@@ -34,7 +34,7 @@ function AppComponent() {
 
   const globalContextValue = ({activePath, appStatus, isInit, isStart, isRun, setFirstPath}); 
   useEffect(()=>{
-    if(location.pathname!== "/"){
+    if(location.pathname !== EPaths.NONE){
       setAppStatus(applicationStatus.RUN);
     }
   },[]);
