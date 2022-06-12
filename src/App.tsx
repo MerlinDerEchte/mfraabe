@@ -1,5 +1,5 @@
 import react, {useState, useEffect} from 'react';
-import { mainPath } from './constants/paths';
+import { EPaths } from './constants/paths';
 import {GlobalContext} from './GlobalContext';
 import {appStyles} from './AppStyles';
 import {CompanyLogo} from './Components/CompanyLogo/CompanyLogo'
@@ -11,13 +11,13 @@ import { BrowserRouter,useLocation } from 'react-router-dom';
 function AppComponent() {
 
  
-  const [activePath, setActivePath] = useState(mainPath.NONE);
+  const [activePath, setActivePath] = useState(EPaths.NONE);
 
   const [appStatus, setAppStatus] = useState(applicationStatus.INIT);
   const location = useLocation();
   console.log(location.pathname);
   
-  const setFirstPath = (path:mainPath) => {
+  const setFirstPath = (path:EPaths) => {
     if(appStatus === applicationStatus.INIT){
 
       setAppStatus(applicationStatus.START); 

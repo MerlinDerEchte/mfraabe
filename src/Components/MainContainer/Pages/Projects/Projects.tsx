@@ -1,6 +1,6 @@
 import react from 'react';
 import { Page } from '../Page';
-import { mainPath } from '../../../../constants/paths';
+import { EPaths } from '../../../../constants/paths';
 
 export const Project:react.FC = () => {
 

@@ -1,12 +1,12 @@
-import { mainPath } from '../../constants/paths';
+import { EPaths } from '../../constants/paths';
 import {MenuItem} from './MenuItem/MenuItem'
 export const Menu = () => {
 
     return(
         <nav>
-          <MenuItem title={mainPath.SERVICES} index={0} />
-          <MenuItem title={mainPath.ABOUT} index={1} />
-          <MenuItem title={mainPath.CONTACT} index={2} />
+          <MenuItem path={EPaths.SERVICES} index={0} />
+          <MenuItem path={EPaths.ABOUT} index={1} />
+          <MenuItem path={EPaths.CONTACT} index={2} />
         </nav>
     )
 } 

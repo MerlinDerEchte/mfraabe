@@ -1,7 +1,7 @@
 import react,{ useContext } from 'react';
 import { GlobalContext } from '../../GlobalContext';
 import { mainContainerStyles } from './MainContainerStyles';
-import { mainPath } from '../../constants/paths';
+import { EPaths } from '../../constants/paths';
 import { About } from './Pages/About/About';
 import { Contact } from './Pages/Contact/Contact';
 import { Services } from './Pages/Development/Services';
@@ -16,10 +16,10 @@ export const MainContainer:react.FC = () => {
         {!isInit && 
             <div className={mainContainerStyles} >
                 <Routes>
-                    <Route path='/' element={<div></div>}/>
-                    <Route path={'/'+ mainPath.SERVICES } element = {<Services/>} />    
-                    <Route path={'/'+ mainPath.ABOUT } element = {<About />} />
-                    <Route path={'/'+ mainPath.CONTACT } element = {<Contact />} />
+                    <Route path={EPaths.NONE} element={<div></div>}/>
+                    <Route path={EPaths.SERVICES } element = {<Services/>} />    
+                    <Route path={EPaths.ABOUT } element = {<About />} />
+                    <Route path={EPaths.CONTACT } element = {<Contact />} />
                 </Routes>
                
             </div>
