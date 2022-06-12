@@ -10,7 +10,7 @@ export const WizzardMenuItem:react.FC<{title:EAboutTypes,index:number}> = ({titl
     const { selectedAboutType, handleSelectAboutType } = useContext(AboutContext);
 
     const isSelected = getIsSelected(title,selectedAboutType );
-    const itemStyles = createWizzardItemStyles( isSelected,index );
+    const itemStyles = createWizzardItemStyles( index );
     
     const StyledItem = styled.div(itemStyles);
     const handleClick = (e:MouseEvent<HTMLDivElement>)=> {

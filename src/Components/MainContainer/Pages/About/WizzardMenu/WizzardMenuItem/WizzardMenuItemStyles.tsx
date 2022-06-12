@@ -3,7 +3,7 @@ import { colors } from "../../../../../../constants/css/colors"
 import { fontSizes } from "../../../../../../constants/css/fontSizes"
 import { WIZZARD_MENU_CONSTANTS } from "../../AboutConstants"
 
-export const createWizzardItemStyles = ( isSelected:boolean, index:number) => {
+export const createWizzardItemStyles = ( index:number) => {
 
     return css({ 
         position: "absolute",
