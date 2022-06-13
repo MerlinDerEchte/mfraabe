@@ -9,6 +9,9 @@ import { applicationStatus } from './constants/ApplicationStatus';
 import { BrowserRouter,useLocation } from 'react-router-dom';
 import { isMobile } from './utils/isMobile';
 import { MobileInMaintenance } from './Components/MobileInMaintenance';
+import { getIsStart } from './utils/isStart';
+import { getIsInit } from './utils/isInit';
+import { getIsRun } from './utils/isRun';
 
 function AppComponent() {
 
@@ -20,8 +23,7 @@ function AppComponent() {
   const [ screenHeight, setScreenHeigth] = useState(0)
   const location = useLocation();
   
-
-  //rename
+  // rename
   const setFirstPath = (path:EPaths) => {
     if(appStatus === applicationStatus.INIT){
 
@@ -31,17 +33,16 @@ function AppComponent() {
       },1000);
     }
   }
-  // move out
-  const isStart = appStatus === applicationStatus.START;
-  const isInit = appStatus === applicationStatus.INIT;
-  const isRun = appStatus === applicationStatus.RUN;
+
+  const isStart = getIsStart(appStatus);
+  const isInit = getIsInit(appStatus);
+  const isRun = getIsRun(appStatus);
 
 
-  const globalContextValue = ({activePath, appStatus, isInit, isStart, isRun, setFirstPath, screenWidth, screenHeight}); 
+  const globalContextValue = ({activePath, isInit, isStart, isRun, setFirstPath, screenWidth, screenHeight}); 
 
 
    const handleResize = ():void => {
-    console.log(window.innerWidth)
     setScreenWidth(window.innerWidth);
     setScreenHeigth(window.innerHeight);
   }
@@ -54,7 +55,7 @@ function AppComponent() {
     setScreenWidth(window.innerWidth);
     setScreenHeigth(window.innerHeight);
     window.addEventListener("resize",()=> handleResize())
-  },[]);
+  },[location.pathname]);
 
 
  
