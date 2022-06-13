@@ -19,7 +19,7 @@ const iconWrapperStyles= css({
     flex:'0 0 auto',
     width: 80,
     height: 80,
-    ':hover':{
+    '&:hover':{
         cursor: 'pointer',
     },
     'svg':{
