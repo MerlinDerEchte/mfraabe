@@ -40,7 +40,7 @@ export const ContactContentWrapper:react.FC<{}> = () => {
                 </a>
             </div>
             <div className={iconWrapperStyles}>
-            <a href="mailto:merlinraabe@yahoo.de">
+            <a href="mailto:merlinraabe@yahoo.de?subject=Anfrage%20MfRaabe">
                 <MailLogo />
                 </a>
             </div>
