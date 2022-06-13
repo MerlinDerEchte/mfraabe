@@ -1,12 +1,14 @@
 import react from 'react';
 import { Page } from '../Page';
-import { EPaths } from '../../../../constants/paths';
-
+import { contactStyles } from './ContactStyles';
+import { ContactContentWrapper } from './ContactContentWrapper';
 export const Contact:react.FC = () => {
-
+    
     return(
         <Page>
-            <div>Contact Page</div>
+            <div className={contactStyles}>
+                <ContactContentWrapper />
+            </div>
         </Page>
     )
 }

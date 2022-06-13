@@ -1,4 +1,5 @@
 import react, { useContext } from 'react';
+import { GlobalContext } from '../../../../../../GlobalContext';
 import { EAboutTypes } from '../../../../../../Types/EAboutTypes';
 import { AboutContext } from '../../AboutContext';
 import { getIsSelected } from '../../AboutUtils';
@@ -8,8 +9,9 @@ import { createAboutContentStyles } from './AboutContentStyles';
 
 export const AboutContent:react.FC<{title:EAboutTypes}> = ({title}) => {
     const {selectedAboutType, isSelecting, isDeselecting} = useContext(AboutContext);
+    const { screenHeight } = useContext(GlobalContext);
     const isSelected = getIsSelected(selectedAboutType, title);
-    const aboutContentStyles = createAboutContentStyles(isSelected, isSelecting, isDeselecting);
+    const aboutContentStyles = createAboutContentStyles(isSelected, isSelecting, isDeselecting,screenHeight);
     
     return(
         isSelected ? 
@@ -23,7 +25,7 @@ export const AboutContent:react.FC<{title:EAboutTypes}> = ({title}) => {
                     I was immediately fascinated by the possibilties and logical challenges coding provides.
                     At that time i have been working for Tüv Süd as a working student. I had to transform very big excel sheets and 
                     had therefore a very practical use for my new (very little) knowledge. Fortunately my superior recognized my interest and gave me 
-                    the chance to work in a web development team. I finsihed my studies but decided to work as a developer. <br />
+                    the chance to work in a web development team. I finsihed my studies but decided to work as a developper. <br />
                     The feeling to create something in a structured and maintainable way satisfies me more than the work as a statistican. <br />
                 </p>
                  <h1>

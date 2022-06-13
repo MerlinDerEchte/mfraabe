@@ -85,6 +85,7 @@ export const getServiceContentStyles = (isSelected:boolean,isSelectedAndDeselect
             justifyContent: 'center',
             alignContent: 'center',
         } 
+        
     })
 }
 

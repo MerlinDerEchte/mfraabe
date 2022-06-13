@@ -4,7 +4,7 @@ import { keyframes } from "@emotion/css";
 import { fontSizes } from "../../../../../../constants/css/fontSizes";
 import { colors } from "../../../../../../constants/css/colors";
 import { ABOUT_CONTENT_CONSTANTS, ABOUT_ANIMATION_CONSTANTS } from "../../AboutConstants";
-export const createAboutContentStyles = (isSelected:boolean, isSelecting:boolean, isDeselecting:boolean) => css({
+export const createAboutContentStyles = (isSelected:boolean, isSelecting:boolean, isDeselecting:boolean, screenHeight:number) => css({
     position:'absolute',
     top: ABOUT_CONTENT_CONSTANTS.TOP,
     opacity: isSelected ? 1 : 0 ,
@@ -12,7 +12,7 @@ export const createAboutContentStyles = (isSelected:boolean, isSelecting:boolean
     paddingLeft: ABOUT_CONTENT_CONSTANTS.LEFT,
     zIndex: 14,
     overflowY: 'scroll',
-    height: ABOUT_CONTENT_CONSTANTS.HEIGHT,
+    height: Math.min(ABOUT_CONTENT_CONSTANTS.HEIGHT, screenHeight - 200 - 50) ,
     animation: isSelecting ? 
         `${aboutContentSelectingAnimation}
         ${ABOUT_ANIMATION_CONSTANTS.ACTIVATION_ANIMATION_TIME_CONTENT}ms

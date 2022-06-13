@@ -5,6 +5,7 @@ import { fontSizes } from "../../../../../../../constants/css/fontSizes"
 export const createAboutCardInfoStyles = () => {
 
     return(css({
+        marginTop: 20,
         flex:' 0 0 auto',
         display:'flex',
         flexDirection:'column',

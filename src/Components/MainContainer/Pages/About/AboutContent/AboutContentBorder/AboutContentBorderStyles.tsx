@@ -3,9 +3,9 @@ import { colors } from "../../../../../../constants/css/colors";
 import { Directions } from "../../../../../../constants/Directions";
 import { ABOUT_ANIMATION_CONSTANTS, ABOUT_CONTENT_CONSTANTS } from "../../AboutConstants";
 
-export const createAboutContentBorderStyles = (direction:Directions, isOneSelected:boolean, isSelecting:boolean,  isDeselecting:boolean, isSwitching:boolean) => {
+export const createAboutContentBorderStyles = (direction:Directions, isOneSelected:boolean, isSelecting:boolean,  isDeselecting:boolean, isSwitching:boolean, screenHeight:number) => {
 
-
+    const borderHeight = Math.min(screenHeight - 200 - 50, ABOUT_CONTENT_CONSTANTS.HEIGHT)
 
     const rightSelectingAnimation = keyframes`
         0%{
@@ -13,7 +13,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
             opacity: 1;
             width: 1px;
             height: 1px;
-           top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+           top: ${ABOUT_CONTENT_CONSTANTS.TOP +borderHeight / 2}px;
            left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
         }
        100%{
@@ -21,7 +21,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
             opacity: 1;
             left: ${ ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH}px;
             top: ${ABOUT_CONTENT_CONSTANTS.TOP}px;
-            height: ${ ABOUT_CONTENT_CONSTANTS.HEIGHT}px;
+            height: ${ borderHeight}px;
             width: 1px;
         }
     `;
@@ -31,7 +31,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
             width: 1px;
             height: 1px;
             opacity: 1;
-           top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+           top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
            left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
         }
         100%{
@@ -49,7 +49,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
             width: 1px;
             height: 1px;
             opacity: 1;
-           top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+           top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
            left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
         }
         100%{
@@ -67,14 +67,14 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
             width: 1px;
             height: 1px;
             opacity: 1;
-            top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+            top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
             left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
         }
         100%{
         
             opacity: 1;
             left: ${ABOUT_CONTENT_CONSTANTS.LEFT}px;
-            top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT}px;
+            top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight}px;
             width: ${ABOUT_CONTENT_CONSTANTS.WIDTH}px;
             height: 1px;
         }
@@ -85,7 +85,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
         opacity: 1;
         left: ${ ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH}px;
         top: ${ABOUT_CONTENT_CONSTANTS.TOP}px;
-        height: ${ ABOUT_CONTENT_CONSTANTS.HEIGHT}px;
+        height: ${borderHeight}px;
         width: 1px; 
     }
    100%{
@@ -93,7 +93,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
     opacity: 1;
     width: 1px;
     height: 1px;
-   top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+   top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
    left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
     }
     `;
@@ -109,7 +109,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
         width: 1px;
         height: 1px;
         opacity: 1;
-        top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
         left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
      }
  `;
@@ -125,7 +125,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
         width: 1px;
         height: 1px;
         opacity: 1;
-        top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
         left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
      }
  `;
@@ -133,7 +133,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
      0%{
         opacity: 1;
         left: ${ABOUT_CONTENT_CONSTANTS.LEFT}px;
-        top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT}px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight}px;
         width: ${ABOUT_CONTENT_CONSTANTS.WIDTH}px;
         height: 1px;
      }
@@ -141,7 +141,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
         width: 1px;
         height: 1px;
         opacity: 1;
-        top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP +  borderHeight / 2}px;
         left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
      }
  `;
@@ -157,7 +157,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
         width: 1px;
         height: 1px;
         opacity: 1;
-        top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
         left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
      }
      100%{
@@ -172,7 +172,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
      0%{
         opacity: 1;
         left: ${ABOUT_CONTENT_CONSTANTS.LEFT}px;
-        top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT}px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP +  borderHeight}px;
         width: ${ABOUT_CONTENT_CONSTANTS.WIDTH}px;
         height: 1px;
      }
@@ -180,13 +180,13 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
         width: 1px;
         height: 1px;
         opacity: 1;
-        top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
         left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
      }
      100%{
         opacity: 1;
         left: ${ABOUT_CONTENT_CONSTANTS.LEFT}px;
-        top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT}px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight}px;
         width: ${ABOUT_CONTENT_CONSTANTS.WIDTH}px;
         height: 1px;
      }
@@ -196,21 +196,21 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
         opacity: 1;
         left: ${ ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH}px;
         top: ${ABOUT_CONTENT_CONSTANTS.TOP}px;
-        height: ${ ABOUT_CONTENT_CONSTANTS.HEIGHT}px;
+        height: ${ borderHeight}px;
         width: 1px; 
     }
     50%{
         opacity: 1;
         width: 1px;
         height: 1px;
-        top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP +borderHeight / 2}px;
         left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
     }
     100%{
         opacity: 1;
         left: ${ ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH}px;
         top: ${ABOUT_CONTENT_CONSTANTS.TOP}px;
-        height: ${ ABOUT_CONTENT_CONSTANTS.HEIGHT}px;
+        height: ${ borderHeight }px;
         width: 1px; 
     }
  `;
@@ -226,7 +226,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
         width: 1px;
         height: 1px;
         opacity: 1;
-        top: ${ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT / 2}px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
         left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
     }
     100%{
@@ -285,7 +285,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
             position:'absolute',
             background: colors.LIGHTORANGE,
             width: 1,
-            height: ABOUT_CONTENT_CONSTANTS.HEIGHT ,
+            height:borderHeight ,
             left: ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH,
             top: ABOUT_CONTENT_CONSTANTS.TOP, 
             animation: isSelecting ? 
@@ -321,7 +321,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
             width: ABOUT_CONTENT_CONSTANTS.WIDTH,
             height: 1,
             left: ABOUT_CONTENT_CONSTANTS.LEFT,
-            top: ABOUT_CONTENT_CONSTANTS.TOP + ABOUT_CONTENT_CONSTANTS.HEIGHT,
+            top: ABOUT_CONTENT_CONSTANTS.TOP +borderHeight,
             animation: isSelecting ?
                 `${bottomSelectingAnimation}
                 ${ABOUT_ANIMATION_CONSTANTS.ACTIVATION_ANIMATION_TIME_CONTENT_BORDER}ms 
@@ -354,7 +354,7 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
             position:'absolute',
             background: colors.LIGHTORANGE,
             width: 1,
-            height: ABOUT_CONTENT_CONSTANTS.HEIGHT,
+            height:borderHeight,
             left: ABOUT_CONTENT_CONSTANTS.LEFT,
             top: ABOUT_CONTENT_CONSTANTS.TOP, 
             animation: isSelecting ?

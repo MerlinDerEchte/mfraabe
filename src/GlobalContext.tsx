@@ -8,5 +8,7 @@ export const GlobalContext = react.createContext({
     isInit: true,
     isStart: false,
     isRun: false,
-    setFirstPath: (path:EPaths) => {} 
+    setFirstPath: (path:EPaths) => {},
+    screenWidth: 0,
+    screenHeight: 0
 })
