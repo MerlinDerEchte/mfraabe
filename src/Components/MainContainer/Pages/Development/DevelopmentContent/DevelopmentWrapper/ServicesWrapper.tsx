@@ -2,12 +2,12 @@ import react from 'react';
 import { ServiceCardWrapperStyles } from './ServicesWrapperStyles';
 import styled from '@emotion/styled';
 import { EServiceType } from '../../../../../../Types/EServiceType';
-import { ServiceCardComponent } from './ServiceCardComponent/ServiceCardComponent';
-import { FreelancerIcon } from '../ServiceIconsSvg/FreelancerIcon';
-import { WebsiteIcon } from '../ServiceIconsSvg/WebsiteIcon';
-import { ScriptIcon } from '../ServiceIconsSvg/ScriptIcon';
-import { ServiceContentComponent } from './ServiceContentComponent/ServiceContentComponent';
-import { ServiceDeselect } from './ServiceDeselect/ServiceDeselect';
+import { ServiceCardComponent } from './DevelopmentCardComponent/ServiceCardComponent';
+import { FreelancerIcon } from '../DeveelopmentIconsSvg/FreelancerIcon';
+import { WebsiteIcon } from '../DeveelopmentIconsSvg/WebsiteIcon';
+import { ScriptIcon } from '../DeveelopmentIconsSvg/ScriptIcon';
+import { ServiceContentComponent } from './DevelopmentContentComponent/ServiceContentComponent';
+import { ServiceDeselect } from './DevelopmentDeselect/ServiceDeselect';
 import { CurriculumVitaeWrapper } from './CurriculumVitaeWrapper';
 
 

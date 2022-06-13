@@ -22,7 +22,6 @@ const iconWrapperStyles= css({
     cursor: 'pointer',
     'svg':{
         fill: colors.LIGHTORANGE,
-       
         width: '100%',
         height: '100%'
     }
