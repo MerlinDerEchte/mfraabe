@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
-import react,{useContext, useEffect} from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import react,{useContext} from 'react';
+import { useLocation } from 'react-router-dom';
 import { GlobalContext } from '../../../GlobalContext';
 import { createMenuItemStyle } from './MenuItemStyles';
 import { EPaths } from '../../../constants/paths';
-import { applicationStatus } from '../../../constants/ApplicationStatus';
 import { Link } from 'react-router-dom';
 import { getPathName } from '../../../constants/getPathNames';
 

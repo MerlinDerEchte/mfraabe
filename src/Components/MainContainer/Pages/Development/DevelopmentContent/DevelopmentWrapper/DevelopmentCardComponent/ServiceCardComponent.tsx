@@ -1,21 +1,22 @@
 import styled from '@emotion/styled';
 import react,{ useContext } from 'react';
 import { GlobalContext } from '../../../../../../../GlobalContext';
-import {createServiceCardStyles }from './ServiceCardStyles';
-import { ServiceContext } from '../../../ServiceContext';
-import { EServiceType } from '../../../../../../../Types/EServiceType';
-import { getIsOtherDeselecting, getIsSelected, getIsSelectedAndDeselecting } from '../../../ServiceUtils';
+import {createServiceCardStyles }from './ServiceCardStyles/ServiceCardStyles';
+import { ServiceContext } from '../../../DevelopmentContext';
+import { EDevelopmentTypes } from '../../../../../../../Types/EDevelopmentTypes';
+import { getIsOneServiceSelected, getIsOtherDeselecting, getIsSelected, getIsSelectedAndDeselecting } from '../../../DevelopmentUtils';
+import React from 'react';
 
-export const ServiceCardComponent:react.FC<{service:EServiceType,index:number, children:any}> = ({service,index,children}) => {
+export const ServiceCardComponent:react.FC<{service:EDevelopmentTypes,index:number, children:any}> = ({service,index,children}) => {
 
     const { isInit, isStart, isRun} = useContext(GlobalContext);
-    const { selectedService, setSelectedService, isDeselecting} = useContext(ServiceContext);
+    const { selectedService, handleSelectService, isSelecting, isDeselecting} = useContext(ServiceContext);
 
-    const isOneSelected = selectedService !== EServiceType.NONE;
+    const isOneSelected = getIsOneServiceSelected(selectedService);
     const isSelected = getIsSelected(service, selectedService);
     const isSelectedAndDeselecting = getIsSelectedAndDeselecting(service, selectedService,isDeselecting);
     const isOtherSelectedAndDeselecting = getIsOtherDeselecting(service, selectedService, isDeselecting);
-    const serviceCardStyles = createServiceCardStyles( index, isInit, isStart, isRun, isSelected, isOneSelected,isSelectedAndDeselecting, isOtherSelectedAndDeselecting );
+    const serviceCardStyles = createServiceCardStyles( index, isInit, isStart, isRun, isSelected, isOneSelected, isSelecting, isSelectedAndDeselecting, isOtherSelectedAndDeselecting );
     const StyledServiceCard = styled.div(serviceCardStyles);
    
     const handleMouseOver = (event: React.MouseEvent) => {
@@ -24,8 +25,16 @@ export const ServiceCardComponent:react.FC<{service:EServiceType,index:number, c
         }
         event.stopPropagation();       
     }
+
+    const handleClick = (event: React.MouseEvent) => {
+        if(isOneSelected){
+            event.stopPropagation();
+            return;
+        }
+        handleSelectService(service);
+    }
     return(
-        <StyledServiceCard onClick={e =>  setSelectedService(service)} onMouseOver={handleMouseOver}> 
+        <StyledServiceCard onClick={handleClick} onMouseOver={handleMouseOver}> 
             <div className='serviceCardTitle'>
                 <span>{service}</span>
                 <div className='serviceCardTitleUnderline'></div>

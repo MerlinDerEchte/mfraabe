@@ -1,28 +1,25 @@
 import {css, keyframes} from '@emotion/react';
 import { colors } from '../../../../../../../constants/css/colors';
 import { fontSizes } from '../../../../../../../constants/css/fontSizes';
-
-import {
-    SERVICE_CONTENT_SELECTION_ANIMATION_TIME, 
-    SERVICE_CONTENT_SELECTION_ANIMATION_DELAY,
-    SERVICE_CONTENT_DESELECTION_ANIMATION_TIME
-} from '../../../../../../../constants/timings';
+import { PAGE_CONSTANTS } from '../../../../PageConstants';
+import { DEVELOPMENT_ANIMATION_TIMINGS, DEVELOPMENT_CARD_CONSTANTS } from '../../../DevelopmentConstants';
 
 
-export const getServiceContentStyles = (isSelected:boolean,isSelectedAndDeselecting:boolean,isOtherSelectedAndDeselecting:boolean) => {
+export const getDevelopmentContentStyles = (isSelected:boolean, isSelecting:boolean, isSelectedAndDeselecting:boolean,isOtherSelectedAndDeselecting:boolean, screenHeight:number) => {
 
-    const serviceContentAnimation = createServiceContentComponentSelectionAnimation(isSelected, isSelectedAndDeselecting,isOtherSelectedAndDeselecting);
+    const developmentContentHeight = screenHeight - PAGE_CONSTANTS.MARGIN_TOP - PAGE_CONSTANTS.MARGIN_BOTTOM - (DEVELOPMENT_CARD_CONSTANTS.HEIGHT + DEVELOPMENT_CARD_CONSTANTS.SELECTED_TRANSLATE_Y)
+    const developmentContentAnimation = createServiceContentComponentSelectionAnimation(isSelected, isSelecting, isSelectedAndDeselecting,isOtherSelectedAndDeselecting, developmentContentHeight);
 
     return css({
         display:'block',
         position:'absolute',
-        top:'0px',
+        top: isSelected ? 130 : 0,
         left:  isSelected ? '0%' : '50%',
-        width:  isSelected && !isSelectedAndDeselecting ? '100%' : '0%',
-        height: isSelected && !isSelectedAndDeselecting ? '90%': '0%',
+        width:  isSelected && !isSelectedAndDeselecting && !isSelecting ? '100%' : '0%',
+        height: isSelected && !isSelectedAndDeselecting ? developmentContentHeight : 0,
         zIndex: 15,
         overflowX: 'hidden',
-        animation: serviceContentAnimation,
+        animation: developmentContentAnimation,
         border:  isSelected ? isSelectedAndDeselecting ? 'none' : `1px solid ${colors.LIGHTORANGE}`:'',
         background:colors.DARKBLUE,
         color: colors.DARKWHITE,
@@ -90,24 +87,25 @@ export const getServiceContentStyles = (isSelected:boolean,isSelectedAndDeselect
 }
 
 
-const createServiceContentComponentSelectionAnimation = (isSelected:boolean, isSelectedAndDeselecting:boolean, isOtherSelectedAndDeselecting:boolean) => {
+const createServiceContentComponentSelectionAnimation = (isSelected:boolean, isSelecting:boolean, isSelectedAndDeselecting:boolean, isOtherSelectedAndDeselecting:boolean, developmentContentHeight:number) => {
   
     if(isOtherSelectedAndDeselecting){
         return ''
     }
 
     if(isSelectedAndDeselecting){
-        return `${ServiceCardContentDeselectAnimation} ${SERVICE_CONTENT_DESELECTION_ANIMATION_TIME}  ease-in backwards`;
+        return `${createDevelopmentCardContentDeselectAnimation(developmentContentHeight)} ${DEVELOPMENT_ANIMATION_TIMINGS.CONTENT_DESELECTION_TIME}ms  ease-in backwards`;
     }
       
     
-    if(isSelected){
-       return `${ServiceCardContentCompnentSelectionAnimation} ${SERVICE_CONTENT_SELECTION_ANIMATION_TIME} ease-in-out ${SERVICE_CONTENT_SELECTION_ANIMATION_DELAY} backwards` 
+    if(isSelected && isSelecting){
+       return `${createDevelopmentContentSelectionAnimation(developmentContentHeight)} ${DEVELOPMENT_ANIMATION_TIMINGS.CONTENT_SELECTION_TIME}ms ease-in-out ${DEVELOPMENT_ANIMATION_TIMINGS.CONTENT_SELECTION_DELAY}ms backwards` 
     }
     return '';
 };
 
-const ServiceCardContentCompnentSelectionAnimation = keyframes`
+
+const createDevelopmentContentSelectionAnimation = (developmentContentHeight:number) => keyframes`
     0%{
         width:0;
         height:0;
@@ -129,15 +127,15 @@ const ServiceCardContentCompnentSelectionAnimation = keyframes`
     }
     100%{
         width:100%;
-        height:90%;
+        height: ${developmentContentHeight}px;
         overflow:hidden;
     }
 `;
-
-const ServiceCardContentDeselectAnimation = keyframes`
+        
+const createDevelopmentCardContentDeselectAnimation = (developmentContentHeight:number) => keyframes`
     0%{
         width:100%;
-        height:90%;
+        height:${developmentContentHeight}px;
         overflow:hidden;
         border: 1px solid ${colors.LIGHTORANGE};
     }

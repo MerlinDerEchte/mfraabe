@@ -1,27 +1,30 @@
 import styled from '@emotion/styled';
-import react, {MouseEvent, useState} from 'react';
-import { AboutMainStyles } from './AboutStyles';
+import react, {MouseEvent, useContext, useState} from 'react';
+import { createAboutMainStyles } from './AboutStyles';
 import { IPosition } from '../../../../Types/IPosition';
-import { WizzardMenu } from './WizzardMenu/WizzardMenu';
+import { AboutMenu } from './AboutMenu/AboutMenu';
 import { MousePositionContext } from './MousePositionContext';
 import { WizzardSVG } from './Wizzard/WizzardSvg';
 import { Lightball } from './Lightball/Lightball';
 import { Page } from '../Page';
 import { EAboutTypes } from '../../../../Types/EAboutTypes';
 import { AboutContext } from './AboutContext';
-import { ABOUT_ANIMATION_CONSTANTS, ABOUT_CONTENT_CONSTANTS } from './AboutConstants';
+import { ABOUT_ANIMATION_CONSTANTS } from './AboutConstants';
 import { AboutContentWrapper } from './AboutContent/AboutContentWrapper';
 import { getIsOneAboutTypeSelected, getIsSelected } from './AboutUtils';
+import { GlobalContext } from '../../../../GlobalContext';
 export const About:react.FC<{}> = () => {
     const [mousePositions, setMousePositions] = useState({
         mouseX:1000,
         mouseY:1000
     })
     const [isMouseOver, setIsMouseOver] = useState(false);
+    
     const [selectedAboutType, setSelectedAboutType] = useState(EAboutTypes.NONE);
     const [isSelecting, setIsSelecting] = useState(false);
     const [isSwitching, setIsSwitching] = useState(false);
     const [isDeselecting, setIsDeselecting] = useState(false);
+
 
     const getAboutMainOffset = ():IPosition => {
         const aboutMainWrapper = document.getElementById('AboutMainContainer');
@@ -100,7 +103,7 @@ export const About:react.FC<{}> = () => {
    
     
 
-    function deselectAboutType():Promise<void>{
+    function handleDeselectAboutType():Promise<void>{
         return new Promise(
             resolve => {
                 setIsDeselecting(true);
@@ -155,19 +158,21 @@ export const About:react.FC<{}> = () => {
     const AboutContextValue = ({
         selectedAboutType,
         handleSelectAboutType,
+        handleDeselectAboutType,
         isSelecting,
         isDeselecting,
         isSwitching
     })
     
-    const StyledAboutMain = styled.div(AboutMainStyles) 
+    const { screenWidth, screenHeight } = useContext(GlobalContext)
+    const StyledAboutMain = styled.div(createAboutMainStyles(screenWidth, screenHeight)) 
     
     return(
         <Page>
             <StyledAboutMain id="AboutMainContainer" onMouseOver={handleMouseOver}>
                 <AboutContext.Provider value={AboutContextValue} >
                 <MousePositionContext.Provider value={MousePositionContextValue}>
-                    <WizzardMenu />
+                    <AboutMenu />
                     <WizzardSVG />
                     <Lightball />
                     <AboutContentWrapper />

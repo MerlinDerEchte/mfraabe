@@ -4,7 +4,7 @@ import { mainContainerStyles } from './MainContainerStyles';
 import { EPaths } from '../../constants/paths';
 import { About } from './Pages/About/About';
 import { Contact } from './Pages/Contact/Contact';
-import { Services } from './Pages/Development/Services';
+import { Development } from './Pages/Development/Development';
 import { Route,Routes } from 'react-router-dom';
 
 export const MainContainer:react.FC = () => {
@@ -17,7 +17,7 @@ export const MainContainer:react.FC = () => {
             <div className={mainContainerStyles} >
                 <Routes>
                     <Route path={EPaths.NONE} element={<div></div>}/>
-                    <Route path={EPaths.SERVICES } element = {<Services/>} />    
+                    <Route path={EPaths.SERVICES } element = {<Development/>} />    
                     <Route path={EPaths.ABOUT } element = {<About />} />
                     <Route path={EPaths.CONTACT } element = {<Contact />} />
                 </Routes>

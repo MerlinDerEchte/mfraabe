@@ -8,6 +8,6 @@ export const mainContainerStyles = css`
     position: absolute;
     top:0;
     left: ${sizes.MENU_WIDTH};
-    width: calc(100vw - ( 2 * ${sizes.MENU_WIDTH}));
+    width: calc(100vw -  2 * ${sizes.MENU_WIDTH});
     height: 100vh;
     `;

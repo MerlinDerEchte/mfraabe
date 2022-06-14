@@ -2,14 +2,11 @@ import styled from '@emotion/styled';
 import react, { MouseEvent, useContext } from 'react';
 import { EAboutTypes } from '../../../../../../Types/EAboutTypes';
 import { AboutContext } from '../../AboutContext';
-import { getIsSelected } from '../../AboutUtils';
-import { createWizzardItemStyles } from './WizzardMenuItemStyles';
+import { createWizzardItemStyles } from './AboutMenuItemStyles';
 
-export const WizzardMenuItem:react.FC<{title:EAboutTypes,index:number}> = ({title,index}) => {
+export const AboutMenuItem:react.FC<{title:EAboutTypes,index:number}> = ({title,index}) => {
 
-    const { selectedAboutType, handleSelectAboutType } = useContext(AboutContext);
-
-    const isSelected = getIsSelected(title,selectedAboutType );
+    const { handleSelectAboutType } = useContext(AboutContext);
     const itemStyles = createWizzardItemStyles( index );
     
     const StyledItem = styled.div(itemStyles);
@@ -21,7 +18,7 @@ export const WizzardMenuItem:react.FC<{title:EAboutTypes,index:number}> = ({titl
         <StyledItem 
             onMouseOver={e => e.stopPropagation()}
             onPointerDown={handleClick}>
-            {title}
+           <p>{title}</p>
         </StyledItem>
     )
 }

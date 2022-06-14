@@ -1,11 +1,11 @@
 import react, { useContext } from 'react';
 import { AboutContext } from '../AboutContext';
-import {  getIsOneAboutTypeSelected, getIsOneItemHover } from '../AboutUtils';
+import {  getIsOneAboutTypeSelected } from '../AboutUtils';
 import { MousePositionContext } from '../MousePositionContext';
 import { createLightBallStyles } from './LightballStyles';
 
 
-export const Lightball:react.FC<{}> = ({})=>{
+export const Lightball:react.FC<{}> = ()=>{
     
     const { mousePositions } = useContext(MousePositionContext);
     const { selectedAboutType, isSelecting, isDeselecting } = useContext(AboutContext);

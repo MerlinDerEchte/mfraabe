@@ -4,26 +4,26 @@ import { colors } from '../../../../../../../constants/css/colors';
 import { 
     SERVICE_CARD_DESELECTION_ANIMATION_DELAY,
     SERVICE_CARD_DESELECTION_ANIMATION_TIME,
-    SERVICE_CARD_SELECTION_ANIMATION_TIME,
-
+   
      } from '../../../../../../../constants/timings';
+import { DEVELOPMENT_ANIMATION_TIMINGS } from '../../../DevelopmentConstants';
 
 
 const SERVICE_DESELECT_WIDTH = '50px';
 const SERVICE_DESELECT_HEIGHT = '50px';
-const SERVICE_DESELECT_LINE_WIDTH = '6px';
+const SERVICE_DESELECT_LINE_HEIGHT = '6px';
 
 const SERVICE_DESELECT_HOVER_ANIMATION_TIME = 0.2;
-export const createServiceDeselectStyles = (isOneSelected:boolean,isDeselecting:boolean) => {
+export const createServiceDeselectStyles = (isOneSelected:boolean, isSelecting:boolean, isDeselecting:boolean) => {
 
-    const serviceDeselectAnimation = createServiceDeselectAnimation(isOneSelected, isDeselecting);
+    const serviceDeselectAnimation = createDevelopmentCancelAnimation(isOneSelected, isSelecting, isDeselecting);
 
     return css({
         animation: serviceDeselectAnimation,
         position:'absolute',
         opacity: isOneSelected ? 1 : 0,
         right:  0,
-        top: -150,
+        top: 0,
         zIndex: 15,
         width:SERVICE_DESELECT_WIDTH,
         height: SERVICE_DESELECT_HEIGHT,
@@ -33,7 +33,7 @@ export const createServiceDeselectStyles = (isOneSelected:boolean,isDeselecting:
             position:'absolute',
             content: `''`,
             width: '100%',
-            height: SERVICE_DESELECT_LINE_WIDTH,
+            height: SERVICE_DESELECT_LINE_HEIGHT,
             borderRadius: 6,
             zIndex: 16,
             top: '50%',
@@ -46,7 +46,7 @@ export const createServiceDeselectStyles = (isOneSelected:boolean,isDeselecting:
             zIndex: 16,
             content: `''`,
             width:'100%',
-            height: SERVICE_DESELECT_LINE_WIDTH,
+            height: SERVICE_DESELECT_LINE_HEIGHT,
             borderRadius: 6,
             top: '50%',
             left: '0',
@@ -85,12 +85,12 @@ export const createServiceDeselectStyles = (isOneSelected:boolean,isDeselecting:
     });
 }
 
-const createServiceDeselectAnimation = (isOneSelected:boolean, isDeselecting:boolean) => {
+const createDevelopmentCancelAnimation = (isOneSelected:boolean, isSelecting:boolean, isDeselecting:boolean) => {
     if(isDeselecting){
-        return `${ServiceDeselectDisapperAnimation} ${SERVICE_CARD_DESELECTION_ANIMATION_TIME} ease-in-out ${SERVICE_CARD_DESELECTION_ANIMATION_DELAY} backwards`;
+        return `${ServiceDeselectDisapperAnimation} ${SERVICE_CARD_DESELECTION_ANIMATION_TIME}  ${SERVICE_CARD_DESELECTION_ANIMATION_DELAY} ease-in-out backwards`;
     }
-    if(isOneSelected){
-        return `${ServiceDeselectInitAnimation} ${SERVICE_CARD_SELECTION_ANIMATION_TIME} ease-in-out 0s backwards`
+    if(isSelecting){
+        return `${ServiceDeselectInitAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME}ms ease-in-out 0s backwards`
     };
     return '0s';
 
@@ -99,24 +99,24 @@ const createServiceDeselectAnimation = (isOneSelected:boolean, isDeselecting:boo
 const ServiceDeselectInitAnimation = keyframes`
     from{
         opacity:0;
-        top: 0px;
+      
         right: 0px;
     }   
     to{
         opactiy:1;
-        top: -150px;
+       
         right: 0px;
     }
 `;
 const ServiceDeselectDisapperAnimation = keyframes`
     from{
         opactiy:1;
-        top: -150px;
+     
         right: 0px;
     }   
     to{
         opacity:0;
-        top: 0px;
+      
         right: 0px;
     }
 `;

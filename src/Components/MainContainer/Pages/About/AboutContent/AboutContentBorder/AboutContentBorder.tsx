@@ -14,22 +14,21 @@ const AboutContentBorder: react.FC<{direction:Directions}> = ({direction}) => {
     return(
         <div className={styles} ></div>
     )
-
 }
 
-export const AboutContentBorderTop: react.FC<{}> = ({}) => {
+export const AboutContentBorderTop: react.FC<{}> = () => {
 
     return <AboutContentBorder direction={Directions.TOP} />
 }
-export const AboutContentBorderRight: react.FC<{}> = ({}) => {
+export const AboutContentBorderRight: react.FC<{}> = () => {
 
     return <AboutContentBorder direction={Directions.RIGHT} />
 }
-export const AboutContentBorderBottom: react.FC<{}> = ({}) => {
+export const AboutContentBorderBottom: react.FC<{}> = () => {
 
     return <AboutContentBorder direction={Directions.BOTTOM} />
 }
-export const AboutContentBorderLeft: react.FC<{}> = ({}) => {
+export const AboutContentBorderLeft: react.FC<{}> = () => {
 
     return <AboutContentBorder direction={Directions.LEFT} />
 }

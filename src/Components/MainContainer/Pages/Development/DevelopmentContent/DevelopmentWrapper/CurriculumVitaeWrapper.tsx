@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import react from 'react';
 import { colors } from '../../../../../../constants/css/colors';
-import { DocumentIcon } from '../DeveelopmentIconsSvg/DocumentIcon';
+import { DocumentIcon } from './DeveelopmentIconsSvg/DocumentIcon';
 
 const cvWrapperStyles = css({
     width: '100%',

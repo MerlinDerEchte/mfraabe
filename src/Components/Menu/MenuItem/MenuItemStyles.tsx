@@ -1,8 +1,6 @@
-import react from 'react';
 import { css, keyframes } from '@emotion/react';
 import { colors } from '../../../constants/css/colors';
 import { MENU_INIT_ANIMATION_DELAY } from '../../../constants/timings';
-
 
 const MENU_ITEM_WIDTH= 150;
 const MENU_ITEM_HEIGHT= 50;
@@ -26,7 +24,7 @@ export const createMenuItemStyle:any = (
    
     const menuItemAnimation = createMenuItemAnimation(index,isInit, isStart,isSelected);
 
-    const MENU_ITEM_LEFT_LEFT =  `calc(${MENU_LEFT_START_POSITION_TOP}px + ${index} * (${MENU_ITEM_HEIGHT}px + ${MENU_ITEM_GAP_X}px))`;
+    const MENU_ITEM_LEFT_TOP =  `calc(${MENU_LEFT_START_POSITION_TOP}px + ${index} * (${MENU_ITEM_HEIGHT}px + ${MENU_ITEM_GAP_X}px))`;
     const MENU_ITEM_START_LEFT = `calc(${MENU_MID_START_POSITION_LEFT} + ${index} * ( ${MENU_ITEM_WIDTH}px + ${MENU_ITEM_GAP_Y}px ))`;
 
     return(
@@ -34,10 +32,10 @@ export const createMenuItemStyle:any = (
             display: 'flex',
             lineHeight: '30px',
             justifyContent:'center',
-            alignItems:'center',
+            alignItems:'start',
             position: 'absolute',
             zIndex: 10,
-            top: isInit && isStartPath ? MENU_MID_START_POSITION_TOP: MENU_ITEM_LEFT_LEFT,
+            top: isInit && isStartPath ? MENU_MID_START_POSITION_TOP: MENU_ITEM_LEFT_TOP,
             left:  isInit && isStartPath ? MENU_ITEM_START_LEFT : `${MENU_LEFT_START_POSITION_LEFT}px`,
             fontSize: 30,
             fontWeight: 50,

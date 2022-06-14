@@ -5,15 +5,14 @@ import { ABOUT_ANIMATION_CONSTANTS, ABOUT_CONTENT_CONSTANTS } from "../../AboutC
 
 export const createAboutContentBorderStyles = (direction:Directions, isOneSelected:boolean, isSelecting:boolean,  isDeselecting:boolean, isSwitching:boolean, screenHeight:number) => {
 
-    const borderHeight = Math.min(screenHeight - 200 - 50, ABOUT_CONTENT_CONSTANTS.HEIGHT)
+    const borderHeight = Math.min(screenHeight - 200 - 50)
 
     const rightSelectingAnimation = keyframes`
         0%{
-         
             opacity: 1;
             width: 1px;
             height: 1px;
-           top: ${ABOUT_CONTENT_CONSTANTS.TOP +borderHeight / 2}px;
+           top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
            left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
         }
        100%{
@@ -89,12 +88,12 @@ export const createAboutContentBorderStyles = (direction:Directions, isOneSelect
         width: 1px; 
     }
    100%{
-   
-    opacity: 1;
-    width: 1px;
-    height: 1px;
-   top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
-   left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
+    
+        opacity: 1;
+        width: 1px;
+        height: 1px;
+        top: ${ABOUT_CONTENT_CONSTANTS.TOP + borderHeight / 2}px;
+        left: ${ABOUT_CONTENT_CONSTANTS.LEFT + ABOUT_CONTENT_CONSTANTS.WIDTH / 2 }px;
     }
     `;
     const leftDeselectingAnimation = keyframes`

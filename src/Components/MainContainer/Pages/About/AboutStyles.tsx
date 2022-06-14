@@ -1,12 +1,11 @@
 import { css } from "@emotion/react";
-const ABOUT_MAIN_WIDTH = '700px';
-const ABOUT_MAIN_HEIGHT = '80vh';
+const ABOUT_MAIN_WIDTH = 700;
 export const ABOUT_MAIN_MARGIN = '100px';
-export const AboutMainStyles = css({
-    position:'absolute',
-    top: ABOUT_MAIN_MARGIN,
-    left:`calc(50% - (${ABOUT_MAIN_WIDTH} / 2))`,
+export const createAboutMainStyles = (screenWidth:number, screenHeight:number) => css({
+    position:'relative',
+    marginTop: ABOUT_MAIN_MARGIN,
+    marginLeft: (screenWidth - 300 - ABOUT_MAIN_WIDTH) / 2 ,
     width: ABOUT_MAIN_WIDTH,
-    height:ABOUT_MAIN_HEIGHT,
+    height: screenHeight- 100 - 100,
     lineHeight: 1,
 });

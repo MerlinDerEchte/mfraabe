@@ -1,5 +1,4 @@
 import { css, keyframes } from '@emotion/react'
-import { calculateNewValue } from '@testing-library/user-event/dist/utils';
 import { colors } from '../../constants/css/colors';
 import { fontSizes } from '../../constants/css/fontSizes';
 import {INIT_SVG_ANIMATION_TIME, LOGO_UNDERLINE_INIT_DELAY, START_ANIMATION_TIME,UNDERLINE_INIT_ANIMATION_TIME} from  '../../constants/timings';

@@ -1,32 +1,32 @@
 import react from 'react';
-import { ServiceCardWrapperStyles } from './ServicesWrapperStyles';
+import { DevelopmentWrapperStyles } from './DevelopmentWrapperStyles';
 import styled from '@emotion/styled';
-import { EServiceType } from '../../../../../../Types/EServiceType';
+import { EDevelopmentTypes } from '../../../../../../Types/EDevelopmentTypes';
 import { ServiceCardComponent } from './DevelopmentCardComponent/ServiceCardComponent';
-import { FreelancerIcon } from '../DeveelopmentIconsSvg/FreelancerIcon';
-import { WebsiteIcon } from '../DeveelopmentIconsSvg/WebsiteIcon';
-import { ScriptIcon } from '../DeveelopmentIconsSvg/ScriptIcon';
-import { ServiceContentComponent } from './DevelopmentContentComponent/ServiceContentComponent';
-import { ServiceDeselect } from './DevelopmentDeselect/ServiceDeselect';
+import { FreelancerIcon } from './DeveelopmentIconsSvg/FreelancerIcon';
+import { WebsiteIcon } from './DeveelopmentIconsSvg/WebsiteIcon';
+import { ScriptIcon } from './DeveelopmentIconsSvg/ScriptIcon';
+import { DevelopmentContent } from './DevelopmentContentComponent/DevelopmentContent';
+import { DevelopmentCancel } from './DevelopmentCancel/DevelopmentCancel';
 import { CurriculumVitaeWrapper } from './CurriculumVitaeWrapper';
 
 
 
-export const ServicesWrapper:react.FC<{}> = () => {
+export const DevelopmentWrapper:react.FC<{}> = () => {
 
-    const StyledServicesWrapper = styled.div( ServiceCardWrapperStyles )
+    const StyledServicesWrapper = styled.div( DevelopmentWrapperStyles )
     return(
         <StyledServicesWrapper>
-              <ServiceCardComponent service={EServiceType.DEVELOPMENT_IN_TEAMS} index={0}  >
+              <ServiceCardComponent service={EDevelopmentTypes.DEVELOPMENT_IN_TEAMS} index={0}  >
                 <FreelancerIcon />
             </ServiceCardComponent>
-            <ServiceCardComponent  service={EServiceType.WEBSITES} index={1} >
+            <ServiceCardComponent  service={EDevelopmentTypes.WEBSITES} index={1} >
                 <WebsiteIcon />
             </ServiceCardComponent>
-            <ServiceCardComponent service={EServiceType.RECOMMENDATIONS} index={2} >
+            <ServiceCardComponent service={EDevelopmentTypes.RECOMMENDATIONS} index={2} >
                   <ScriptIcon />
             </ServiceCardComponent>
-            <ServiceContentComponent service={EServiceType.DEVELOPMENT_IN_TEAMS}>
+            <DevelopmentContent service={EDevelopmentTypes.DEVELOPMENT_IN_TEAMS}>
                 <h1>Companies I worked for as a developper</h1>
                 <p>
                     TÜV Süd Industrie Services <br />
@@ -73,8 +73,8 @@ export const ServicesWrapper:react.FC<{}> = () => {
                     A positve relationship with both of the parties is key for me to have an enjoyable and therefore more productive time in a team.
                 </p>
                 
-            </ServiceContentComponent>
-            <ServiceContentComponent service={EServiceType.WEBSITES} >
+            </DevelopmentContent>
+            <DevelopmentContent service={EDevelopmentTypes.WEBSITES} >
                 <h1>Github</h1>
                 <p><a href="https://github.com/MerlinDerEchte">Go to my github repository.</a></p>
                 <h1>Algorithmic challenges</h1>
@@ -107,8 +107,8 @@ export const ServicesWrapper:react.FC<{}> = () => {
                     An alarm that controlls a coffe machine and a phonograph. 
                 </p>
 
-            </ServiceContentComponent>
-            <ServiceContentComponent service={EServiceType.RECOMMENDATIONS} >
+            </DevelopmentContent>
+            <DevelopmentContent service={EDevelopmentTypes.RECOMMENDATIONS} >
                 <h1>Books</h1>
                 <p><q>Programming TypeScript: Making Your JavaScript Applications Scale</q></p>
                 <p><q>Javascript: The Definitive Guide</q></p>
@@ -123,9 +123,9 @@ export const ServicesWrapper:react.FC<{}> = () => {
                 <p><a href="https://www.youtube.com/c/DevEd">Dev Ed</a> - (longer Frontend and Web design tutorials)</p>
                 <p><a href="https://www.youtube.com/c/Fireship">Fireship</a> - (short introductions)</p>
                 <p><a href="https://www.youtube.com/c/programmingwithmosh">Programming with Mosh</a> - (longer Fullstack tutorials)</p>
-            </ServiceContentComponent>
+            </DevelopmentContent>
 
-            <ServiceDeselect />
+            <DevelopmentCancel />
         </StyledServicesWrapper>
     )
 }
