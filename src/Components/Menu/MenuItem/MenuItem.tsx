@@ -9,9 +9,8 @@ import { getPathName } from '../../../constants/getPathNames';
 
 export const MenuItem:react.FC<{path:EPaths, index:number}> = ({path,index}) => {
 
-    const { setFirstPath,isInit, isStart} = useContext(GlobalContext);
+    const { isInit, isStart, initApp} = useContext(GlobalContext);
     const location = useLocation();
-    console.log(location.pathname)
     const isSelected = path === location.pathname;
     const isStartPath = location.pathname === EPaths.NONE;
     const itemStyles = createMenuItemStyle(index,isInit,isStart,isSelected,isStartPath);
@@ -19,8 +18,8 @@ export const MenuItem:react.FC<{path:EPaths, index:number}> = ({path,index}) => 
 
     
     return(
-       <StyledMenuItem onClick={e => setFirstPath(path)}>
-           <Link to={path}>{getPathName(path)}</Link>    
+       <StyledMenuItem >
+           <Link onClick={initApp} to={path}>{getPathName(path)}</Link>    
         </StyledMenuItem> 
     )
 }

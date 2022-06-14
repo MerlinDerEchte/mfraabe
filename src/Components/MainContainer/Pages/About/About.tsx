@@ -164,8 +164,8 @@ export const About:react.FC<{}> = () => {
         isSwitching
     })
     
-    const { screenWidth, screenHeight } = useContext(GlobalContext)
-    const StyledAboutMain = styled.div(createAboutMainStyles(screenWidth, screenHeight)) 
+    const { isInit, isStart, screenWidth, screenHeight } = useContext(GlobalContext)
+    const StyledAboutMain = styled.div(createAboutMainStyles(isInit, isStart, screenWidth, screenHeight)) 
     
     return(
         <Page>

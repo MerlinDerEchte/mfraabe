@@ -1,11 +1,6 @@
 import {css, keyframes } from '@emotion/react';
 import { colors } from '../../../constants/css/colors';
-import {
-    LETTER_INIT_ANIMATION_DELAY,
-    INIT_SVG_ANIMATION_TIME,
-    START_ANIMATION_TIME,
-    LETTER_INIT_ANIMATION_TIME
-     } from '../../../constants/timings';
+import { ANIMATION_TIMINGS } from '../../../GlobalConstants';
 
 
 const SPACE_LETTER_MID_MARGIN_RIGHT = '14px';
@@ -23,10 +18,10 @@ export const createSloganLetterStyles =  (index:number,isInit:boolean,isStart:bo
 
 const createLetterAnimation = (index:number, isInit:boolean, isStart:boolean, isSpace:boolean, isInitialPath:boolean) => {
     if(isInit && isInitialPath){
-        return `${LetterInitAnimation} ${LETTER_INIT_ANIMATION_TIME} calc(${INIT_SVG_ANIMATION_TIME} + ${LETTER_INIT_ANIMATION_DELAY} * ${index}) backwards`
+        return `${LetterInitAnimation} ${ANIMATION_TIMINGS.LETTER_INIT_TIME}ms calc(${ANIMATION_TIMINGS.LOGO_INIT}ms + ${index} * ${ANIMATION_TIMINGS.LETTER_INIT_DELAY}ms ) backwards`;
     }
     if(isStart && isSpace){
-        return `${spaceLetterStartAnimation} ${START_ANIMATION_TIME} ${LETTER_INIT_ANIMATION_DELAY} backwards`
+        return `${spaceLetterStartAnimation} ${ANIMATION_TIMINGS.START_TIME}ms ${ANIMATION_TIMINGS.LETTER_INIT_DELAY}ms backwards`
     }
 }
 

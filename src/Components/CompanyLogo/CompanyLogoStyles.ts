@@ -7,14 +7,14 @@ const COMPANY_LOGO_MID_HEIGHT = '300px';
 const COMPANY_LOGO_MID_WIDTH = '600px';
 
 const COMPANY_LOGO_LEFT_HEIGHT = `100px`;
-const COMPANY_LOGO_LEFT_WIDTH = '200px';
+const COMPANY_LOGO_LEFT_WIDTH = '300px';
 
 const COMPANY_LOGO_LEFT_TOP = '0px';
 const COMPANY_LOGO_LEFT_LEFT = '0px';
 const COMPANY_LOGO_MID_TOP =  'calc(50vh - 200px)';
 const COMPANY_LOGO_MID_LEFT =  'calc(50vw - 300px)';
 const COMPANY_LOGO_MID_GAP = '50px';
-const COMPANY_LOGO_LEFT_GAP = '0px';
+const COMPANY_LOGO_LEFT_GAP = '20px';
 
 
 const SVG_MID_WIDHT = '200px';
@@ -27,7 +27,7 @@ const SVG_MID_MARGIN_TOP = `calc((${COMPANY_LOGO_MID_HEIGHT} - ${SVG_MID_HEIGHT}
 const SVG_LEFT_MARGIN_TOP = '12px';
 const SLOGAN_MID_WIDTH = '300px';
 const SLOGAN_MID_HEIGHT = '300px';
-const SLOGAN_LEFT_WIDTH = '125px';
+const SLOGAN_LEFT_WIDTH = '175px';
 const SLOGAN_LEFT_HEIGHT = '100px';
 
 
@@ -61,10 +61,11 @@ export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean, isIniti
         display: 'flex',
         flexDirection: 'row',
         gap: isInit && isInitialPath ? COMPANY_LOGO_MID_GAP : COMPANY_LOGO_LEFT_GAP,
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         animation: isStart ? `${LogoContainerStartAnimation} ${START_ANIMATION_TIME} ease-out backwards`: '',
 
         '#LogoSvg': {
+            flex:'0 0 auto',
             width: isInit && isInitialPath ? SVG_MID_WIDHT :SVG_LEFT_WIDTH ,
             height: isInit && isInitialPath ? SVG_MID_WIDHT :SVG_LEFT_WIDTH ,
             color: colors.DARKBLUE,
@@ -84,6 +85,7 @@ export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean, isIniti
         },
 
         '.CompanySlogan':{
+            flex:'0 0 auto',
             marginTop: isInit && isInitialPath ? SLOGAN_MID_MARGIN_TOP : SLOGAN_LEFT_MARGIN_TOP,
             height: isInit && isInitialPath ? SLOGAN_MID_TOTAL_HEIGHT : SLOGAN_LEFT_TOTAL_HEIGHT ,
             width: isInit && isInitialPath ? SLOGAN_MID_WIDTH : SLOGAN_LEFT_WIDTH,
@@ -95,7 +97,7 @@ export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean, isIniti
            
             ".CompanySloganRow":{
                 
-                flex: '1 1 initial',
+                flex: '1 1',
                 display: 'flex',
                 flexDirection: 'row',
                 height: isInit && isInitialPath ? `${fontSizes.HUGE}` : `${fontSizes.NORMAL}`,

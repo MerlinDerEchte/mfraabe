@@ -1,4 +1,4 @@
-import react, {useState, useEffect} from 'react';
+import  {useState, useEffect} from 'react';
 import { EPaths } from './constants/paths';
 import {GlobalContext} from './GlobalContext';
 import {appStyles} from './AppStyles';
@@ -6,27 +6,26 @@ import {CompanyLogo} from './Components/CompanyLogo/CompanyLogo'
 import {Menu} from './Components/Menu/Menu';
 import {MainContainer} from './Components/MainContainer/MainContainer';
 import { applicationStatus } from './constants/ApplicationStatus';
-import { BrowserRouter,useLocation } from 'react-router-dom';
+import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
 import { isMobile } from './utils/isMobile';
 import { MobileInMaintenance } from './Components/MobileInMaintenance';
 import { getIsStart } from './utils/isStart';
 import { getIsInit } from './utils/isInit';
 import { getIsRun } from './utils/isRun';
+import { getIsInitialPath } from './utils/getIsInitialPath';
 
 function AppComponent() {
 
  
-  const [activePath, setActivePath] = useState(EPaths.NONE);
-
   const [appStatus, setAppStatus] = useState(applicationStatus.INIT);
   const [screenWidth, setScreenWidth] = useState(0)
   const [ screenHeight, setScreenHeigth] = useState(0)
   const location = useLocation();
-  
+  const navigate = useNavigate();
   // rename
-  const setFirstPath = (path:EPaths) => {
+  const initApp = () => {
     if(appStatus === applicationStatus.INIT){
-
+     
       setAppStatus(applicationStatus.START); 
       setTimeout(()=> {
         setAppStatus(applicationStatus.RUN);
@@ -39,23 +38,28 @@ function AppComponent() {
   const isRun = getIsRun(appStatus);
 
 
-  const globalContextValue = ({activePath, isInit, isStart, isRun, setFirstPath, screenWidth, screenHeight}); 
+  const globalContextValue = ({ isInit, isStart, isRun, screenWidth, screenHeight, initApp}); 
 
 
    const handleResize = ():void => {
-    setScreenWidth(window.innerWidth);
-    setScreenHeigth(window.innerHeight);
+      setScreenWidth(window.innerWidth);
+      setScreenHeigth(window.innerHeight);
   }
 
 
   useEffect(()=>{
-    if(location.pathname !== EPaths.NONE){
+   
+    if(!getIsInitialPath(location.pathname) && !(isRun || isStart)){
       setAppStatus(applicationStatus.RUN);
+    }
+    if(getIsInitialPath(location.pathname) && !isStart){
+      navigate(EPaths.NONE)
+      setAppStatus(applicationStatus.INIT)
     }
     setScreenWidth(window.innerWidth);
     setScreenHeigth(window.innerHeight);
     window.addEventListener("resize",()=> handleResize())
-  },[location.pathname]);
+  },[location.pathname, isRun, isStart, navigate]);
 
 
  

@@ -1,14 +1,11 @@
 import { css, keyframes } from '@emotion/react';
 import { colors } from '../../../constants/css/colors';
 import { MENU_INIT_ANIMATION_DELAY } from '../../../constants/timings';
+import { MENU_CONSTANTS } from '../MenuConstants';
 
-const MENU_ITEM_WIDTH= 150;
-const MENU_ITEM_HEIGHT= 50;
-const MENU_ITEM_GAP_Y= 50;
-const MENU_ITEM_GAP_X= 50;
 
 const MENU_MID_START_POSITION_TOP = `max(calc(100vh - 200px), 80vh)`;
-const MENU_MID_START_POSITION_LEFT =  `calc((100vw - 3 * ${MENU_ITEM_WIDTH}px - 2 * ${MENU_ITEM_GAP_X}px) / 2)`;
+const MENU_MID_START_POSITION_LEFT =  `calc((100vw - 3 * ${MENU_CONSTANTS.MENU_ITEM_WIDTH}px - 2 * ${MENU_CONSTANTS.MENU_ITEM_GAP_X}px) / 2)`;
 
 const MENU_LEFT_START_POSITION_TOP = 150
 const MENU_LEFT_START_POSITION_LEFT = 50;
@@ -22,10 +19,10 @@ export const createMenuItemStyle:any = (
     isStartPath:boolean) => {
     
    
-    const menuItemAnimation = createMenuItemAnimation(index,isInit, isStart,isSelected);
+    const menuItemAnimation = createMenuItemAnimation(index,isInit, isStart);
 
-    const MENU_ITEM_LEFT_TOP =  `calc(${MENU_LEFT_START_POSITION_TOP}px + ${index} * (${MENU_ITEM_HEIGHT}px + ${MENU_ITEM_GAP_X}px))`;
-    const MENU_ITEM_START_LEFT = `calc(${MENU_MID_START_POSITION_LEFT} + ${index} * ( ${MENU_ITEM_WIDTH}px + ${MENU_ITEM_GAP_Y}px ))`;
+    const MENU_ITEM_LEFT_TOP =  `calc(${MENU_LEFT_START_POSITION_TOP}px + ${index} * (${MENU_CONSTANTS.MENU_ITEM_HEIGHT}px + ${MENU_CONSTANTS.MENU_ITEM_GAP_X}px))`;
+    const MENU_ITEM_START_LEFT = `calc(${MENU_MID_START_POSITION_LEFT} + ${index} * ( ${MENU_CONSTANTS.MENU_ITEM_WIDTH}px + ${MENU_CONSTANTS.MENU_ITEM_GAP_Y}px ))`;
 
     return(
         css({
@@ -36,12 +33,12 @@ export const createMenuItemStyle:any = (
             position: 'absolute',
             zIndex: 10,
             top: isInit && isStartPath ? MENU_MID_START_POSITION_TOP: MENU_ITEM_LEFT_TOP,
-            left:  isInit && isStartPath ? MENU_ITEM_START_LEFT : `${MENU_LEFT_START_POSITION_LEFT}px`,
+            left:  isInit && isStartPath ? MENU_ITEM_START_LEFT : MENU_LEFT_START_POSITION_LEFT,
             fontSize: 30,
             fontWeight: 50,
-            width: MENU_ITEM_WIDTH,
+            width: MENU_CONSTANTS.MENU_ITEM_WIDTH,
             color: colors.DARKWHITE,
-            height: MENU_ITEM_HEIGHT,
+            height: MENU_CONSTANTS.MENU_ITEM_HEIGHT,
             animation: menuItemAnimation,
             
             'a':{
@@ -60,13 +57,13 @@ export const createMenuItemStyle:any = (
         })
     );
 };
-const createMenuItemAnimation = (index:number,isInit:boolean, isStart:boolean,isSelected:boolean) => {
+const createMenuItemAnimation = (index:number,isInit:boolean, isStart:boolean) => {
     if(isInit){
         return `${MenuItemInitAnimation} 0.2s ${MENU_INIT_ANIMATION_DELAY}  backwards`;
     } 
     if(isStart){
-        const MENU_ITEM_LEFT_LEFT =  `calc(${MENU_LEFT_START_POSITION_TOP}px + ${index} * (${MENU_ITEM_HEIGHT}px + ${MENU_ITEM_GAP_X}px))`;
-        const MENU_ITEM_START_LEFT = `calc(${MENU_MID_START_POSITION_LEFT} + ${index} * ( ${MENU_ITEM_WIDTH}px + ${MENU_ITEM_GAP_Y}px ))`;
+        const MENU_ITEM_LEFT_LEFT =  `calc(${MENU_LEFT_START_POSITION_TOP}px + ${index} * (${MENU_CONSTANTS.MENU_ITEM_HEIGHT}px + ${MENU_CONSTANTS.MENU_ITEM_GAP_X}px))`;
+        const MENU_ITEM_START_LEFT = `calc(${MENU_MID_START_POSITION_LEFT} + ${index} * ( ${MENU_CONSTANTS.MENU_ITEM_WIDTH}px + ${MENU_CONSTANTS.MENU_ITEM_GAP_Y}px ))`;
         return `${createMenuItemStartAnimation(MENU_MID_START_POSITION_TOP.toString(), MENU_ITEM_START_LEFT.toString(), MENU_ITEM_LEFT_LEFT.toString(), MENU_LEFT_START_POSITION_LEFT.toString())} .3s ease-in-out ${0.05 + index * 0.05}s backwards`
     }
     return ''
@@ -79,10 +76,10 @@ function createMenuItemStartAnimation(topStartPosition:string, leftStartPosition
             top:${topStartPosition}; left: ${leftStartPosition};
         }
         50%{
-            top:calc(50vh + 50px): left: ${leftStartPosition}};
+            top:calc(50vh + 50px): left: ${leftStartPosition};
         }
         100%{
-            top:${topEndPosition}; left: ${leftEndPosition}px;
+            top:${topEndPosition}; left: ${leftEndPosition};
         }
 
     `

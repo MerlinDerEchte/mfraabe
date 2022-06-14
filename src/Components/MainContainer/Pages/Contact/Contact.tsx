@@ -1,9 +1,11 @@
-import react from 'react';
+import react, { useContext } from 'react';
 import { Page } from '../Page';
-import { contactStyles } from './ContactStyles';
+import { createContactStyles } from './ContactStyles';
 import { ContactContentWrapper } from './ContactContentWrapper';
+import { GlobalContext } from '../../../../GlobalContext';
 export const Contact:react.FC = () => {
-    
+    const { isInit, isStart } = useContext(GlobalContext);
+    const contactStyles = createContactStyles(isInit, isStart)
     return(
         <Page>
             <div className={contactStyles}>
