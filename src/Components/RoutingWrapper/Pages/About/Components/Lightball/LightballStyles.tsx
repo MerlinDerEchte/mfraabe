@@ -2,9 +2,14 @@ import { WIZZARD_CONSTANTS, LIGHTBALL_CONSTANTS, ABOUT_CONTAINER_CONSTANTS,ABOUT
 import { colors } from "../../../../../../constants/css/colors";
 import { css, keyframes } from "@emotion/css";
 
-
-export const  createLightBallStyles = (mouseY:number, isSelecting:boolean, isOneSelected:boolean, isDeselecting:boolean) => {
-
+export interface IcreateLightBallStyles {
+    mouseY:number, 
+    isSelecting:boolean, 
+    isOneSelected:boolean,
+    isDeselecting:boolean
+}
+export const  createLightBallStyles = (params:IcreateLightBallStyles) => {
+    const { mouseY, isSelecting, isOneSelected, isDeselecting } = params;
     const mouseDiff = mouseY - WIZZARD_CONSTANTS.RIGHT_ARM_TRANSLATE_Y; 
     const translateXPercentage = 
     1 - ((mouseDiff + ABOUT_CONTAINER_CONSTANTS.MENU_ACTIVATION_TRHESHOLD) /

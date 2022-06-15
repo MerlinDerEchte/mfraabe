@@ -6,5 +6,6 @@ export const GlobalContext = react.createContext({
     isRun: false,
     screenWidth: 0,
     screenHeight: 0,
+    isMobile: false,
     initApp: ()=> {},
 })

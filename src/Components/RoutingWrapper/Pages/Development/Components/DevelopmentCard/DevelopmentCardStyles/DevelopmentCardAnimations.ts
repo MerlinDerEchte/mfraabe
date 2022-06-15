@@ -3,7 +3,7 @@ import { colors } from "../../../../../../../constants/css/colors";
 import { DEVELOPMENT_CARD_CONSTANTS } from "../../../DevelopmentConstants";
 
 
-export const ServiceCardStartAnimation = keyframes`
+export const DevelopmentCardStartAnimation = keyframes`
     0%{
         transform: translateY(-50px);
         opacity: 0;
@@ -15,7 +15,7 @@ export const ServiceCardStartAnimation = keyframes`
     }
 `;
 
-export const ServiceCardStartUnderlineAnimation = keyframes`
+export const DevelopmentCardStartUnderlineAnimation = keyframes`
     0%{
         left: calc(${DEVELOPMENT_CARD_CONSTANTS.WIDTH} / 2 ); width:  10px;
     }
@@ -24,7 +24,7 @@ export const ServiceCardStartUnderlineAnimation = keyframes`
     }
 `;
 
-export const ServiceCardHoverAnimation:any= keyframes`
+export const DevelopmentCardHoverAnimation:any= keyframes`
     0%{
         transform: translateY(0px);
     }
@@ -33,7 +33,7 @@ export const ServiceCardHoverAnimation:any= keyframes`
     }
 `;
 
-export const ServiceCardTitleUnderlineHoverAnimation= keyframes`
+export const DevelopmentCardTitleUnderlineHoverAnimation= keyframes`
     0%{
         left:10px; width: calc(${DEVELOPMENT_CARD_CONSTANTS.WIDTH}px - 20px);
     }
@@ -42,7 +42,7 @@ export const ServiceCardTitleUnderlineHoverAnimation= keyframes`
     }
 `;
 
-export const ServiceCardHoverIconAnimation = keyframes`
+export const DevelopmentCardHoverIconAnimation = keyframes`
     0%{ 
         fill: ${colors.DARKWHITE};	
     }
@@ -51,7 +51,7 @@ export const ServiceCardHoverIconAnimation = keyframes`
     }
 `;
 
-export const createServiceCardSelectionAnimation = (index:number) => keyframes`
+export const createDevelopmentCardSelectionAnimation = (index:number) => keyframes`
     0%{
         transform:translateY(0px);
         left: calc(0px + ${index} * (${DEVELOPMENT_CARD_CONSTANTS.WIDTH}px + ${DEVELOPMENT_CARD_CONSTANTS.GAP}px));
@@ -66,7 +66,7 @@ export const createServiceCardSelectionAnimation = (index:number) => keyframes`
         left: calc(0px + ${1} * (${DEVELOPMENT_CARD_CONSTANTS.WIDTH}px + ${DEVELOPMENT_CARD_CONSTANTS.GAP}px ) ;
     }
 `
-export const createServiceCardDeselectAnimation = (index:number) => keyframes`
+export const createDevelopmentCardDeselectAnimation = (index:number) => keyframes`
     0%{
         transform:translateY(${DEVELOPMENT_CARD_CONSTANTS.SELECTED_TRANSLATE_Y}px);
         left: calc(${DEVELOPMENT_CARD_CONSTANTS.WIDTH}px + ${DEVELOPMENT_CARD_CONSTANTS.GAP}px ) ;
@@ -82,7 +82,7 @@ export const createServiceCardDeselectAnimation = (index:number) => keyframes`
     }
 `;
 
-export const ServiceCardContentSelectionAnimation = keyframes`
+export const DevelopmentCardContentSelectionAnimation = keyframes`
     0%{
         margin-top:${DEVELOPMENT_CARD_CONSTANTS.INNER_MARGIN_TOP}px;
     }
@@ -90,7 +90,7 @@ export const ServiceCardContentSelectionAnimation = keyframes`
         margin-top:${DEVELOPMENT_CARD_CONSTANTS.SELECTED_INNER_MARGIN_TOP}px;
     }
 `;
-export const ServiceCardContentDeselectionAnimation = keyframes`
+export const DevelopmentCardContentDeselectionAnimation = keyframes`
     0%{
         margin-top:${DEVELOPMENT_CARD_CONSTANTS.SELECTED_INNER_MARGIN_TOP}px;
     }
@@ -98,7 +98,7 @@ export const ServiceCardContentDeselectionAnimation = keyframes`
         margin-top:${DEVELOPMENT_CARD_CONSTANTS.INNER_MARGIN_TOP}px;
     }
 `;
-export const ServiceCardOtherServiceSelectionAnimation = keyframes`
+export const DevelopmentCardOtherDevelopmentSelectionAnimation = keyframes`
     0%{
         opacity:1;
     }
@@ -107,7 +107,7 @@ export const ServiceCardOtherServiceSelectionAnimation = keyframes`
     }
 `;
 
-export const ServiceCardOtherServiceDeselectionAnimation = keyframes`
+export const DevelopmentCardOtherDevelopmentDeselectionAnimation = keyframes`
 0%{
     opacity:0.2;
 }

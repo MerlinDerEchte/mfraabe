@@ -1,4 +1,4 @@
-import { css, keyframes } from '@emotion/react'
+import { css, keyframes } from '@emotion/css'
 import { colors } from '../../constants/css/colors';
 import { fontSizes } from '../../constants/css/fontSizes';
 import { ANIMATION_TIMINGS, PAGE_COMPANY_LOGO_CONSTANTS } from '../../GlobalConstants';
@@ -6,9 +6,15 @@ import { COMPANY_LOGO_CONSTANTS } from './CompanyLogoConstants';
 
 
 const STROKE_LENGTH = 22585;
-
-export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean, isInitialPath:boolean, screenHeight:number, screenWidth:number) => {
-    
+export interface IcreateCompanyLogoStyles {
+    isInit:boolean,
+    isStart:boolean,
+    isInitialPath:boolean,
+    screenHeight:number,
+    screenWidth:number
+}
+export const createCompanyLogoStyles =  (params:IcreateCompanyLogoStyles) => {
+    const { isInit, isStart, isInitialPath, screenHeight, screenWidth } = params;
     const sloganInitTotalHeight = COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_GAP + 2 * COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_ROW_HEIGHT;
     const sloganRunTotalHeight = COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_GAP + 2 * COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_ROW_HEIGHT;
     const companyLogoInitMarginTop  = (screenHeight - PAGE_COMPANY_LOGO_CONSTANTS.INIT_HEIGHT) / 2;

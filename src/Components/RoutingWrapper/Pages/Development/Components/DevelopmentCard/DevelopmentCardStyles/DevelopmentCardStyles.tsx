@@ -2,10 +2,23 @@ import { css } from '@emotion/react';
 import { colors } from '../../../../../../../constants/css/colors';
 import { fontSizes } from '../../../../../../../constants/css/fontSizes';
 import { DEVELOPMENT_CARD_CONSTANTS, DEVELOPMENT_ANIMATION_TIMINGS } from '../../../DevelopmentConstants';
-import { createServiceCardDeselectAnimation, createServiceCardSelectionAnimation,ServiceCardStartUnderlineAnimation, ServiceCardContentDeselectionAnimation, ServiceCardContentSelectionAnimation, ServiceCardHoverAnimation, ServiceCardHoverIconAnimation, ServiceCardOtherServiceDeselectionAnimation, ServiceCardOtherServiceSelectionAnimation, ServiceCardStartAnimation, ServiceCardTitleUnderlineHoverAnimation } from './ServiceCardAnimations';
-export const createServiceCardStyles = (index:number,isInit:boolean,isStart:boolean, isRun:boolean,isSelected:boolean, isOneSelected:boolean,isSelecting:boolean, isSelectedAndDeselecting:boolean, isOtherSelectedAndDeselecting:boolean) => {
-    
-    const cardAnimation = createCardAnimation(index,isStart,isRun,isSelected, isSelecting, isOneSelected, isSelectedAndDeselecting, isOtherSelectedAndDeselecting);
+import { createDevelopmentCardDeselectAnimation, createDevelopmentCardSelectionAnimation,DevelopmentCardStartUnderlineAnimation, DevelopmentCardContentDeselectionAnimation, DevelopmentCardContentSelectionAnimation, DevelopmentCardHoverAnimation, DevelopmentCardHoverIconAnimation, DevelopmentCardOtherDevelopmentDeselectionAnimation, DevelopmentCardOtherDevelopmentSelectionAnimation, DevelopmentCardStartAnimation, DevelopmentCardTitleUnderlineHoverAnimation } from './DevelopmentCardAnimations';
+
+export interface IcreateDevelopmentCardStyles {
+    index:number,
+    isInit:boolean,
+    isStart:boolean,
+    isRun:boolean,
+    isSelected:boolean,
+    isOneSelected:boolean,
+    isSelecting:boolean,
+    isSelectedAndDeselecting:boolean,
+    isOtherSelectedAndDeselecting:boolean
+}
+
+export const createDevelopmentCardStyles = (params:IcreateDevelopmentCardStyles) => {
+    const { index, isInit,isStart, isRun, isSelected, isOneSelected, isSelecting, isSelectedAndDeselecting, isOtherSelectedAndDeselecting } = params;
+    const cardAnimation = createCardAnimation(index, isStart, isRun, isSelected, isSelecting, isOneSelected, isSelectedAndDeselecting, isOtherSelectedAndDeselecting);
     const cardContentAnimation = createCardContentAnimation(isRun, isSelected, isSelecting, isSelectedAndDeselecting);
     const cardHoverAnimation = createCardHoverAnimation(isRun,isSelected);
     const cardHoverTitleUnderlineAnimation = createCardHoverUnderlineAnimation(isRun,isSelected);
@@ -39,7 +52,7 @@ export const createServiceCardStyles = (index:number,isInit:boolean,isStart:bool
                     left: '15px',
                     width: `calc(${DEVELOPMENT_CARD_CONSTANTS.WIDTH} - 30px)`,
                     background: colors.LIGHTORANGE,
-                    animation: isStart ? `${ ServiceCardStartUnderlineAnimation} calc(${DEVELOPMENT_ANIMATION_TIMINGS.CARD_START_TIME}ms + ${index} * 0.2s ) ease-out .3s backwards`: '', 
+                    animation: isStart ? `${ DevelopmentCardStartUnderlineAnimation} calc(${DEVELOPMENT_ANIMATION_TIMINGS.CARD_START_TIME}ms + ${index} * 0.2s ) ease-out .3s backwards`: '', 
                     height: 2,
                 },
             },
@@ -97,20 +110,20 @@ const createCardAnimation = (index:number,isStart:boolean, isRun:boolean, isSele
 
     // if( isStart){
     //     //calc(${DEVELOPMENT_CARD_START_ANIMATION_DELAY} + ( ${index} * ${DEVELOPMENT_CARD_START_ANIMATION_DELAY_STEP}))
-    //     return `${ServiceCardStartAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_START_TIME}ms ease-in-out calc(${DEVELOPMENT_ANIMATION_TIMINGS.CARD_START_BASEDELAY}ms + ${index} * ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_START_DELAYSTEP}ms) backwards`;
+    //     return `${DevelopmentCardStartAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_START_TIME}ms ease-in-out calc(${DEVELOPMENT_ANIMATION_TIMINGS.CARD_START_BASEDELAY}ms + ${index} * ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_START_DELAYSTEP}ms) backwards`;
     // }
 
     if(isRun && isSelectedAndDeselecting){
-        return `${createServiceCardDeselectAnimation(index)} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_TIME}ms linear ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_DELAY}ms backwards`;
+        return `${createDevelopmentCardDeselectAnimation(index)} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_TIME}ms linear ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_DELAY}ms backwards`;
     }
     if(isRun && isSelected && isSelecting){
-        return `${createServiceCardSelectionAnimation(index)} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME}ms linear backwards`;
+        return `${createDevelopmentCardSelectionAnimation(index)} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME}ms linear backwards`;
     }
     if(isRun && isOtherSelectedAndDeselecting){
-        return `${ServiceCardOtherServiceDeselectionAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_TIME}ms linear ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_DELAY}ms backwards`;
+        return `${DevelopmentCardOtherDevelopmentDeselectionAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_TIME}ms linear ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_DELAY}ms backwards`;
     }
     if(isRun && !isSelected && isOneSelected && isSelecting){
-        return `${ServiceCardOtherServiceSelectionAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME}ms linear backwards`;
+        return `${DevelopmentCardOtherDevelopmentSelectionAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME}ms linear backwards`;
     }
 }
 
@@ -119,18 +132,18 @@ const createCardContentAnimation = (isRun:boolean,isSelected:boolean,isSelecting
         return '';
     }
     if(isRun && isSelectedAndDeselecting){
-        return `${ServiceCardContentDeselectionAnimation}  ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_TIME}ms linear ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_DELAY}ms backwards`;
+        return `${DevelopmentCardContentDeselectionAnimation}  ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_TIME}ms linear ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_DELAY}ms backwards`;
     }
 
     if(isSelected && isSelecting){
-        return `${ServiceCardContentSelectionAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME}ms linear backwards`;
+        return `${DevelopmentCardContentSelectionAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME}ms linear backwards`;
     }
     return '';
 }
 
 const createCardHoverAnimation =  (isRun:boolean,isSelected:boolean) => {
     if(isRun && !isSelected){
-        return `${ServiceCardHoverAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_HOVER_TIME}ms ease-out  backwards`;
+        return `${DevelopmentCardHoverAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_HOVER_TIME}ms ease-out  backwards`;
     }
 
     if(isSelected){
@@ -141,7 +154,7 @@ const createCardHoverAnimation =  (isRun:boolean,isSelected:boolean) => {
 
 const createCardHoverUnderlineAnimation =  (isRun:boolean,isSelected:boolean)  => {
     if(isRun && !isSelected){
-        return `${ServiceCardTitleUnderlineHoverAnimation}  ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_HOVER_TIME}ms ease-out backwards`
+        return `${DevelopmentCardTitleUnderlineHoverAnimation}  ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_HOVER_TIME}ms ease-out backwards`
     }
 
     if(isSelected){
@@ -152,7 +165,7 @@ const createCardHoverUnderlineAnimation =  (isRun:boolean,isSelected:boolean)  =
 
 const createCardHoverSvgAnimation =  (isRun:boolean,isSelected:boolean)  => {
     if(isRun && !isSelected){
-        return `${ServiceCardHoverIconAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_HOVER_TIME}ms ease-out backwards`
+        return `${DevelopmentCardHoverIconAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_HOVER_TIME}ms ease-out backwards`
     }
 
     if(isSelected){

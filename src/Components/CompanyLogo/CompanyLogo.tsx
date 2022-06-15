@@ -1,22 +1,24 @@
 import react, {useContext} from 'react';
-import  styled  from '@emotion/styled';
 import { GlobalContext } from '../../GlobalContext';
 import { createCompanyLogoStyles } from './CompanyLogoStyles';
 import { SloganLetter } from './SloganLetter/SloganLetter';
 import { useLocation } from 'react-router';
 import { EPaths } from '../../constants/paths';
+import { createMobileCompanyLogoStyles } from './CompanyLogoStylesMobile';
+
 
 export const CompanyLogo:react.FC<{}> = () => {
-    const { isInit, isStart, screenHeight, screenWidth } = useContext(GlobalContext);
+    const { isInit, isStart, screenHeight, screenWidth, isMobile } = useContext(GlobalContext);
     const location = useLocation();
-  
+    
   
     const isInitialPath = location.pathname === EPaths.NONE;
-    const companyLogoStyles = createCompanyLogoStyles(isInit, isStart, isInitialPath, screenHeight, screenWidth );
-    const StyledCompanyLogoDiv = styled.div(companyLogoStyles)
+    const companyLogoStyles = createCompanyLogoStyles({isInit, isStart, isInitialPath, screenHeight, screenWidth });
+    const companyLogoStylesMobile = createMobileCompanyLogoStyles({isInit, isStart, isInitialPath, screenHeight, screenWidth});
+    //const StyledCompanyLogoDiv = isMobile ? styled.div(comanyLogoStylesM) : styled.div(companyLogoStyles)
     
     return(
-        <StyledCompanyLogoDiv>
+        <div className={companyLogoStylesMobile}>
             <div id="LogoSvg" >
                 <svg viewBox="0 0 2000 1968.75" stroke="3">
                     <g>
@@ -85,6 +87,6 @@ export const CompanyLogo:react.FC<{}> = () => {
                 </div>
             </div>
             <div id="Underline"></div>
-        </StyledCompanyLogoDiv>
+        </div>
     )
 }

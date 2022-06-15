@@ -1,4 +1,4 @@
 import { mobileScreenWidth } from "../constants/distances"
-export const isMobile = (screenWidth:number) => {
+export const getIsMobile = (screenWidth:number) => {
     return(screenWidth < mobileScreenWidth )
 } 

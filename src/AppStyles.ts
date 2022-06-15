@@ -1,13 +1,15 @@
-import { css, cx } from '@emotion/css';
+import { css } from '@emotion/css';
 import { colors } from './constants/css/colors'
 
 export const appStyles = css({
-
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     zIndex: -10,
     textAlign: 'center',
     background: `${colors.DARKBLUE}`,
-    height: '100vh',
-    width: '100vw',
     scrollbarWidth: 'thin',
     scrollbarColor: colors.DARKWHITE,
     '*::-webkit-scrollbar':{

@@ -14,16 +14,16 @@ export const AboutCard:react.FC<{}> = () => {
     const aboutCardStyles = createAboutCardStyles();
     const aboutCardPhotoWrapperStyles = createAboutCardPhotoWrapperStyles();
     return(
-    !(isOneSelected || isSelecting || isDeselecting) ?
-            <div className={aboutCardStyles}>
-                <div className={aboutCardPhotoWrapperStyles}>
-                    <AboutCardPhoto />
-                    <AboutCardInfo />
+        !(isOneSelected || isSelecting || isDeselecting) ?
+                <div className={aboutCardStyles}>
+                    <div className={aboutCardPhotoWrapperStyles}>
+                        <AboutCardPhoto />
+                        <AboutCardInfo />
+                    </div>
                 </div>
-             </div>
-        :
-        <>
-        </>
+            :
+            <>
+            </>
      )
 
 }

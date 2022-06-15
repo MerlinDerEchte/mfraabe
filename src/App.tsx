@@ -7,13 +7,14 @@ import {Menu} from './Components/Menu/Menu';
 import { RoutingWrapper } from './Components/RoutingWrapper/RoutingWrapper';
 import { applicationStatus } from './constants/ApplicationStatus';
 import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
-import { isMobile } from './utils/isMobile';
+import { getIsMobile } from './utils/isMobile';
 import { MobileInMaintenance } from './Components/MobileInMaintenance';
 import { getIsStart } from './utils/isStart';
 import { getIsInit } from './utils/isInit';
 import { getIsRun } from './utils/isRun';
 import { getIsInitialPath } from './utils/getIsInitialPath';
 import { ANIMATION_TIMINGS } from './GlobalConstants';
+import { appStylesMobile } from './AppStylesMobile';
 
 function AppComponent() {
 
@@ -38,11 +39,11 @@ function AppComponent() {
   const isInit = getIsInit(appStatus);
   const isRun = getIsRun(appStatus);
 
+  const isMobile = getIsMobile(screenWidth);
+  const globalContextValue = ({ isInit, isStart, isRun, screenWidth, screenHeight, initApp, isMobile}); 
 
-  const globalContextValue = ({ isInit, isStart, isRun, screenWidth, screenHeight, initApp}); 
-
-
-   const handleResize = ():void => {
+  
+  const handleResize = ():void => {
       setScreenWidth(window.innerWidth);
       setScreenHeigth(window.innerHeight);
   }
@@ -67,10 +68,10 @@ function AppComponent() {
   return (
 
     <GlobalContext.Provider value={globalContextValue}>
-      {isMobile(screenWidth) ?
+      {isMobile ?
         <MobileInMaintenance />
         :
-        <div className={appStyles}>        
+        <div className={isMobile ? appStylesMobile : appStyles}>        
             <CompanyLogo />
             <Menu />
             <RoutingWrapper />
