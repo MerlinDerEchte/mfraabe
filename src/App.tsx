@@ -4,7 +4,7 @@ import {GlobalContext} from './GlobalContext';
 import {appStyles} from './AppStyles';
 import {CompanyLogo} from './Components/CompanyLogo/CompanyLogo'
 import {Menu} from './Components/Menu/Menu';
-import {MainContainer} from './Components/MainContainer/MainContainer';
+import { RoutingWrapper } from './Components/RoutingWrapper/RoutingWrapper';
 import { applicationStatus } from './constants/ApplicationStatus';
 import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
 import { isMobile } from './utils/isMobile';
@@ -13,6 +13,7 @@ import { getIsStart } from './utils/isStart';
 import { getIsInit } from './utils/isInit';
 import { getIsRun } from './utils/isRun';
 import { getIsInitialPath } from './utils/getIsInitialPath';
+import { ANIMATION_TIMINGS } from './GlobalConstants';
 
 function AppComponent() {
 
@@ -29,7 +30,7 @@ function AppComponent() {
       setAppStatus(applicationStatus.START); 
       setTimeout(()=> {
         setAppStatus(applicationStatus.RUN);
-      },1000);
+      },ANIMATION_TIMINGS.START_TIME + 0.05);
     }
   }
 
@@ -72,7 +73,7 @@ function AppComponent() {
         <div className={appStyles}>        
             <CompanyLogo />
             <Menu />
-            <MainContainer />
+            <RoutingWrapper />
         </div>
     }
     </GlobalContext.Provider>

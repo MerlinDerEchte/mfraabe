@@ -1,76 +1,46 @@
 import { css, keyframes } from '@emotion/react'
 import { colors } from '../../constants/css/colors';
 import { fontSizes } from '../../constants/css/fontSizes';
-import {INIT_SVG_ANIMATION_TIME, LOGO_UNDERLINE_INIT_DELAY, START_ANIMATION_TIME,UNDERLINE_INIT_ANIMATION_TIME} from  '../../constants/timings';
-
-const COMPANY_LOGO_MID_HEIGHT = '300px';
-const COMPANY_LOGO_MID_WIDTH = '600px';
-
-const COMPANY_LOGO_LEFT_HEIGHT = `100px`;
-const COMPANY_LOGO_LEFT_WIDTH = '300px';
-
-const COMPANY_LOGO_LEFT_TOP = '0px';
-const COMPANY_LOGO_LEFT_LEFT = '0px';
-const COMPANY_LOGO_MID_TOP =  'calc(50vh - 200px)';
-const COMPANY_LOGO_MID_LEFT =  'calc(50vw - 300px)';
-const COMPANY_LOGO_MID_GAP = '50px';
-const COMPANY_LOGO_LEFT_GAP = '20px';
+import { ANIMATION_TIMINGS, PAGE_COMPANY_LOGO_CONSTANTS } from '../../GlobalConstants';
+import { COMPANY_LOGO_CONSTANTS } from './CompanyLogoConstants';
 
 
-const SVG_MID_WIDHT = '200px';
-const SVG_MID_HEIGHT = '200px';
-const SVG_LEFT_WIDTH = '66px';
-const SVG_LEFT_HEIGHT = '66px';
-
-const SVG_MID_MARGIN_TOP = `calc((${COMPANY_LOGO_MID_HEIGHT} - ${SVG_MID_HEIGHT}) / 2 )`;
-
-const SVG_LEFT_MARGIN_TOP = '12px';
-const SLOGAN_MID_WIDTH = '300px';
-const SLOGAN_MID_HEIGHT = '300px';
-const SLOGAN_LEFT_WIDTH = '175px';
-const SLOGAN_LEFT_HEIGHT = '100px';
-
-
-const SLOGAN_LEFT_INNER_MARGIN = '5px';
-const SLOGAN_LEFT_ROW_HEIGHT = fontSizes.NORMAL;
-
-const SLOGAN_MID_INNER_MARGIN = '10px';
-const SLOGAN_MID_ROW_HEIGHT = fontSizes.HUGE;
-
-
-
-const SLOGAN_MID_TOTAL_HEIGHT = `calc(${SLOGAN_MID_INNER_MARGIN} + ${SLOGAN_MID_ROW_HEIGHT } * 2)`;
-const SLOGAN_LEFT_TOTAL_HEIGHT = `calc(${SLOGAN_LEFT_INNER_MARGIN} + ${SLOGAN_LEFT_ROW_HEIGHT } * 2)`;
-
-const SLOGAN_MID_MARGIN_TOP = `calc((${SLOGAN_MID_HEIGHT} - ${SLOGAN_MID_TOTAL_HEIGHT}) / 2 )`;
-const SLOGAN_LEFT_MARGIN_TOP = `calc((${SLOGAN_LEFT_HEIGHT} - ${SLOGAN_LEFT_TOTAL_HEIGHT}) / 2 )`;
 const STROKE_LENGTH = 22585;
 
-export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean, isInitialPath:boolean) => {
+export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean, isInitialPath:boolean, screenHeight:number, screenWidth:number) => {
     
-    const svgAnimation = createSVGAnimation(isInit, isInitialPath);
+    const sloganInitTotalHeight = COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_GAP + 2 * COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_ROW_HEIGHT;
+    const sloganRunTotalHeight = COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_GAP + 2 * COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_ROW_HEIGHT;
+    const companyLogoInitMarginTop  = (screenHeight - PAGE_COMPANY_LOGO_CONSTANTS.INIT_HEIGHT) / 2;
+    const companyLogoInitMarginLeft = (screenWidth - PAGE_COMPANY_LOGO_CONSTANTS.INIT_WIDTH) / 2;
+    const svgAnimationParams:IcreateSvgAnimation = {
+        isInit: isInit,
+        isInitialPath: isInitialPath
+    } 
+    const svgAnimation = createSVGAnimation(svgAnimationParams);
     const underlineAnimation = createUnderlineAnimation(isInit);
 
     const styles = css({
         zIndex: 12,
         position: 'absolute',
-        top: isInit && isInitialPath ? COMPANY_LOGO_MID_TOP : COMPANY_LOGO_LEFT_TOP,
-        left: isInit && isInitialPath ? COMPANY_LOGO_MID_LEFT : COMPANY_LOGO_LEFT_LEFT,
-        width: isInit && isInitialPath ? COMPANY_LOGO_MID_WIDTH : COMPANY_LOGO_LEFT_WIDTH,
-        height: isInit && isInitialPath ? COMPANY_LOGO_MID_HEIGHT : COMPANY_LOGO_LEFT_HEIGHT,
+        top: isInit && isInitialPath ? companyLogoInitMarginTop : PAGE_COMPANY_LOGO_CONSTANTS.RUN_MARGIN_TOP,
+        left: isInit && isInitialPath ? companyLogoInitMarginLeft : PAGE_COMPANY_LOGO_CONSTANTS.RUN_MARGIN_LEFT,
+        width: isInit && isInitialPath ? PAGE_COMPANY_LOGO_CONSTANTS.INIT_WIDTH : PAGE_COMPANY_LOGO_CONSTANTS.RUN_WIDTH,
+        height: isInit && isInitialPath ? PAGE_COMPANY_LOGO_CONSTANTS.INIT_HEIGHT : PAGE_COMPANY_LOGO_CONSTANTS.RUN_HEIGHT,
         display: 'flex',
         flexDirection: 'row',
-        gap: isInit && isInitialPath ? COMPANY_LOGO_MID_GAP : COMPANY_LOGO_LEFT_GAP,
+        gap: isInit && isInitialPath ? COMPANY_LOGO_CONSTANTS.INIT_GAP : COMPANY_LOGO_CONSTANTS.RUN_GAP,
         justifyContent: 'center',
-        animation: isStart ? `${LogoContainerStartAnimation} ${START_ANIMATION_TIME} ease-out backwards`: '',
+        alignItems:'center',
+        animation: isStart ? `${createLogoContainerAnimation({companyLogoInitMarginTop, companyLogoInitMarginLeft})} ${ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
 
         '#LogoSvg': {
             flex:'0 0 auto',
-            width: isInit && isInitialPath ? SVG_MID_WIDHT :SVG_LEFT_WIDTH ,
-            height: isInit && isInitialPath ? SVG_MID_WIDHT :SVG_LEFT_WIDTH ,
+            width: isInit && isInitialPath ? COMPANY_LOGO_CONSTANTS.SVG.INIT_WIDTH : COMPANY_LOGO_CONSTANTS.SVG.RUN_WIDTH ,
+            height: isInit && isInitialPath ? COMPANY_LOGO_CONSTANTS.SVG.INIT_WIDTH : COMPANY_LOGO_CONSTANTS.SVG.RUN_WIDTH ,
             color: colors.DARKBLUE,
-            paddingTop: isInit && isInitialPath ? SVG_MID_MARGIN_TOP : SVG_LEFT_MARGIN_TOP,
-            animation: isStart ? `${LogoSvgStartAnimation}  ${START_ANIMATION_TIME} ease-out backwards`: '',
+            animation: isStart ? `${LogoSvgStartAnimation}  ${ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
+            
             'svg':{
                 strokeDasharray: STROKE_LENGTH ,
                 strokeDashoffset: isInit && isInitialPath ? STROKE_LENGTH : 0,
@@ -86,14 +56,16 @@ export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean, isIniti
 
         '.CompanySlogan':{
             flex:'0 0 auto',
-            marginTop: isInit && isInitialPath ? SLOGAN_MID_MARGIN_TOP : SLOGAN_LEFT_MARGIN_TOP,
-            height: isInit && isInitialPath ? SLOGAN_MID_TOTAL_HEIGHT : SLOGAN_LEFT_TOTAL_HEIGHT ,
-            width: isInit && isInitialPath ? SLOGAN_MID_WIDTH : SLOGAN_LEFT_WIDTH,
+            //marginTop: isInit && isInitialPath ? SLOGAN_MID_MARGIN_TOP : SLOGAN_LEFT_MARGIN_TOP,
+            height: isInit && isInitialPath ? sloganInitTotalHeight : sloganRunTotalHeight ,
+            width: isInit && isInitialPath ? COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_WIDTH : COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_WIDTH,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'start',
+            justifyContent: 'center',
+            gap:  isInit && isInitialPath ? COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_GAP : COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_GAP,
+            alignItems: 'center',
             fontSize: isInit && isInitialPath ? fontSizes.HUGE : fontSizes.NORMAL,
-            animation: isStart ? `${SloganStartAnimation}  ${START_ANIMATION_TIME} ease-out backwards`: '',
+            animation: isStart ? `${createSloganStartAnimation({sloganInitTotalHeight, sloganRunTotalHeight})}  ${ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
            
             ".CompanySloganRow":{
                 
@@ -102,15 +74,13 @@ export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean, isIniti
                 flexDirection: 'row',
                 height: isInit && isInitialPath ? `${fontSizes.HUGE}` : `${fontSizes.NORMAL}`,
                 alignItems:'center',
-                animation: isStart ? `${SloganRowStartAnimation}  ${START_ANIMATION_TIME} ease-out backwards`: '',
-                
-                '&:first-of-type':{
-                    marginBottom: isInit && isInitialPath ? SLOGAN_MID_INNER_MARGIN : SLOGAN_LEFT_INNER_MARGIN,
-                },
+                justifyContent: 'center',
+                animation: isStart ? `${SloganRowStartAnimation}  ${ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
             },
             
         },
         '#Underline':{
+            flex: 0,
             position:'absolute',
             left:  isInit && isInitialPath  ? 0 : '5%',
             backgroundColor: colors.LIGHTORANGE,
@@ -125,60 +95,68 @@ export const createCompanyLogoStyles =  (isInit:boolean,isStart:boolean, isIniti
     return styles
 }
 
-const createSVGAnimation = (isInit:boolean, isInitialPath:boolean) => {
-    if(isInit && isInitialPath) return`${PaintSvgInitAnimation} ${INIT_SVG_ANIMATION_TIME} ease-in backwards`;
+export interface IcreateSvgAnimation {
+    isInit:boolean,
+    isInitialPath:boolean
+}
+
+const createSVGAnimation = (inputParams:IcreateSvgAnimation) => {
+    const { isInit, isInitialPath } = inputParams;
+    if(isInit && isInitialPath) return`${PaintSvgInitAnimation} ${ANIMATION_TIMINGS.INIT_LOGO_TIME}ms ease-in backwards`;
 
     return'';
 }
+
 const createUnderlineAnimation = (isInit:boolean) => {
-    if(isInit) return`${UnderlineInitAnimation} ${UNDERLINE_INIT_ANIMATION_TIME} ${LOGO_UNDERLINE_INIT_DELAY} ease-out backwards`;
+    if(isInit) return`${UnderlineInitAnimation} ${ANIMATION_TIMINGS.INIT_UNDERLINE_TIME}ms ${ANIMATION_TIMINGS.INIT_UNDERLINE_DELAY}ms ease-out backwards`;
     return '';
 }
 
-const LogoContainerStartAnimation = keyframes`
+export interface IcreateLogoContainerAnimation {
+    companyLogoInitMarginTop:number,
+    companyLogoInitMarginLeft:number
+}
+const createLogoContainerAnimation = (animationParams:IcreateLogoContainerAnimation) => keyframes`
     from {
-        height: ${COMPANY_LOGO_MID_HEIGHT};
-        width:${COMPANY_LOGO_MID_WIDTH};
-        top: ${COMPANY_LOGO_MID_TOP};
-        left:${COMPANY_LOGO_MID_LEFT};
-        gap: ${COMPANY_LOGO_MID_GAP};
-        
+        height: ${PAGE_COMPANY_LOGO_CONSTANTS.INIT_HEIGHT}px;
+        width:${PAGE_COMPANY_LOGO_CONSTANTS.INIT_WIDTH}px;
+        top: ${animationParams.companyLogoInitMarginTop}px;
+        left:${animationParams.companyLogoInitMarginLeft}px;
+        gap: ${COMPANY_LOGO_CONSTANTS.INIT_GAP}px;
     }
     to {
-        height: ${COMPANY_LOGO_LEFT_HEIGHT};
-        width: ${COMPANY_LOGO_LEFT_WIDTH};
-        top: ${COMPANY_LOGO_LEFT_TOP};
-        left: ${COMPANY_LOGO_LEFT_LEFT};
-        gap: ${COMPANY_LOGO_LEFT_GAP};
+        height: ${PAGE_COMPANY_LOGO_CONSTANTS.RUN_HEIGHT}px;
+        width: ${PAGE_COMPANY_LOGO_CONSTANTS.RUN_WIDTH}px;
+        top: ${PAGE_COMPANY_LOGO_CONSTANTS.RUN_MARGIN_TOP}px;
+        left: ${PAGE_COMPANY_LOGO_CONSTANTS.RUN_MARGIN_LEFT}px;
+        gap: ${COMPANY_LOGO_CONSTANTS.RUN_GAP}px;
     }
 `;
 
 const LogoSvgStartAnimation = keyframes`
     from {
-        height: ${SVG_MID_HEIGHT};
-        width:${SVG_MID_WIDHT};
-        padding-top: ${SVG_MID_MARGIN_TOP};
-
+        height: ${COMPANY_LOGO_CONSTANTS.SVG.INIT_HEIGHT}px;
+        width:${COMPANY_LOGO_CONSTANTS.SVG.INIT_WIDTH}px;
     }
     to{
-        height: ${SVG_LEFT_HEIGHT};
-        width:${SVG_LEFT_WIDTH};
-        padding-top: ${SVG_LEFT_MARGIN_TOP};
+        height: ${COMPANY_LOGO_CONSTANTS.SVG.RUN_HEIGHT}px;
+        width:${COMPANY_LOGO_CONSTANTS.SVG.RUN_WIDTH}px;
     }
 `
-
-const SloganStartAnimation = keyframes`
+export interface IcreateSloganStartAnimation {
+    sloganInitTotalHeight:number,
+    sloganRunTotalHeight:number
+}
+const createSloganStartAnimation = (animationParams:IcreateSloganStartAnimation) => keyframes`
     from{
-        height:${SLOGAN_MID_TOTAL_HEIGHT};
-        width: ${SLOGAN_MID_WIDTH};
+        height:${animationParams.sloganInitTotalHeight}px;
+        width: ${COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_WIDTH}px;
         font-size: ${fontSizes.HUGE};
-        margin-top:${SLOGAN_MID_MARGIN_TOP};
-    }
+        }
     to{
-        height: ${SLOGAN_LEFT_TOTAL_HEIGHT};
-        width: ${SLOGAN_LEFT_WIDTH};
+        height: ${animationParams.sloganRunTotalHeight}px;
+        width: ${COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_WIDTH}px;
         font-size: ${fontSizes.NORMAL};
-        margin-top: ${SLOGAN_LEFT_MARGIN_TOP};
     }
 `
 const SloganRowStartAnimation = keyframes`
@@ -189,48 +167,6 @@ const SloganRowStartAnimation = keyframes`
         height: ${fontSizes.NORMAL};
     }
 `
-
-const SVGInitAnmation = keyframes`
-    0%{
-        opacity:0;
-        fill:${colors.LIGHTORANGE};
-        stroke:  ${colors.LIGHTORANGE};
-        stroke-width: 15;
-        transform:translateX(100%);
-    }
-  
-    30%{
-        opacity: 1;
-        fill:${colors.LIGHTORANGE};
-        stroke: ${colors.LIGHTORANGE};
-        stroke-width: 15;
-        transform:translateX(100%);
-    }
-    50%{
-        opacity: 1;
-        fill:${colors.LIGHTORANGE};
-        stroke: ${colors.LIGHTORANGE};
-        stroke-width: 50;
-        transform:translateX(100%);
-    }
-   
-  
-    90%{
-        fill: ${colors.LIGHTORANGE};
-        stroke: ${colors.LIGHTORANGE};
-        stroke-width: 10;
-        transform:translateX(100%);
-    }
-   
-    100%{
-        stroke:${colors.LIGHTORANGE};
-        stroke-width: 10;
-        fill:${colors.LIGHTORANGE};
-        transform:translateX(0);
-    }
-
-`
-
 const PaintSvgInitAnimation = keyframes`
     0%{
         stroke-dasharray: ${STROKE_LENGTH};

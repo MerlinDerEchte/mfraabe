@@ -1,0 +1,7 @@
+export const CONTACT_CONTENT_CONSTANTS = {
+    HEIGHT: 80,
+    WIDTH: 200,
+    GAP: 50,
+    ICON_WIDTH: 80,
+    ICON_HEIGHT: 80,
+}

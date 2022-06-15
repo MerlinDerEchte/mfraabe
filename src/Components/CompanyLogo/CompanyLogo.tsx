@@ -7,12 +7,12 @@ import { useLocation } from 'react-router';
 import { EPaths } from '../../constants/paths';
 
 export const CompanyLogo:react.FC<{}> = () => {
-    const { isInit, isStart } = useContext(GlobalContext);
+    const { isInit, isStart, screenHeight, screenWidth } = useContext(GlobalContext);
     const location = useLocation();
   
   
     const isInitialPath = location.pathname === EPaths.NONE;
-    const companyLogoStyles = createCompanyLogoStyles(isInit, isStart, isInitialPath );
+    const companyLogoStyles = createCompanyLogoStyles(isInit, isStart, isInitialPath, screenHeight, screenWidth );
     const StyledCompanyLogoDiv = styled.div(companyLogoStyles)
     
     return(
