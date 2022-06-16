@@ -1,15 +1,12 @@
 import styled from '@emotion/styled';
 import react, { useContext } from 'react';
 import { EDevelopmentType } from '../../EDevelopmentType';
-import { ServiceContext } from '../../DevelopmentContext';
+import { DevelopmentContext } from '../../DevelopmentContext';
 import { createServiceDeselectStyles } from './DevelopmentCancelStyles';
-
-
-
 
 export const DevelopmentCancel:react.FC<{}> = () => {
 
-    const {selectedService,isSelecting, isDeselecting, handleDeselectService} = useContext(ServiceContext);
+    const {selectedService,isSelecting, isDeselecting, handleDeselectService} = useContext(DevelopmentContext);
     const isOneSelected = selectedService !== EDevelopmentType.NONE;
     const serviceDeselectStyles = createServiceDeselectStyles(isOneSelected, isSelecting, isDeselecting);
     const  StyledServiceDeselect = styled.div(serviceDeselectStyles); 

@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import react,{ useContext } from 'react';
 import { GlobalContext } from '../../../../../../GlobalContext';
 import { createDevelopmentCardStyles }from './DevelopmentCardStyles/DevelopmentCardStyles';
-import { ServiceContext } from '../../DevelopmentContext';
+import { DevelopmentContext } from '../../DevelopmentContext';
 import { EDevelopmentType } from '../../EDevelopmentType';
 import { getIsOneServiceSelected, getIsOtherDeselecting, getIsSelected, getIsSelectedAndDeselecting } from '../../DevelopmentUtils';
 import React from 'react';
@@ -10,7 +10,7 @@ import React from 'react';
 export const DevelopmentCard:react.FC<{service:EDevelopmentType,index:number, children:any}> = ({service,index,children}) => {
 
     const { isInit, isStart, isRun} = useContext(GlobalContext);
-    const { selectedService, handleSelectService, isSelecting, isDeselecting} = useContext(ServiceContext);
+    const { selectedService, handleSelectService, isSelecting, isDeselecting} = useContext(DevelopmentContext);
 
     const isOneSelected = getIsOneServiceSelected(selectedService);
     const isSelected = getIsSelected(service, selectedService);

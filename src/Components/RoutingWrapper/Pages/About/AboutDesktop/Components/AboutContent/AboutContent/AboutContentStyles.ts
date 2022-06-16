@@ -19,7 +19,7 @@ export const createAboutContentStyles = (params:IcreateAboutContentStyles) => {
     return(css({
        position:'absolute',
         top: ABOUT_CONTENT_CONSTANTS.TOP,
-        opacity: isSelected ? 1 : 0 ,
+        opacity: isSelected &&!isDeselecting ? 1 : 0 ,
         width: ABOUT_CONTENT_CONSTANTS.WIDTH,
         left: ABOUT_CONTENT_CONSTANTS.LEFT,
         zIndex: 14,

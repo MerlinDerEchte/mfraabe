@@ -1,6 +1,6 @@
 import react, { useState } from 'react';
 import { Page } from '../Page';
-import { ServiceContext } from './DevelopmentContext';
+import { DevelopmentContext } from './DevelopmentContext';
 import { EDevelopmentType } from './EDevelopmentType';
 import { getIsNoService, getIsSelected } from './DevelopmentUtils';
 import { DEVELOPMENT_ANIMATION_TIMINGS } from './DevelopmentConstants';
@@ -36,9 +36,9 @@ export const Development:react.FC<{}> = () => {
     return(
         <>
         <Page>
-            <ServiceContext.Provider value={value}>
+            <DevelopmentContext.Provider value={value}>
                 <DevelopmentWrapper />
-            </ServiceContext.Provider>
+            </DevelopmentContext.Provider>
         </Page>
         </>
     )

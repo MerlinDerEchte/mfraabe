@@ -12,6 +12,7 @@ import { ABOUT_ANIMATION_CONSTANTS } from './AboutConstants';
 import { AboutContentWrapper } from './Components/AboutContent/AboutContentWrapper';
 import { getIsOneAboutTypeSelected, getIsSelected } from './AboutUtils';
 import { GlobalContext } from '../../../../../GlobalContext';
+import { AboutCancel } from './Components/AboutCancel/AboutCancel';
 
 export const AboutDesktop:react.FC<{}> = () => {
     const [mousePositions, setMousePositions] = useState({
@@ -104,6 +105,7 @@ export const AboutDesktop:react.FC<{}> = () => {
     
 
     function handleDeselectAboutType():Promise<void>{
+       
         return new Promise(
             resolve => {
                 setIsDeselecting(true);
@@ -112,10 +114,9 @@ export const AboutDesktop:react.FC<{}> = () => {
                     setSelectedAboutType(EAboutType.NONE);
                     resolve();
                 },
-                ABOUT_ANIMATION_CONSTANTS.ACTIVATION_ANIMATION_TIME_LIGHT +
+                ABOUT_ANIMATION_CONSTANTS.DEACTIVATION_ANTIMATION_TIME_CONTENT +
                 ABOUT_ANIMATION_CONSTANTS.DEACTIVATION_ANIMATION_TIME_CONTENT_BORDER +
-                ABOUT_ANIMATION_CONSTANTS.DEACTIVATION_ANIMATION_TIME_LIGHT + 
-                ABOUT_ANIMATION_CONSTANTS.ACTIVATION_STATUS_SET_DELAY
+                ABOUT_ANIMATION_CONSTANTS.DEACTIVATION_ANIMATION_TIME_LIGHT 
                 );
             }
         )      
@@ -177,6 +178,7 @@ export const AboutDesktop:react.FC<{}> = () => {
                     <WizzardSVG />
                     <Lightball />
                     <AboutContentWrapper />
+                    <AboutCancel />
                 </MousePositionContext.Provider>
                 </AboutContext.Provider>
             </div>

@@ -2,14 +2,14 @@ import react, {  useContext } from 'react';
 import styled from '@emotion/styled';
 import { EDevelopmentType } from '../../EDevelopmentType';
 import { getDevelopmentContentStyles } from './DevelopmentContentStyles'; 
-import { ServiceContext } from '../../DevelopmentContext';
+import { DevelopmentContext } from '../../DevelopmentContext';
 import { getIsOtherDeselecting, getIsSelected } from '../../DevelopmentUtils';
 import { getIsSelectedAndDeselecting } from '../../DevelopmentUtils';
 import { GlobalContext } from '../../../../../../GlobalContext';
 
 export const DevelopmentContent:react.FC<{service:EDevelopmentType,children:any}> = ({service, children}) => {
 
-    const { selectedService, isSelecting, isDeselecting } = useContext(ServiceContext);
+    const { selectedService, isSelecting, isDeselecting } = useContext(DevelopmentContext);
     const { screenHeight } = useContext(GlobalContext);
     const isSelected = getIsSelected(service,selectedService);
     const isSelectedAndDeselecting = getIsSelectedAndDeselecting(service, selectedService, isDeselecting);

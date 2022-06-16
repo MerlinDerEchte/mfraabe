@@ -1,39 +1,31 @@
-import {css,keyframes } from '@emotion/react';
+import {css,keyframes } from '@emotion/css';
+import { colors } from '../../../../../../../constants/css/colors';
+import { ABOUT_ANIMATION_CONSTANTS, ABOUT_CANCEL_CONSTANTS } from '../../AboutConstants';
 
-import { colors } from '../../../../../../constants/css/colors';
-import { 
-    SERVICE_CARD_DESELECTION_ANIMATION_DELAY,
-    SERVICE_CARD_DESELECTION_ANIMATION_TIME,
-   
-     } from '../../../../../../constants/timings';
-import { DEVELOPMENT_ANIMATION_TIMINGS } from '../../DevelopmentConstants';
-
-
-const SERVICE_DESELECT_WIDTH = '50px';
-const SERVICE_DESELECT_HEIGHT = '50px';
-const SERVICE_DESELECT_LINE_HEIGHT = '6px';
-
-const SERVICE_DESELECT_HOVER_ANIMATION_TIME = 0.2;
-export const createServiceDeselectStyles = (isOneSelected:boolean, isSelecting:boolean, isDeselecting:boolean) => {
-
-    const serviceDeselectAnimation = createDevelopmentCancelAnimation(isOneSelected, isSelecting, isDeselecting);
+export interface IcreateAboutCancelStyles {
+    isOneSelected:boolean,
+    isSelecting:boolean,
+    isDeselecting:boolean
+} 
+export const createAboutCancelStyles = (params:IcreateAboutCancelStyles) => {
+    const { isOneSelected, isSelecting, isDeselecting } = params; 
+    const aboutCancelAnimation = createAboutCancelAnimation({isSelecting, isDeselecting});
 
     return css({
-        animation: serviceDeselectAnimation,
+        animation: aboutCancelAnimation,
         position:'absolute',
         opacity: isOneSelected ? 1 : 0,
         right:  0,
         top: 0,
         zIndex: 15,
-        width:SERVICE_DESELECT_WIDTH,
-        height: SERVICE_DESELECT_HEIGHT,
+        width: ABOUT_CANCEL_CONSTANTS.WIDTH,
+        height: ABOUT_CANCEL_CONSTANTS.HEIGHT,
         
-
         '.xBackground':{
             position:'absolute',
             content: `''`,
             width: '100%',
-            height: SERVICE_DESELECT_LINE_HEIGHT,
+            height: ABOUT_CANCEL_CONSTANTS.LINE_HEIGHT,
             borderRadius: 6,
             zIndex: 16,
             top: '50%',
@@ -47,7 +39,7 @@ export const createServiceDeselectStyles = (isOneSelected:boolean, isSelecting:b
             zIndex: 16,
             content: `''`,
             width:'100%',
-            height: SERVICE_DESELECT_LINE_HEIGHT,
+            height: ABOUT_CANCEL_CONSTANTS.LINE_HEIGHT,
             borderRadius: 6,
             top: '50%',
             left: '0',
@@ -71,34 +63,37 @@ export const createServiceDeselectStyles = (isOneSelected:boolean, isSelecting:b
             '.xForeground':{
                 boxShadow: `0px 0px 3px 1px ${colors.DARKWHITE}`,
                 background: colors.DARKWHITE,
-                animation: `${ServiceDeselctHoverXAnimation} ${SERVICE_DESELECT_HOVER_ANIMATION_TIME}s ease-in-out 0s backwards`,
+                animation: `${cancelXHoverAnimation} ${ABOUT_ANIMATION_CONSTANTS.CANCEL_HOVER_ANIMATION_DELAY}ms ease-in-out 0s backwards`,
                 '::before': {
                     background: colors.DARKWHITE,
-                    animation: `${ServiceDeselctHoverXBeforeAnimation} ${SERVICE_DESELECT_HOVER_ANIMATION_TIME}s ease-in-out 0s backwards`,
+                    animation: `${cancelXHoverBeforeAnimation} ${ABOUT_ANIMATION_CONSTANTS.CANCEL_HOVER_ANIMATION_DELAY}ms ease-in-out 0s backwards`,
                 }
                
             },
             '.xBackground':{
                 boxShadow: `0px 0px 3px 1px ${colors.DARKWHITE}`,
                 background: colors.DARKWHITE,
-                animation: `${ServiceDeselctHoverXAnimation} ${SERVICE_DESELECT_HOVER_ANIMATION_TIME}s ease-in-out 0s backwards`,
+                animation: `${cancelXHoverAnimation} ${ABOUT_ANIMATION_CONSTANTS.CANCEL_HOVER_ANIMATION_DELAY}ms ease-in-out 0s backwards`,
             }
         }
     });
 }
-
-const createDevelopmentCancelAnimation = (isOneSelected:boolean, isSelecting:boolean, isDeselecting:boolean) => {
+interface IcreateAboutCancelAnimation {
+    isSelecting:boolean,
+    isDeselecting:boolean
+}
+const createAboutCancelAnimation = (params:IcreateAboutCancelAnimation) => {
+    const { isSelecting, isDeselecting } = params;
     if(isDeselecting){
-        return `${ServiceDeselectDisapperAnimation} ${SERVICE_CARD_DESELECTION_ANIMATION_TIME}  ${SERVICE_CARD_DESELECTION_ANIMATION_DELAY} ease-in-out backwards`;
+        return `${aboutCancelDeselectAnimation} ${ABOUT_ANIMATION_CONSTANTS.DEACTIVATION_ANTIMATION_TIME_CONTENT}ms ease-in-out backwards`;
     }
     if(isSelecting){
-        return `${ServiceDeselectInitAnimation} ${DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME}ms ease-in-out 0s backwards`
+        return `${aboutCancelSelectAnimtatino} ${ABOUT_ANIMATION_CONSTANTS.ACTIVATION_ANIMATION_TIME_CONTENT_BORDER}ms ${ABOUT_ANIMATION_CONSTANTS.ACTIVATION_ANIMATION_TIME_LIGHT}ms ease-in-out 0s backwards`
     };
-    return '0s';
-
+    return '';
 }
 
-const ServiceDeselectInitAnimation = keyframes`
+const aboutCancelSelectAnimtatino = keyframes`
     from{
         opacity:0;
       
@@ -110,7 +105,7 @@ const ServiceDeselectInitAnimation = keyframes`
         right: 0px;
     }
 `;
-const ServiceDeselectDisapperAnimation = keyframes`
+const aboutCancelDeselectAnimation = keyframes`
     from{
         opactiy:1;
      
@@ -123,7 +118,7 @@ const ServiceDeselectDisapperAnimation = keyframes`
     }
 `;
 
-const ServiceDeselctHoverXAnimation = keyframes`
+const cancelXHoverAnimation = keyframes`
     from{
         boxShadow: 0px 0px 3px 1px ${colors.LIGHTORANGE};
         background: ${colors.DARKBLUE};
@@ -133,7 +128,7 @@ const ServiceDeselctHoverXAnimation = keyframes`
         background: ${colors.DARKWHITE};
     }
 `
-const ServiceDeselctHoverXBeforeAnimation = keyframes`
+const cancelXHoverBeforeAnimation = keyframes`
     from{
         background: ${colors.DARKBLUE};
     }
