@@ -1,4 +1,4 @@
-import  react, {useState, useEffect} from 'react';
+import  {useState, useEffect} from 'react';
 import { EPaths } from './constants/paths';
 import {appStyles} from './AppStyles';
 import {CompanyLogo} from './Components/CompanyLogo/CompanyLogo'
@@ -6,11 +6,11 @@ import {Menu} from './Components/Menu/Menu';
 import { RoutingWrapper } from './Components/RoutingWrapper/RoutingWrapper';
 import { applicationStatus } from './constants/ApplicationStatus';
 import {  useLocation, useNavigate } from 'react-router-dom'
-import { getIsMobile } from './utils/isMobile';
-import { getIsStart } from './utils/isStart';
-import { getIsInit } from './utils/isInit';
-import { getIsRun } from './utils/isRun';
-import { getIsInitialPath } from './utils/getIsInitialPath';
+import { getIsMobile } from './Utils/isMobile';
+import { getIsStart } from './Utils/isStart';
+import { getIsInit } from './Utils/isInit';
+import { getIsRun } from './Utils/isRun';
+import { getIsInitialPath } from './Utils/getIsInitialPath';
 import { ANIMATION_TIMINGS } from './GlobalConstants';
 import { GlobalContext } from './GlobalContext';
 
@@ -20,7 +20,7 @@ export interface IAppDesktopProps {
 }
 export const AppDesktop = (params:IAppDesktopProps) => {
     const { screenHeight, screenWidth  } = params;
-    const [appStatus, setAppStatus] = useState(applicationStatus.INIT);
+    const [ appStatus, setAppStatus ] = useState(applicationStatus.INIT);
     const location = useLocation();
     const navigate = useNavigate();
   // rename
@@ -40,7 +40,8 @@ export const AppDesktop = (params:IAppDesktopProps) => {
   const isRun = getIsRun(appStatus);
 
   const isMobile = getIsMobile(screenWidth);
-  const globalContextValue = ({ isInit, isStart, isRun, screenWidth, screenHeight, initApp, isMobile}); 
+  const showMenu = true;
+  const globalContextValue = ({ isInit, isStart, isRun, screenWidth, screenHeight, initApp, isMobile, showMenu}); 
 
   useEffect(()=>{
    

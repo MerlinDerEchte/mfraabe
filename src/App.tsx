@@ -1,13 +1,13 @@
 import  {useState, useEffect} from 'react';
-import { getIsMobile } from './utils/isMobile';
+import { getIsMobile } from './Utils/isMobile';
 import { AppDesktop } from './AppDesktop';
 import { AppMobile } from './AppMobile';
 import { BrowserRouter } from 'react-router-dom';
 
 export const App = () => {
 
-  const [screenWidth, setScreenWidth] = useState(0)
-  const [ screenHeight, setScreenHeigth] = useState(0)
+  const [ screenWidth, setScreenWidth ] = useState(0)
+  const [ screenHeight, setScreenHeigth ] = useState(0)
 
   
   const handleResize = ():void => {
@@ -26,11 +26,14 @@ export const App = () => {
   return (
     <BrowserRouter>
       {isMobile ?
-        <AppMobile />
+        <AppMobile 
+            screenHeight={screenHeight}
+            screenWidth={screenWidth}
+        />
         :
         <AppDesktop 
-          screenHeight={screenHeight}
-          screenWidth={screenWidth}
+            screenHeight={screenHeight}
+            screenWidth={screenWidth}
         />
       }
     </BrowserRouter>

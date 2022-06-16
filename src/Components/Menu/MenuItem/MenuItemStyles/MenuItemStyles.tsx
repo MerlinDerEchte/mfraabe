@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
 import { colors } from '../../../../constants/css/colors';
+import { fontSizes } from '../../../../constants/css/fontSizes';
 import { PAGE_COMPANY_LOGO_CONSTANTS, PAGE_MENU_CONSTANTS } from '../../../../GlobalConstants';
 import { MENU_CONSTANTS } from '../../MenuConstants';
 import { createMenuItemAnimation, IcreateMenuItemAnimation } from './MenuItemAnimations';
@@ -42,7 +43,7 @@ export const createMenuItemStyles = (params:IcreateMenuItemStyles) => {
             zIndex: 10,
             top: isInit && isStartPath ? menuItemInitMarginTop : menuItemRunMarginTop,
             left:  isInit && isStartPath ? menuItemInitMarginLeft : PAGE_MENU_CONSTANTS.RUN_MARGIN_LEFT,
-            fontSize: 30,
+            fontSize: fontSizes.BIG,
             fontWeight: 50,
             width: MENU_CONSTANTS.MENU_ITEM_WIDTH,
             color: colors.DARKWHITE,

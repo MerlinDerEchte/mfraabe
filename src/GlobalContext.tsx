@@ -8,4 +8,5 @@ export const GlobalContext = react.createContext({
     screenHeight: 0,
     isMobile: false,
     initApp: ()=> {},
+    showMenu: true
 })

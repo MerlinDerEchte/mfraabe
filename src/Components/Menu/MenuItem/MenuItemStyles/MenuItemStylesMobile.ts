@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
 import { colors } from '../../../../constants/css/colors';
+import { fontSizes } from '../../../../constants/css/fontSizes';
 import { MOBILE_PAGE_COMPANY_LOGO_CONSTANTS, MOBILE_PAGE_MENU_CONSTANTS } from '../../../../GlobalConstantsMobile';
 import { MOBILE_MENU_CONSTANTS } from '../../MenuConstantsMobile';
 import { createMenuItemAnimation, IcreateMenuItemAnimation } from './MenuItemAnimations';
@@ -17,10 +18,9 @@ export interface IcreateMobileMenuItemStyles {
 
 export const createMobileMenuItemStyles = ( params:IcreateMobileMenuItemStyles ) => {
     const { index, isInit, isStart, isSelected, isStartPath, screenWidth, screenHeight } = params;
-    const menuWidth = 3 * MOBILE_MENU_CONSTANTS.MENU_ITEM_WIDTH + 2 * MOBILE_MENU_CONSTANTS.MENU_ITEM_GAP_X;
     
-    const menuItemInitMarginTop = (screenHeight - MOBILE_PAGE_COMPANY_LOGO_CONSTANTS.INIT_HEIGHT / 2) + MOBILE_PAGE_MENU_CONSTANTS.INIT_EXTRA_MARGIN_TOP
-    const menuItemInitMarginLeft = (screenWidth -  menuWidth) / 2 + index * ( MOBILE_MENU_CONSTANTS.MENU_ITEM_WIDTH + MOBILE_MENU_CONSTANTS.MENU_ITEM_GAP_X ); 
+    const menuItemInitMarginTop = (screenHeight / 2 )  + MOBILE_PAGE_MENU_CONSTANTS.INIT_EXTRA_MARGIN_TOP +  index * (MOBILE_MENU_CONSTANTS.MENU_ITEM_HEIGHT + MOBILE_MENU_CONSTANTS.MENU_ITEM_GAP_Y)
+    const menuItemInitMarginLeft = (screenWidth - MOBILE_MENU_CONSTANTS.MENU_ITEM_WIDTH ) /2 ; 
 
     const menuItemRunMarginTop = MOBILE_PAGE_MENU_CONSTANTS.RUN_MARGIN_TOP + index * (MOBILE_MENU_CONSTANTS.MENU_ITEM_HEIGHT + MOBILE_MENU_CONSTANTS.MENU_ITEM_GAP_Y);
     const menuItemAnimationParams:IcreateMenuItemAnimation = {
@@ -42,7 +42,7 @@ export const createMobileMenuItemStyles = ( params:IcreateMobileMenuItemStyles )
             zIndex: 10,
             top: isInit && isStartPath ? menuItemInitMarginTop : menuItemRunMarginTop,
             left:  isInit && isStartPath ? menuItemInitMarginLeft : MOBILE_PAGE_MENU_CONSTANTS.RUN_MARGIN_LEFT,
-            fontSize: 30,
+            fontSize: fontSizes.BIG,
             fontWeight: 50,
             width: MOBILE_MENU_CONSTANTS.MENU_ITEM_WIDTH,
             color: colors.DARKWHITE,

@@ -3,5 +3,6 @@ export const fontSizes = {
     BIG: '30px',
     NORMAL: '25px',
     SMALL: '20px',
-    MINI: '15px'
+    VERY_SMALL: '15px',
+    MINI: '10px',
 }

@@ -36,14 +36,6 @@ interface IcreateSloganStartAnimation {
     sloganInitTotalHeight:number,
     sloganRunTotalHeight:number
 }
-const SloganRowStartAnimation = keyframes`
-    from{
-        height:${fontSizes.HUGE};
-    }
-    to{
-        height: ${fontSizes.NORMAL};
-    }
-`
 
 function createSloganStartAnimation(animationParams:IcreateSloganStartAnimation){
     return(keyframes`

@@ -1,25 +1,28 @@
 import react, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { GlobalContext } from '../../../GlobalContext';
-import { getIsInitialPath } from '../../../utils/getIsInitialPath';
-import { getSloganInitTotalHeight, getSloganRunTotalHeight } from '../Utils';
+import { getIsInitialPath } from '../../../Utils/getIsInitialPath';
+import { getMobileSloganInitTotalHeight, getMobileSloganRunTotalHeight, getSloganInitTotalHeight, getSloganRunTotalHeight } from '../Utils';
 import { createCompanySloganStyles } from './SloganStyles';
 import { SloganRow } from './SloganRow/SloganRow';
 import { SloganLetter } from './SloganLetter/SloganLetter';
 import { SloganUnderline } from './SloganUnderline/SloganUnterline';
+import { createMobileCompanySloganStyles } from './SloganStylesMobile';
 
 export const Slogan:react.FC<{}> = () => {
-    const {isInit, isStart } = useContext(GlobalContext);
+    const {isInit, isStart, isMobile } = useContext(GlobalContext);
     const location = useLocation();
     const isInitialPath = getIsInitialPath(location.pathname);
 
     const sloganInitTotalHeight = getSloganInitTotalHeight();
     const sloganRunTotalHeight = getSloganRunTotalHeight();
+    const mobileSloganInitTotalHeight = getMobileSloganInitTotalHeight();
+    const mobileSloganRunTotalHeight = getMobileSloganRunTotalHeight();
 
     const sloganStyles = createCompanySloganStyles({isInit, isStart, isInitialPath,sloganInitTotalHeight, sloganRunTotalHeight });
-
+    const sloganStylesMobile = createMobileCompanySloganStyles({isInit, isStart, isInitialPath, mobileSloganInitTotalHeight, mobileSloganRunTotalHeight })
     return(
-        <div className={sloganStyles}>
+        <div className={isMobile ? sloganStylesMobile : sloganStyles}>
             <SloganRow>
                 <SloganLetter title="W" index={0}></SloganLetter>
                 <SloganLetter title="e" index={1}></SloganLetter>

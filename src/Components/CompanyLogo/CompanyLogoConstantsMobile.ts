@@ -1,19 +1,19 @@
 export const MOBILE_COMPANY_LOGO_CONSTANTS = {
 
-    INIT_GAP: 50,
+    INIT_GAP: 10,
     RUN_GAP: 10,
     SVG: {
-        INIT_WIDTH: 200,
-        INIT_HEIGHT: 200,
+        INIT_WIDTH: 100,
+        INIT_HEIGHT: 100,
         RUN_WIDTH: 66,
         RUN_HEIGHT: 66,
         RUN_MARGIN_TOP: 12,
     },
     SLOGAN:{
-        INIT_WIDTH: 300,
-        INIT_HEIGHT: 300,
+        INIT_WIDTH: 180,
+        INIT_HEIGHT: 100,
         INIT_INNER_MARGIN_BOTTOM: 10,
-        INIT_ROW_HEIGHT: 60,
+        INIT_ROW_HEIGHT: 30,
         INIT_GAP: 10,
 
         RUN_WIDTH: 175,

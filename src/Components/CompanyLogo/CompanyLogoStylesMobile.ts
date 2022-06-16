@@ -15,16 +15,9 @@ export interface IcreateMobileCompanyLogoStyles{
 }
 export const createMobileCompanyLogoStyles =  (params:IcreateMobileCompanyLogoStyles) => {
     const { isInit, isStart, isInitialPath, screenHeight, screenWidth } = params;
-    const sloganInitTotalHeight = MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_GAP + 2 * MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_ROW_HEIGHT;
-    const sloganRunTotalHeight = MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_GAP + 2 * MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_ROW_HEIGHT;
-    const companyLogoInitMarginTop  = (screenHeight - MOBILE_PAGE_COMPANY_LOGO_CONSTANTS.INIT_HEIGHT) / 2;
+    const companyLogoInitMarginTop  = (screenHeight / 2 - MOBILE_PAGE_COMPANY_LOGO_CONSTANTS.INIT_HEIGHT);
     const companyLogoInitMarginLeft = (screenWidth - MOBILE_PAGE_COMPANY_LOGO_CONSTANTS.INIT_WIDTH) / 2;
-    const svgAnimationParams:IcreateSvgAnimation = {
-        isInit: isInit,
-        isInitialPath: isInitialPath
-    } 
-    const svgAnimation = createMobileSVGAnimation(svgAnimationParams);
-    const underlineAnimation = createMobileUnderlineAnimation(isInit);
+  
 
     const styles = css({
         zIndex: 12,
@@ -39,63 +32,6 @@ export const createMobileCompanyLogoStyles =  (params:IcreateMobileCompanyLogoSt
         justifyContent: 'center',
         alignItems:'center',
         animation: isStart ? `${createMobileLogoContainerAnimation({companyLogoInitMarginTop, companyLogoInitMarginLeft})} ${MOBILE_ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
-
-        '#LogoSvg': {
-            flex:'0 0 auto',
-            width: isInit && isInitialPath ? MOBILE_COMPANY_LOGO_CONSTANTS.SVG.INIT_WIDTH : MOBILE_COMPANY_LOGO_CONSTANTS.SVG.RUN_WIDTH ,
-            height: isInit && isInitialPath ? MOBILE_COMPANY_LOGO_CONSTANTS.SVG.INIT_WIDTH : MOBILE_COMPANY_LOGO_CONSTANTS.SVG.RUN_WIDTH ,
-            color: colors.DARKBLUE,
-            animation: isStart ? `${MobileLogoSvgStartAnimation}  ${MOBILE_ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
-            
-            'svg':{
-                strokeDasharray: STROKE_LENGTH ,
-                strokeDashoffset: isInit && isInitialPath ? STROKE_LENGTH : 0,
-                height: '100%',
-                width: '100%',
-                strokeWidth: '10',
-                animation: svgAnimation,
-                fill: colors.LIGHTORANGE,
-                stroke: `${colors.LIGHTORANGE}`,
-            
-            }
-        },
-
-        '.CompanySlogan':{
-            flex:'0 0 auto',
-            //marginTop: isInit && isInitialPath ? SLOGAN_MID_MARGIN_TOP : SLOGAN_LEFT_MARGIN_TOP,
-            height: isInit && isInitialPath ? sloganInitTotalHeight : sloganRunTotalHeight ,
-            width: isInit && isInitialPath ? MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_WIDTH : MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_WIDTH,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            gap:  isInit && isInitialPath ? MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_GAP : MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_GAP,
-            alignItems: 'center',
-            fontSize: isInit && isInitialPath ? fontSizes.HUGE : fontSizes.NORMAL,
-            animation: isStart ? `${createMobileSloganStartAnimation({sloganInitTotalHeight, sloganRunTotalHeight})}  ${MOBILE_ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
-           
-            ".CompanySloganRow":{
-                
-                flex: '1 1',
-                display: 'flex',
-                flexDirection: 'row',
-                height: isInit && isInitialPath ? `${fontSizes.HUGE}` : `${fontSizes.NORMAL}`,
-                alignItems:'center',
-                justifyContent: 'center',
-                animation: isStart ? `${MobileSloganRowStartAnimation}  ${MOBILE_ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
-            },
-            
-        },
-        '#Underline':{
-            flex: 0,
-            position:'absolute',
-            left:  isInit && isInitialPath  ? 0 : '5%',
-            backgroundColor: colors.LIGHTORANGE,
-            bottom: 0,
-            height: 3,
-            borderRadius: '5px',
-            width: isInit && isInitialPath ? '100%' : '90%',
-            animation: underlineAnimation,
-          }
 
     })
     return styles

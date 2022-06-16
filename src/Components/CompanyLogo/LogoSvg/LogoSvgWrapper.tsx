@@ -1,7 +1,7 @@
 import react, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { GlobalContext } from '../../../GlobalContext';
-import { getIsInitialPath } from '../../../utils/getIsInitialPath';
+import { getIsInitialPath } from '../../../Utils/getIsInitialPath';
 import { LogoSvg } from './LogoSvg';
 import { createLogoSvgWrapperStyles } from './LogoSvgWrapperStyles';
 import { createMobileLogoSvgWrapperStyles } from './LogoSvgWrapperStylesMobile';

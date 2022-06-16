@@ -36,7 +36,7 @@ export const LIGHTBALL_CONSTANTS = {
 export const ABOUT_MENU_CONSTANTS = {
     WIDTH: 500,
     HEIGHT: 100,
-    LEFT:50,
+    LEFT:0,
     TOP:0,
     ITEM: {
         BASE_LEFT: 150,
@@ -49,14 +49,14 @@ export const ABOUT_MENU_CONSTANTS = {
 
 export const ABOUT_CONTAINER_CONSTANTS ={
     MENU_ACTIVATION_TRHESHOLD: 80,
-    WIDTH: 700
+    WIDTH: 650
 }
 
 
 export const ABOUT_CONTENT_CONSTANTS = {
     WIDTH: 500,
     HEIGHT: 400,
-    LEFT: 50,
+    LEFT: 0,
     TOP: ABOUT_MENU_CONSTANTS.HEIGHT,
     MARGIN_BOTTOM: 50,
 }
@@ -81,7 +81,7 @@ export const ABOUT_ANIMATION_CONSTANTS = {
 export const ABOUT_CARD_CONSTANTS={
     WIDTH: 300,
     HEIGHT: 300,
-    LEFT: 150,
+    LEFT: 100,
     TOP: ABOUT_MENU_CONSTANTS.HEIGHT ,
     ABOUT_PHOTO_WRAPPER:{
         WIDTH: 200,
