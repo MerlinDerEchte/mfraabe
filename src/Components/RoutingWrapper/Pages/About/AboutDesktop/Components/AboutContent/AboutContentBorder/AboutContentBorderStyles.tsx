@@ -1,7 +1,7 @@
 import { css, keyframes } from "@emotion/css";
-import { colors } from "../../../../../../../constants/css/colors";
-import { Directions } from "../../../../../../../constants/Directions";
-import { PAGE_CONSTANTS } from "../../../../PageConstants";
+import { colors } from "../../../../../../../../constants/css/colors";
+import { Directions } from "../../../../../../../../constants/Directions";
+import { PAGE_CONSTANTS } from "../../../../../PageConstants";
 import { ABOUT_ANIMATION_CONSTANTS, ABOUT_CONTENT_CONSTANTS, ABOUT_MENU_CONSTANTS } from "../../../AboutConstants";
 
 export interface IcreateAboutContentBorderStyles {

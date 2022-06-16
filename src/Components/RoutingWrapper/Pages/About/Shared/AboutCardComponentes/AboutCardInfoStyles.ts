@@ -1,12 +1,11 @@
 import { css } from "@emotion/css"
-import { colors } from "../../../../../../../../constants/css/colors"
-import { fontSizes } from "../../../../../../../../constants/css/fontSizes"
+import { colors } from "../../../../../../constants/css/colors"
+import { fontSizes } from "../../../../../../constants/css/fontSizes"
 
 export const createAboutCardInfoStyles = () => {
 
     return(css({
         marginTop: 20,
-        flex:' 0 0 auto',
         display:'flex',
         flexDirection:'column',
         justifyContent: 'flexStart',

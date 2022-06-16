@@ -1,6 +1,6 @@
 import { css } from "@emotion/react"
-import { colors } from "../../../../../../../constants/css/colors"
-import { fontSizes } from "../../../../../../../constants/css/fontSizes"
+import { colors } from "../../../../../../../../constants/css/colors"
+import { fontSizes } from "../../../../../../../../constants/css/fontSizes"
 import { ABOUT_MENU_CONSTANTS } from "../../../AboutConstants"
 
 export const createWizzardItemStyles = ( index:number) => {

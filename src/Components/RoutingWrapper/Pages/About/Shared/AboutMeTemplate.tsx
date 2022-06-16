@@ -1,22 +1,10 @@
-import react, { useContext } from 'react';
-import { GlobalContext } from '../../../../../../../GlobalContext';
-import { EAboutType } from '../../../EAboutType';
-import { AboutContext } from '../../../AboutContext';
-import { getIsSelected } from '../../../AboutUtils';
-import { createAboutContentStyles } from './AboutContentStyles';
+import react from 'react';
 
 
+export const AboutMeTemplate:react.FC<{}> = () =>{
 
-export const AboutContent:react.FC<{title:EAboutType}> = ({title}) => {
-    const {selectedAboutType, isSelecting, isDeselecting} = useContext(AboutContext);
-    const { screenHeight } = useContext(GlobalContext);
-    const isSelected = getIsSelected(selectedAboutType, title);
-    const aboutContentStyles = createAboutContentStyles({isSelected, isSelecting, isDeselecting, screenHeight});
-    
-    return(
-        isSelected ? 
-            <div className={aboutContentStyles} onMouseOver={e=>e.stopPropagation()}>
-                <h1>About myself and coding</h1>
+    return( <>    
+                <h1>About myself and coding</h1>    
                  <p>
                     As a child i was always fascinated by logical problems.
                     I played lots of chess and strategie games and math was the only subject at school 
@@ -46,9 +34,6 @@ export const AboutContent:react.FC<{title:EAboutType}> = ({title}) => {
                      As teenager i skated everyday for about 2 years. Some injuries later i stopped and 
                      restarted a year ago but with more focus on the movement rather than on (some times) dangerous tricks.
                  </p>
-                     
-                  </div>
-            :
-            <></>
+            </>
     )
-}
+};

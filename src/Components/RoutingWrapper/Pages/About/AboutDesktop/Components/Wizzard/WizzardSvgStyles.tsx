@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import { colors } from "../../../../../../constants/css/colors";
+import { colors } from "../../../../../../../constants/css/colors";
 import { WIZZARD_CONSTANTS } from "../../AboutConstants";
 
 export const WizzardWrapperStyles = css({

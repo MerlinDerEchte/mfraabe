@@ -1,5 +1,5 @@
 import { WIZZARD_CONSTANTS, LIGHTBALL_CONSTANTS, ABOUT_CONTAINER_CONSTANTS,ABOUT_ANIMATION_CONSTANTS, ABOUT_CONTENT_CONSTANTS } from "../../AboutConstants";
-import { colors } from "../../../../../../constants/css/colors";
+import { colors } from "../../../../../../../constants/css/colors";
 import { css, keyframes } from "@emotion/css";
 
 export interface IcreateLightBallStyles {

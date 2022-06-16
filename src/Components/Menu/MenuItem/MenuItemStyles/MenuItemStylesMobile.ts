@@ -1,11 +1,11 @@
 import { css } from '@emotion/css';
 import { colors } from '../../../../constants/css/colors';
-import { PAGE_COMPANY_LOGO_CONSTANTS, PAGE_MENU_CONSTANTS } from '../../../../GlobalConstants';
-import { MENU_CONSTANTS } from '../../MenuConstants';
+import { MOBILE_PAGE_COMPANY_LOGO_CONSTANTS, MOBILE_PAGE_MENU_CONSTANTS } from '../../../../GlobalConstantsMobile';
+import { MOBILE_MENU_CONSTANTS } from '../../MenuConstantsMobile';
 import { createMenuItemAnimation, IcreateMenuItemAnimation } from './MenuItemAnimations';
 
 
-export interface IcreateMenuItemStyles {
+export interface IcreateMobileMenuItemStyles {
     index:number,
     isInit:boolean,
     isStart:boolean,
@@ -15,14 +15,14 @@ export interface IcreateMenuItemStyles {
     screenHeight:number
 }
 
-export const createMenuItemStyles = (params:IcreateMenuItemStyles) => {
-    const {index, isInit, isStart, isSelected, isStartPath, screenWidth, screenHeight } = params;
-    const menuWidth = 3 * MENU_CONSTANTS.MENU_ITEM_WIDTH + 2 * MENU_CONSTANTS.MENU_ITEM_GAP_X;
+export const createMobileMenuItemStyles = ( params:IcreateMobileMenuItemStyles ) => {
+    const { index, isInit, isStart, isSelected, isStartPath, screenWidth, screenHeight } = params;
+    const menuWidth = 3 * MOBILE_MENU_CONSTANTS.MENU_ITEM_WIDTH + 2 * MOBILE_MENU_CONSTANTS.MENU_ITEM_GAP_X;
     
-    const menuItemInitMarginTop = (screenHeight - PAGE_COMPANY_LOGO_CONSTANTS.INIT_HEIGHT / 2) + PAGE_MENU_CONSTANTS.INIT_EXTRA_MARGIN_TOP
-    const menuItemInitMarginLeft = (screenWidth -  menuWidth) / 2 + index * ( MENU_CONSTANTS.MENU_ITEM_WIDTH + MENU_CONSTANTS.MENU_ITEM_GAP_X ); 
+    const menuItemInitMarginTop = (screenHeight - MOBILE_PAGE_COMPANY_LOGO_CONSTANTS.INIT_HEIGHT / 2) + MOBILE_PAGE_MENU_CONSTANTS.INIT_EXTRA_MARGIN_TOP
+    const menuItemInitMarginLeft = (screenWidth -  menuWidth) / 2 + index * ( MOBILE_MENU_CONSTANTS.MENU_ITEM_WIDTH + MOBILE_MENU_CONSTANTS.MENU_ITEM_GAP_X ); 
 
-    const menuItemRunMarginTop = PAGE_MENU_CONSTANTS.RUN_MARGIN_TOP + index * (MENU_CONSTANTS.MENU_ITEM_HEIGHT + MENU_CONSTANTS.MENU_ITEM_GAP_Y);
+    const menuItemRunMarginTop = MOBILE_PAGE_MENU_CONSTANTS.RUN_MARGIN_TOP + index * (MOBILE_MENU_CONSTANTS.MENU_ITEM_HEIGHT + MOBILE_MENU_CONSTANTS.MENU_ITEM_GAP_Y);
     const menuItemAnimationParams:IcreateMenuItemAnimation = {
         isInit: isInit,
         isStart: isStart,
@@ -41,12 +41,12 @@ export const createMenuItemStyles = (params:IcreateMenuItemStyles) => {
             position: 'absolute',
             zIndex: 10,
             top: isInit && isStartPath ? menuItemInitMarginTop : menuItemRunMarginTop,
-            left:  isInit && isStartPath ? menuItemInitMarginLeft : PAGE_MENU_CONSTANTS.RUN_MARGIN_LEFT,
+            left:  isInit && isStartPath ? menuItemInitMarginLeft : MOBILE_PAGE_MENU_CONSTANTS.RUN_MARGIN_LEFT,
             fontSize: 30,
             fontWeight: 50,
-            width: MENU_CONSTANTS.MENU_ITEM_WIDTH,
+            width: MOBILE_MENU_CONSTANTS.MENU_ITEM_WIDTH,
             color: colors.DARKWHITE,
-            height: MENU_CONSTANTS.MENU_ITEM_HEIGHT,
+            height: MOBILE_MENU_CONSTANTS.MENU_ITEM_HEIGHT,
             animation: menuItemAnimation,
             
             'a':{

@@ -1,5 +1,5 @@
-import { css } from "@emotion/react";
-import { PAGE_MENU_CONSTANTS } from "../../../../GlobalConstants";
+import { css } from "@emotion/css";
+import { PAGE_MENU_CONSTANTS } from "../../../../../GlobalConstants";
 import { ABOUT_CONTENT_CONSTANTS } from "./AboutConstants";
 
 export interface IcreateAboutMainStyles {

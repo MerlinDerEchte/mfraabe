@@ -1,10 +1,10 @@
 
 import { css } from "@emotion/css";
 import { keyframes } from "@emotion/css";
-import { fontSizes } from "../../../../../../../constants/css/fontSizes";
-import { colors } from "../../../../../../../constants/css/colors";
+import { fontSizes } from "../../../../../../../../constants/css/fontSizes";
+import { colors } from "../../../../../../../../constants/css/colors";
 import { ABOUT_CONTENT_CONSTANTS, ABOUT_ANIMATION_CONSTANTS, ABOUT_MENU_CONSTANTS } from "../../../AboutConstants";
-import { PAGE_CONSTANTS } from "../../../../PageConstants";
+import { PAGE_CONSTANTS } from "../../../../../PageConstants";
 
 export interface IcreateAboutContentStyles {
     isSelected:boolean,

@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
 import react, { useContext } from 'react';
 import { useLocation } from 'react-router';
 import { EPaths } from '../../../constants/paths';
 import { GlobalContext } from '../../../GlobalContext';
 import { createSloganLetterStyles } from './SloganLetterStyles';
+import { createMobileSloganLetterStyles } from './SloganLetterStylesMobile';
 
 export interface ESloganLetter {
     index:number,
@@ -13,14 +13,14 @@ export interface ESloganLetter {
 
 export const SloganLetter:react.FC<ESloganLetter> = ({index,title, isSpace = false}) => {
 
-    const { isInit, isStart } = useContext(GlobalContext);
+    const { isInit, isStart, isMobile } = useContext(GlobalContext);
     const location = useLocation();
     const isInitialPath = location.pathname === EPaths.NONE;
     const letterStyles = createSloganLetterStyles({index, isInit, isStart,isSpace,isInitialPath});
-    const StyledSloganLetter = styled.div(letterStyles)
+    const letterStylesMobile = createMobileSloganLetterStyles({index, isInit, isStart,isSpace,isInitialPath})
     return(
-        <StyledSloganLetter >
+        <div className={isMobile ? letterStylesMobile :  letterStyles} >
             {title}
-        </StyledSloganLetter>
+        </div>
     )
 }

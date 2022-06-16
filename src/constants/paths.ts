@@ -1,5 +1,5 @@
 export enum EPaths {
-    SERVICES='/mfraabe/Development',
+    DEVELOPMENT='/mfraabe/Development',
     ABOUT='/mfraabe/About',
     CONTACT='/mfraabe/Contact',
     NONE='/mfraabe/'

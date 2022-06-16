@@ -17,7 +17,7 @@ export const RoutingWrapper:react.FC = () => {
             <div className={mainContainerStyles} >
                 <Routes>
                     <Route path={EPaths.NONE} element={<div></div>}/>
-                    <Route path={EPaths.SERVICES } element = {<Development/>} />    
+                    <Route path={EPaths.DEVELOPMENT } element = {<Development/>} />    
                     <Route path={EPaths.ABOUT } element = {<About />} />
                     <Route path={EPaths.CONTACT } element = {<Contact />} />
                 </Routes>

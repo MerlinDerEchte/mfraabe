@@ -52,7 +52,7 @@ export const DevelopmentWrapper:react.FC<{}> = () => {
                     The newest technologie would be used and everything would be divided into small components.<br />
                     Too many 'would's ? Well most of the big code bases aren't like the perfect world scenario and miss some of the mentioned points. So working on them is always a mixture of maintance, replacement and implementation of new features. <br />
                     But there is also another difference: Others depend on your work.
-                    Sometimes more than one developper works on a task. Therefore more frequent commits and communication about the progress are needed.  
+                    Sometimes more than one developer works on a task. Therefore more frequent commits and communication about the progress are needed.  
                     
                 </p>
 
@@ -68,7 +68,7 @@ export const DevelopmentWrapper:react.FC<{}> = () => {
                 <p>
                     For me as a developer with focus on the frontend it is important to have propper, fixed mockups and clean written tickets.<br />
                     A good Project Manager knows the product and the technical side so well,<br/> 
-                    that he knows when to ask a developper what needs to be considered in the creation of a ticket.<br />
+                    that he knows when to ask a developer what needs to be considered in the creation of a ticket.<br />
                     The Quality Assurer needs to be even more familiar with the product. He needs to know every special case and needs to have an eye for even small imperfections.<br />
                     When i work on a logical problem i sometimes miss small optical anomalies and therefore i am really thankful for this instance.
                     A positve relationship with both of the parties is key for me to have an enjoyable and therefore more productive time in a team.

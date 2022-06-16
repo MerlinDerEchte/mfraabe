@@ -4,7 +4,7 @@ export const Menu = () => {
 
     return(
         <nav>
-          <MenuItem path={EPaths.SERVICES} index={0} />
+          <MenuItem path={EPaths.DEVELOPMENT} index={0} />
           <MenuItem path={EPaths.ABOUT} index={1} />
           <MenuItem path={EPaths.CONTACT} index={2} />
         </nav>

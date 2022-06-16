@@ -14,78 +14,35 @@ import { getIsInit } from './utils/isInit';
 import { getIsRun } from './utils/isRun';
 import { getIsInitialPath } from './utils/getIsInitialPath';
 import { ANIMATION_TIMINGS } from './GlobalConstants';
-import { appStylesMobile } from './AppStylesMobile';
+import { AppDesktop } from './AppDesktop';
+import { AppMobile } from './AppMobile';
 
-function AppComponent() {
+export const App = () => {
 
- 
-  const [appStatus, setAppStatus] = useState(applicationStatus.INIT);
   const [screenWidth, setScreenWidth] = useState(0)
   const [ screenHeight, setScreenHeigth] = useState(0)
-  const location = useLocation();
-  const navigate = useNavigate();
-  // rename
-  const initApp = () => {
-    if(appStatus === applicationStatus.INIT){
-     
-      setAppStatus(applicationStatus.START); 
-      setTimeout(()=> {
-        setAppStatus(applicationStatus.RUN);
-      },ANIMATION_TIMINGS.START_TIME + 0.05);
-    }
-  }
-
-  const isStart = getIsStart(appStatus);
-  const isInit = getIsInit(appStatus);
-  const isRun = getIsRun(appStatus);
-
-  const isMobile = getIsMobile(screenWidth);
-  const globalContextValue = ({ isInit, isStart, isRun, screenWidth, screenHeight, initApp, isMobile}); 
 
   
   const handleResize = ():void => {
       setScreenWidth(window.innerWidth);
       setScreenHeigth(window.innerHeight);
   }
-
-
   useEffect(()=>{
-   
-    if(!getIsInitialPath(location.pathname) && !(isRun || isStart)){
-      setAppStatus(applicationStatus.RUN);
-    }
-    if(getIsInitialPath(location.pathname) && !isStart){
-      navigate(EPaths.NONE)
-      setAppStatus(applicationStatus.INIT)
-    }
     setScreenWidth(window.innerWidth);
     setScreenHeigth(window.innerHeight);
     window.addEventListener("resize",()=> handleResize())
-  },[location.pathname, isRun, isStart, navigate]);
+  },[]);
 
-
+  const isMobile = getIsMobile(screenWidth);
  
   return (
-
-    <GlobalContext.Provider value={globalContextValue}>
+<BrowserRouter>
       {isMobile ?
-        <MobileInMaintenance />
+        <AppMobile />
         :
-        <div className={isMobile ? appStylesMobile : appStyles}>        
-            <CompanyLogo />
-            <Menu />
-            <RoutingWrapper />
-        </div>
+        <AppDesktop mainScreenWidth={screenWidth} mainScreenHeight={screenHeight}/>
     }
-    </GlobalContext.Provider>
+  </BrowserRouter>
   );
 }
-function App() {
-  return(
-    <BrowserRouter>
-      <AppComponent />
-    </BrowserRouter>
-  )
-}
-
 export default App;

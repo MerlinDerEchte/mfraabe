@@ -7,7 +7,7 @@ export const getPathName = (path:EPaths):string => {
     if(path === EPaths.CONTACT){
         return 'Contact Me';
     }
-    if(path === EPaths.SERVICES){
+    if(path === EPaths.DEVELOPMENT){
         return 'Development'
     }
     return "";

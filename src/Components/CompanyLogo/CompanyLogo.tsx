@@ -18,7 +18,7 @@ export const CompanyLogo:react.FC<{}> = () => {
     //const StyledCompanyLogoDiv = isMobile ? styled.div(comanyLogoStylesM) : styled.div(companyLogoStyles)
     
     return(
-        <div className={companyLogoStylesMobile}>
+        <div className={isMobile ? companyLogoStylesMobile : companyLogoStyles}>
             <div id="LogoSvg" >
                 <svg viewBox="0 0 2000 1968.75" stroke="3">
                     <g>
