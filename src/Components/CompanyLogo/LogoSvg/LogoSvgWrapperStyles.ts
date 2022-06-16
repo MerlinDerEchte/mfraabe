@@ -78,7 +78,6 @@ const PaintSvgInitAnimation = keyframes`
         fill: ${colors.LIGHTORANGE};
         transform:translateX(0%);
     }
-
 `;
 
 const LogoSvgStartAnimation = keyframes`

@@ -49,6 +49,7 @@ export const ABOUT_MENU_CONSTANTS = {
 
 export const ABOUT_CONTAINER_CONSTANTS ={
     MENU_ACTIVATION_TRHESHOLD: 80,
+    WIDTH: 700
 }
 
 

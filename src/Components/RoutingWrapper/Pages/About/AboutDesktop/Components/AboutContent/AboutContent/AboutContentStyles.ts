@@ -21,7 +21,7 @@ export const createAboutContentStyles = (params:IcreateAboutContentStyles) => {
         top: ABOUT_CONTENT_CONSTANTS.TOP,
         opacity: isSelected ? 1 : 0 ,
         width: ABOUT_CONTENT_CONSTANTS.WIDTH,
-        paddingLeft: ABOUT_CONTENT_CONSTANTS.LEFT,
+        left: ABOUT_CONTENT_CONSTANTS.LEFT,
         zIndex: 14,
         overflowY: 'scroll',
         height: screenHeight - PAGE_CONSTANTS.MARGIN_BOTTOM - PAGE_CONSTANTS.MARGIN_TOP - ABOUT_MENU_CONSTANTS.HEIGHT,

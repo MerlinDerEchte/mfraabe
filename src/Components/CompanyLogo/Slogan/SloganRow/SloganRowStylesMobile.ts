@@ -1,14 +1,13 @@
 import { css, keyframes } from '@emotion/css';
 import { fontSizes } from '../../../../constants/css/fontSizes';
-import { ANIMATION_TIMINGS } from '../../../../GlobalConstants';
+import { MOBILE_ANIMATION_TIMINGS } from '../../../../GlobalConstantsMobile';
 
-export interface IcreateSloganRowStyles {
+export interface IcreateMobileSloganRowStyles {
     isInit: boolean,
     isStart: boolean,
     isInitialPath: boolean,
-
 }
-export const createSloganRowStyles = (params:IcreateSloganRowStyles) => {
+export const createMobileSloganRowStyles = (params:IcreateMobileSloganRowStyles) => {
     const { isInit, isStart, isInitialPath } = params;
     return(
         css({
@@ -18,12 +17,12 @@ export const createSloganRowStyles = (params:IcreateSloganRowStyles) => {
             height: isInit && isInitialPath ? `${fontSizes.HUGE}` : `${fontSizes.NORMAL}`,
             alignItems:'center',
             justifyContent: 'center',
-            animation: isStart ? `${SloganRowStartAnimation}  ${ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
+            animation: isStart ? `${MobileSloganRowStartAnimation}  ${MOBILE_ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
         })
     )
 }
 
-const SloganRowStartAnimation = keyframes`
+const MobileSloganRowStartAnimation = keyframes`
     from{
         height:${fontSizes.HUGE};
     }

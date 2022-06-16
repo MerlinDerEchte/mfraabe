@@ -1,13 +1,12 @@
 import { css, keyframes } from "@emotion/css";
 import { colors } from "../../../../constants/css/colors";
-import { ANIMATION_TIMINGS } from "../../../../GlobalConstants";
+import { MOBILE_ANIMATION_TIMINGS } from "../../../../GlobalConstantsMobile";
 
-export interface IcreateSloganUnderlineStyles {
+export interface IcreateMobileSloganUnderlineStyles {
     isInit:boolean,
     isInitialPath:boolean
 }
-
-const UnderlineInitAnimation = keyframes`
+const mobileUnderlineInitAnimation = keyframes`
     0%{
         left: 50%;
         background-color: ${colors.LIGHTORANGE};
@@ -25,11 +24,11 @@ const UnderlineInitAnimation = keyframes`
         width: 100%;
     }
 `;
-const createUnderlineAnimation = (isInit:boolean) => {
-    if(isInit) return`${UnderlineInitAnimation} ${ANIMATION_TIMINGS.INIT_UNDERLINE_TIME}ms ${ANIMATION_TIMINGS.INIT_UNDERLINE_DELAY}ms ease-out backwards`;
+const createMobileUnderlineAnimation = (isInit:boolean) => {
+    if(isInit) return`${mobileUnderlineInitAnimation} ${MOBILE_ANIMATION_TIMINGS.INIT_UNDERLINE_TIME}ms ${MOBILE_ANIMATION_TIMINGS.INIT_UNDERLINE_DELAY}ms ease-out backwards`;
     return '';
 }
-export const createSloganUnderlineStyles = (params:IcreateSloganUnderlineStyles)  => {
+export const createMobileSloganUnderlineStyles = (params:IcreateMobileSloganUnderlineStyles)  => {
     const { isInit, isInitialPath } = params;
    
     return(
@@ -42,7 +41,7 @@ export const createSloganUnderlineStyles = (params:IcreateSloganUnderlineStyles)
             height: 3,
             borderRadius: '5px',
             width: isInit && isInitialPath ? '100%' : '90%',
-            animation: createUnderlineAnimation(isInit),
+            animation: createMobileUnderlineAnimation(isInit),
         })
     )
 }
