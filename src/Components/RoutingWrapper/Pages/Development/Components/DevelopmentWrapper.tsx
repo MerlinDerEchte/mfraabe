@@ -28,7 +28,7 @@ export const DevelopmentWrapper:react.FC<{}> = () => {
                   <ScriptIcon />
             </DevelopmentCard>
             <DevelopmentContent service={EDevelopmentType.DEVELOPMENT_IN_TEAMS}>
-                <h1>Companies I worked for as a developper</h1>
+                <h1>Companies I worked for as a developer</h1>
                 <p>
                     TÜV Süd Industrie Services <br />
                     Magnitude Innovations <br />

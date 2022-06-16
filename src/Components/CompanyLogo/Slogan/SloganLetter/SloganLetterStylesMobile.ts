@@ -1,8 +1,8 @@
 import {css, keyframes } from '@emotion/css';
-import { colors } from '../../../constants/css/colors';
-import { ANIMATION_TIMINGS } from '../../../GlobalConstants';
-import { MOBILE_ANIMATION_TIMINGS } from '../../../GlobalConstantsMobile';
-import { COMPANY_LOGO_CONSTANTS } from '../CompanyLogoConstants';
+import { colors } from '../../../../constants/css/colors';
+import { ANIMATION_TIMINGS } from '../../../../GlobalConstants';
+import { MOBILE_ANIMATION_TIMINGS } from '../../../../GlobalConstantsMobile';
+import { COMPANY_LOGO_CONSTANTS } from '../../CompanyLogoConstants';
 
 export interface IcreateMobileSloganLetterStyles {
     index:number,

@@ -15,14 +15,12 @@ import { ANIMATION_TIMINGS } from './GlobalConstants';
 import { GlobalContext } from './GlobalContext';
 
 export interface IAppDesktopProps {
-    mainScreenWidth:number,
-    mainScreenHeight:number,
+    screenHeight:number,
+    screenWidth:number
 }
 export const AppDesktop = (params:IAppDesktopProps) => {
-    const { mainScreenWidth, mainScreenHeight } = params;
+    const { screenHeight, screenWidth  } = params;
     const [appStatus, setAppStatus] = useState(applicationStatus.INIT);
-    const [ screenWidth, setScreenWidth] = useState(mainScreenWidth);
-    const [ screenHeight, setScreenHeigth] = useState(mainScreenHeight);
     const location = useLocation();
     const navigate = useNavigate();
   // rename
@@ -53,8 +51,6 @@ export const AppDesktop = (params:IAppDesktopProps) => {
       navigate(EPaths.NONE)
       setAppStatus(applicationStatus.INIT)
     }
-    setScreenWidth(window.innerWidth);
-    setScreenHeigth(window.innerHeight);
     },[location.pathname, isRun, isStart, navigate]);
     
   return (
