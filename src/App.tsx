@@ -1,7 +1,7 @@
 import  {useState, useEffect} from 'react';
 import { getIsMobile } from './Utils/isMobile';
-import { AppDesktop } from './AppDesktop';
-import { AppMobile } from './AppMobile';
+import { AppDesktop } from './Components/AppDesktop';
+import { AppMobile } from './Components/AppMobile';
 import { BrowserRouter } from 'react-router-dom';
 
 export const App = () => {

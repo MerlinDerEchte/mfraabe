@@ -1,5 +1,5 @@
 import { css } from "@emotion/css";
-import { PAGE_MENU_CONSTANTS } from "../../../../GlobalConstants";
+import { PAGE_MENU_CONSTANTS } from "../../../GlobalConstants";
 import { PAGE_CONSTANTS } from "../PageConstants";
 
 export interface IcreateContactStyles {

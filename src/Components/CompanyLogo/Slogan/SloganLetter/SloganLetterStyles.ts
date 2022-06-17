@@ -1,6 +1,6 @@
 import {css, keyframes } from '@emotion/css';
 import { colors } from '../../../../constants/css/colors';
-import { ANIMATION_TIMINGS } from '../../../../GlobalConstants';
+import { ANIMATION_TIMINGS } from '../../../GlobalConstants';
 import { COMPANY_LOGO_CONSTANTS } from '../../CompanyLogoConstants';
 
 export interface IcreateSloganLetterStyles {

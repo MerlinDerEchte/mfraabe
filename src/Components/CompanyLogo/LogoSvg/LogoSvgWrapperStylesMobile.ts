@@ -1,6 +1,6 @@
 import { css, keyframes } from '@emotion/css';
 import { colors } from '../../../constants/css/colors';
-import { MOBILE_ANIMATION_TIMINGS } from '../../../GlobalConstantsMobile';
+import { MOBILE_ANIMATION_TIMINGS } from '../../GlobalConstantsMobile';
 import { MOBILE_COMPANY_LOGO_CONSTANTS } from '../CompanyLogoConstantsMobile';
 
 const STROKE_LENGTH = 22585;

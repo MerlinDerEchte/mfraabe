@@ -1,5 +1,5 @@
 import react,{ useContext } from 'react';
-import { GlobalContext } from '../../GlobalContext';
+import { GlobalContext } from '../GlobalContext';
 import { createRoutingWrapperStyles } from './RoutingWrapperStyles';
 import { EPaths } from '../../constants/paths';
 import { About } from './Pages/About/About';

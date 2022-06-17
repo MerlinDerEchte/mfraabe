@@ -1,5 +1,5 @@
 import react, { useContext } from 'react';
-import { GlobalContext } from '../../../../../../../../GlobalContext';
+import { GlobalContext } from '../../../../../../../GlobalContext';
 import { EAboutType } from '../../../EAboutType';
 import { AboutContext } from '../../../AboutContext';
 import { getIsSelected } from '../../../AboutUtils';

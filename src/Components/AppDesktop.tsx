@@ -1,16 +1,16 @@
-import  {useState, useEffect} from 'react';
-import { EPaths } from './constants/paths';
-import {appStyles} from './AppStyles';
-import {CompanyLogo} from './Components/CompanyLogo/CompanyLogo'
-import {Menu} from './Components/Menu/Menu';
-import { RoutingWrapper } from './Components/RoutingWrapper/RoutingWrapper';
-import { applicationStatus } from './constants/ApplicationStatus';
-import {  useLocation, useNavigate } from 'react-router-dom'
-import { getIsMobile } from './Utils/isMobile';
-import { getIsStart } from './Utils/isStart';
-import { getIsInit } from './Utils/isInit';
-import { getIsRun } from './Utils/isRun';
-import { getIsInitialPath } from './Utils/getIsInitialPath';
+import { useState, useEffect } from 'react';
+import { EPaths } from '../constants/paths';
+import { appStyles } from './AppStyles';
+import { CompanyLogo } from './CompanyLogo/CompanyLogo'
+import { Menu} from './Menu/Menu';
+import { RoutingWrapper } from './RoutingWrapper/RoutingWrapper';
+import { applicationStatus } from '../constants/ApplicationStatus';
+import { useLocation, useNavigate } from 'react-router-dom'
+import { getIsMobile } from '../Utils/isMobile';
+import { getIsStart } from '../Utils/isStart';
+import { getIsInit } from '../Utils/isInit';
+import { getIsRun } from '../Utils/isRun';
+import { getIsInitialPath } from '../Utils/getIsInitialPath';
 import { ANIMATION_TIMINGS } from './GlobalConstants';
 import { GlobalContext } from './GlobalContext';
 
@@ -40,8 +40,27 @@ export const AppDesktop = (params:IAppDesktopProps) => {
   const isRun = getIsRun(appStatus);
 
   const isMobile = getIsMobile(screenWidth);
-  const showMenu = true;
-  const globalContextValue = ({ isInit, isStart, isRun, screenWidth, screenHeight, initApp, isMobile, showMenu}); 
+
+  // shared context --> reafactor 
+  const isShowMobileMenu = false;
+  const isShowMobileMenuAnimation= false;
+  const isHideMobileMenuAnimation= false;
+  const handleShowMobileMenu = () => {};
+  const handleHideMobileMenu = () => {};
+
+  const globalContextValue = ({ 
+    isInit,
+    isStart,
+    isRun,
+    screenWidth,
+    screenHeight,
+    initApp,
+    isMobile,
+    isShowMobileMenu,
+    isShowMobileMenuAnimation,
+    isHideMobileMenuAnimation,
+    handleShowMobileMenu,
+    handleHideMobileMenu}); 
 
   useEffect(()=>{
    

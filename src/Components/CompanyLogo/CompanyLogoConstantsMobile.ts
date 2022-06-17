@@ -5,8 +5,8 @@ export const MOBILE_COMPANY_LOGO_CONSTANTS = {
     SVG: {
         INIT_WIDTH: 100,
         INIT_HEIGHT: 100,
-        RUN_WIDTH: 66,
-        RUN_HEIGHT: 66,
+        RUN_WIDTH: 50,
+        RUN_HEIGHT: 50,
         RUN_MARGIN_TOP: 12,
     },
     SLOGAN:{
@@ -16,10 +16,10 @@ export const MOBILE_COMPANY_LOGO_CONSTANTS = {
         INIT_ROW_HEIGHT: 30,
         INIT_GAP: 10,
 
-        RUN_WIDTH: 175,
+        RUN_WIDTH: 130,
         RUN_HEIGHT:100,
         RUN_INNER_MARGIN_BOTTOM: 5,
-        RUN_ROW_HEIGHT: 30,
+        RUN_ROW_HEIGHT: 25,
         RUN_GAP: 5,
         LETTER:{
             INIT_MARGIN_RIGHT: 14,

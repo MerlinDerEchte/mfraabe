@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import react, { useContext } from 'react';
 import { colors } from '../../../../constants/css/colors';
-import { PAGE_MENU_CONSTANTS } from '../../../../GlobalConstants';
-import { GlobalContext } from '../../../../GlobalContext';
+import { PAGE_MENU_CONSTANTS } from '../../../GlobalConstants';
+import { GlobalContext } from '../../../GlobalContext';
 import { CONTACT_CONTENT_CONSTANTS } from './ContactConstants';
 import { LinkedInLogo } from './LinkedInLogo';
 import { MailLogo } from './MailLogo';

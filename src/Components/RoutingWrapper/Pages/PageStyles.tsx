@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import {colors } from '../../../constants/css/colors';
-import { PAGE_MENU_CONSTANTS } from '../../../GlobalConstants';
+import { PAGE_MENU_CONSTANTS } from '../../GlobalConstants';
 import { PAGE_CONSTANTS } from './PageConstants';
 export const pageStyles = css({
     zIndex: 1,

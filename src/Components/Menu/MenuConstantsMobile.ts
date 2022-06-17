@@ -1,5 +1,8 @@
 export const MOBILE_MENU_CONSTANTS= {
-    MENU_ITEM_WIDTH: 300,
-    MENU_ITEM_HEIGHT: 50,
-    MENU_ITEM_GAP_Y: 20,
+    INIT_WIDTH: 300,
+    INIT_HEIGHT: 50,
+    INIT_GAP_Y: 20,
+    RUN_WIDTH: 250,
+    RUN_HEIGHT: 50,
+    RUN_GAP_Y: 20,
     }

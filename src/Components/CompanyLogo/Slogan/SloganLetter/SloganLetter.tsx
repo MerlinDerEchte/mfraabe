@@ -1,7 +1,7 @@
 import react, { useContext } from 'react';
 import { useLocation } from 'react-router';
 import { EPaths } from '../../../../constants/paths';
-import { GlobalContext } from '../../../../GlobalContext';
+import { GlobalContext } from '../../../GlobalContext';
 import { createSloganLetterStyles } from './SloganLetterStyles';
 import { createMobileSloganLetterStyles } from './SloganLetterStylesMobile';
 
@@ -26,7 +26,7 @@ export const SloganLetter:react.FC<ESloganLetter> = ({index,title, isSpace = fal
             )
     }
     const letterStyles = createSloganLetterStyles({index, isInit, isStart,isSpace,isInitialPath});
-       return(
+    return(
         <div className={letterStyles} >
             {title}
         </div>

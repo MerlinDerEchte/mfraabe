@@ -11,7 +11,7 @@ import { AboutContext } from './AboutContext';
 import { ABOUT_ANIMATION_CONSTANTS } from './AboutConstants';
 import { AboutContentWrapper } from './Components/AboutContent/AboutContentWrapper';
 import { getIsOneAboutTypeSelected, getIsSelected } from './AboutUtils';
-import { GlobalContext } from '../../../../../GlobalContext';
+import { GlobalContext } from '../../../../GlobalContext';
 import { AboutCancel } from './Components/AboutCancel/AboutCancel';
 
 export const AboutDesktop:react.FC<{}> = () => {

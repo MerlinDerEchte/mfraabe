@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { colors } from '../../../../constants/css/colors';
 import { fontSizes } from '../../../../constants/css/fontSizes';
-import { PAGE_COMPANY_LOGO_CONSTANTS, PAGE_MENU_CONSTANTS } from '../../../../GlobalConstants';
+import { PAGE_COMPANY_LOGO_CONSTANTS, PAGE_MENU_CONSTANTS } from '../../../GlobalConstants';
 import { MENU_CONSTANTS } from '../../MenuConstants';
 import { createMenuItemAnimation, IcreateMenuItemAnimation } from './MenuItemAnimations';
 

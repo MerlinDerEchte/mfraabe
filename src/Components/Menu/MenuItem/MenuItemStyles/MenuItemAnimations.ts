@@ -1,4 +1,4 @@
-import { ANIMATION_TIMINGS, PAGE_MENU_CONSTANTS } from "../../../../GlobalConstants";
+import { ANIMATION_TIMINGS, PAGE_MENU_CONSTANTS } from "../../../GlobalConstants";
 import { keyframes } from "@emotion/css";
 
 export interface IcreateMenuItemAnimation {

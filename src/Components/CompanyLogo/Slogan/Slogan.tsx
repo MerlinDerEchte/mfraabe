@@ -1,6 +1,6 @@
 import react, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import { GlobalContext } from '../../../GlobalContext';
+import { GlobalContext } from '../../GlobalContext';
 import { getIsInitialPath } from '../../../Utils/getIsInitialPath';
 import { getMobileSloganInitTotalHeight, getMobileSloganRunTotalHeight, getSloganInitTotalHeight, getSloganRunTotalHeight } from '../Utils';
 import { createCompanySloganStyles } from './SloganStyles';

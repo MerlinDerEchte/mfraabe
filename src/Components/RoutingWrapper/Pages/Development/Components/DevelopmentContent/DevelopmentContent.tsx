@@ -5,7 +5,7 @@ import { getDevelopmentContentStyles } from './DevelopmentContentStyles';
 import { DevelopmentContext } from '../../DevelopmentContext';
 import { getIsOtherDeselecting, getIsSelected } from '../../DevelopmentUtils';
 import { getIsSelectedAndDeselecting } from '../../DevelopmentUtils';
-import { GlobalContext } from '../../../../../../GlobalContext';
+import { GlobalContext } from '../../../../../GlobalContext';
 
 export const DevelopmentContent:react.FC<{service:EDevelopmentType,children:any}> = ({service, children}) => {
 

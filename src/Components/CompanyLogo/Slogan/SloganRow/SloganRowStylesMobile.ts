@@ -1,6 +1,6 @@
 import { css, keyframes } from '@emotion/css';
 import { fontSizes } from '../../../../constants/css/fontSizes';
-import { MOBILE_ANIMATION_TIMINGS } from '../../../../GlobalConstantsMobile';
+import { MOBILE_ANIMATION_TIMINGS } from '../../../GlobalConstantsMobile';
 
 export interface IcreateMobileSloganRowStyles {
     isInit: boolean,

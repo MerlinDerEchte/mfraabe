@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { fontSizes } from "../../../../../constants/css/fontSizes";
 import { colors } from "../../../../../constants/css/colors";
 
-import { PAGE_MENU_CONSTANTS } from "../../../../../GlobalConstants";
+import { PAGE_MENU_CONSTANTS } from "../../../../GlobalConstants";
 import { DEVELOPMENT_CONTENT_CONSTANTS } from "../DevelopmentConstants";
 import { getLeftMarginInsidePage } from "../../PageUtils";
 

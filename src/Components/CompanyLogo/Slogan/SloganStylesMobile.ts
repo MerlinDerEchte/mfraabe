@@ -1,6 +1,6 @@
 import { css, keyframes } from '@emotion/css';
 import { fontSizes } from '../../../constants/css/fontSizes';
-import { MOBILE_ANIMATION_TIMINGS } from '../../../GlobalConstantsMobile';
+import { MOBILE_ANIMATION_TIMINGS } from '../../GlobalConstantsMobile';
 import { MOBILE_COMPANY_LOGO_CONSTANTS } from '../CompanyLogoConstantsMobile';
 
 
@@ -27,7 +27,7 @@ export const createMobileCompanySloganStyles = (params:IcreateMobileCompanySloga
             justifyContent: 'center',
             gap:  isInit && isInitialPath ? MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_GAP : MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_GAP,
             alignItems: 'center',
-            fontSize: isInit && isInitialPath ? fontSizes.BIG : fontSizes.NORMAL,
+            fontSize: isInit && isInitialPath ? fontSizes.BIG : fontSizes.SMALL,
             animation: isStart ? `${createSloganStartAnimation({mobileSloganInitTotalHeight, mobileSloganRunTotalHeight})}  ${MOBILE_ANIMATION_TIMINGS.START_TIME}ms ease-out backwards`: '',
         })
     )      
@@ -42,12 +42,12 @@ function createSloganStartAnimation(animationParams:IcreateSloganStartAnimation)
             from{
                 height:${animationParams.mobileSloganInitTotalHeight}px;
                 width: ${MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.INIT_WIDTH}px;
-                font-size: ${fontSizes.HUGE};
+                font-size: ${fontSizes.BIG};
                 }
             to{
                 height: ${animationParams.mobileSloganRunTotalHeight}px;
                 width: ${MOBILE_COMPANY_LOGO_CONSTANTS.SLOGAN.RUN_WIDTH}px;
-                font-size: ${fontSizes.NORMAL};
+                font-size: ${fontSizes.SMALL};
             }`
     )
 }

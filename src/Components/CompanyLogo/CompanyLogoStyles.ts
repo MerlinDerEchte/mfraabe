@@ -1,7 +1,7 @@
 import { css, keyframes } from '@emotion/css'
 import { colors } from '../../constants/css/colors';
 import { fontSizes } from '../../constants/css/fontSizes';
-import { ANIMATION_TIMINGS, PAGE_COMPANY_LOGO_CONSTANTS } from '../../GlobalConstants';
+import { ANIMATION_TIMINGS, PAGE_COMPANY_LOGO_CONSTANTS } from '../GlobalConstants';
 import { COMPANY_LOGO_CONSTANTS } from './CompanyLogoConstants';
 
 

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import react,{ useContext } from 'react';
-import { GlobalContext } from '../../../../../../GlobalContext';
+import { GlobalContext } from '../../../../../GlobalContext';
 import { createDevelopmentCardStyles }from './DevelopmentCardStyles/DevelopmentCardStyles';
 import { DevelopmentContext } from '../../DevelopmentContext';
 import { EDevelopmentType } from '../../EDevelopmentType';

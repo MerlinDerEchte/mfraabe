@@ -1,6 +1,6 @@
 import react, { useContext } from 'react';
 import { Directions } from '../../../../../../../../constants/Directions';
-import { GlobalContext } from '../../../../../../../../GlobalContext';
+import { GlobalContext } from '../../../../../../../GlobalContext';
 import { AboutContext } from '../../../AboutContext';
 import { getIsOneAboutTypeSelected } from '../../../AboutUtils';
 import { createAboutContentBorderStyles } from './AboutContentBorderStyles';

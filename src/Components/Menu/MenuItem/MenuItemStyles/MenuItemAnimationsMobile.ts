@@ -1,18 +1,23 @@
-import { MOBILE_ANIMATION_TIMINGS, MOBILE_PAGE_MENU_CONSTANTS } from "../../../../GlobalConstantsMobile";
+import { MOBILE_ANIMATION_TIMINGS, MOBILE_PAGE_MENU_CONSTANTS } from "../../../GlobalConstantsMobile";
 import { keyframes } from "@emotion/css";
+import { MOBILE_MENU_CONSTANTS } from "../../MenuConstantsMobile";
 
 export interface IcreateMobileMenuItemAnimation {
     isInit: boolean,
     isStart: boolean,
+    isRun:boolean,
+
+    isShowMobileMenuAnimation:boolean,
+    isHideMobileMenuAnimation:boolean,
     menuItemInitMarginLeft: number,
     menuItemInitMarginTop: number,
     menuItemRunMarginTop:number
 }
 
 export const createMobileMenuItemAnimation = (inputParams:IcreateMobileMenuItemAnimation):string => {
-    const { isInit, isStart, menuItemInitMarginLeft, menuItemInitMarginTop, menuItemRunMarginTop } = inputParams;
+    const { isInit, isStart, isRun, isShowMobileMenuAnimation, isHideMobileMenuAnimation, menuItemInitMarginLeft, menuItemInitMarginTop, menuItemRunMarginTop } = inputParams;
     if(isInit){
-        return `${MenuItemInitAnimation} ${MOBILE_ANIMATION_TIMINGS.INIT_MENU_TIME}ms ${MOBILE_ANIMATION_TIMINGS.INIT_MENU_DELAY}ms backwards`;
+        return `${menuItemInitAnimation} ${MOBILE_ANIMATION_TIMINGS.INIT_MENU_TIME}ms ${MOBILE_ANIMATION_TIMINGS.INIT_MENU_DELAY}ms backwards`;
     } 
     if(isStart){
         const startAnimationParams:IcreateMobileMenuItemStartAnimation = {
@@ -22,6 +27,12 @@ export const createMobileMenuItemAnimation = (inputParams:IcreateMobileMenuItemA
             topEndPosition: menuItemRunMarginTop
         }
         return `${createMobileMenuItemStartAnimation(startAnimationParams)} ${MOBILE_ANIMATION_TIMINGS.START_TIME}ms ease-in-out backwards`
+    }
+    if(isRun && isShowMobileMenuAnimation){
+        return `${menuItemShowAnimation} ${MOBILE_ANIMATION_TIMINGS.MENU_SHOW_TIME}ms linear backwards`; 
+    }
+    if(isRun && isHideMobileMenuAnimation){
+        return `${menuItemHideAnimation} ${MOBILE_ANIMATION_TIMINGS.MENU_HIDE_TIME}ms linear backwards`
     }
     return ''
 }
@@ -51,7 +62,7 @@ function createMobileMenuItemStartAnimation(inputParams:IcreateMobileMenuItemSta
     `
     return animation;
 }
-const MenuItemInitAnimation = keyframes`
+const menuItemInitAnimation = keyframes`
     from{
         opacity:0;
         transform: translateY(-30);
@@ -61,3 +72,20 @@ const MenuItemInitAnimation = keyframes`
         transform: translateY(0);
     }
 `
+
+const menuItemShowAnimation = keyframes`
+    from{
+        left: -${MOBILE_MENU_CONSTANTS.RUN_WIDTH}px;
+    }
+    to{
+        left: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_MARGIN_LEFT}px;
+    }
+`
+
+const menuItemHideAnimation = keyframes`
+from{
+    left: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_MARGIN_LEFT}px;
+}
+to{
+    left: -${MOBILE_MENU_CONSTANTS.RUN_WIDTH}px;
+}`

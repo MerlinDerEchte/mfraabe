@@ -1,4 +1,4 @@
-import { PAGE_MENU_CONSTANTS } from "../../../GlobalConstants";
+import { PAGE_MENU_CONSTANTS } from "../../GlobalConstants";
 import { ABOUT_CONTENT_CONSTANTS } from "./About/AboutDesktop/AboutConstants";
 
 export interface IgetLeftMarginInsidePage {

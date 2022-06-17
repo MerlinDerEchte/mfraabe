@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
-import { colors } from './constants/css/colors'
+import { colors } from '../constants/css/colors'
 
-export const appStyles = css({
+export const appStylesMobile = css({
     position: 'absolute',
     top: 0,
     left: 0,

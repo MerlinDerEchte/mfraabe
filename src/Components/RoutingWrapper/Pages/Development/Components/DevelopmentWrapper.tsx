@@ -9,7 +9,7 @@ import { ScriptIcon } from './DeveelopmentIconsSvg/ScriptIcon';
 import { DevelopmentContent } from './DevelopmentContent/DevelopmentContent';
 import { DevelopmentCancel } from './DevelopmentCancel/DevelopmentCancel';
 import { CurriculumVitaeWrapper } from './CurriculumVitaeWrapper';
-import { GlobalContext } from '../../../../../GlobalContext';
+import { GlobalContext } from '../../../../GlobalContext';
 
 
 

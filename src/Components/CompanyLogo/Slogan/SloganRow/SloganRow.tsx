@@ -1,6 +1,6 @@
 import react, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import { GlobalContext } from '../../../../GlobalContext';
+import { GlobalContext } from '../../../GlobalContext';
 import { getIsInitialPath } from '../../../../Utils/getIsInitialPath';
 import { createSloganRowStyles } from './SloganRowStyles';
 import { createMobileSloganRowStyles } from './SloganRowStylesMobile';
