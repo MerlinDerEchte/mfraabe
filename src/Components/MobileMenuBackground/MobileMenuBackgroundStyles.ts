@@ -19,7 +19,7 @@ export const createMobileMenuBackgroundStyles = (params:IcreateMobileMenuItemBac
             position: 'absolute',
             height: screenHeight,
             opacity: isInit ? 0 : 1,
-            left: isShowMobileMenu ? MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH : -3,
+            left: isShowMobileMenu ? MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH -3 : -3,
             width: 3,
             background: colors.LIGHTORANGE,
             animation: createMobileMenuBackgroundAnimtaion({
@@ -70,12 +70,12 @@ const showMenuBackgroundAnimation = keyframes`
         left: -3px;
     } 
     to{
-        left: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH}px;
+        left: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH -3}px;
     }
 `
 const hideMenuBackgroundAnimation = keyframes`
 from{
-    left: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH}px;
+    left: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH -3}px;
 } 
 to{
     left: -3px;

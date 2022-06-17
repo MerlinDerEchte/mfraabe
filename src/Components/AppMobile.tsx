@@ -37,7 +37,7 @@ export const AppMobile = (params:IAppMobileProps) => {
         setTimeout(()=> {
             setAppStatus(applicationStatus.RUN);
             handleHideMobileMenu();
-        },MOBILE_ANIMATION_TIMINGS.START_TIME + 0.05);
+        },MOBILE_ANIMATION_TIMINGS.START_TIME );
         }
     }
     const handleShowMobileMenu = () => {
