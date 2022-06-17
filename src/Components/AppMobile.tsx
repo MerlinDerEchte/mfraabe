@@ -43,8 +43,8 @@ export const AppMobile = (params:IAppMobileProps) => {
     const handleShowMobileMenu = () => {
      
         setIsShowMobileMenuAnimation(true);
+        setIsShowMobileMenu(true);
         const timeout:any = setTimeout(() => {
-            setIsShowMobileMenu(true);
             setIsShowMobileMenuAnimation(false);
             clearTimeout(timeout);
         
@@ -52,9 +52,10 @@ export const AppMobile = (params:IAppMobileProps) => {
     
     }
     const handleHideMobileMenu = () => {
-        setIsHideMobileMenuAnimation(true)
+        setIsHideMobileMenuAnimation(true);
+        setIsShowMobileMenu(false);
         const timeout:any = setTimeout(()=> {
-            setIsShowMobileMenu(false);
+            
             setIsHideMobileMenuAnimation(false)
             clearTimeout(timeout)
         }, MOBILE_ANIMATION_TIMINGS.MENU_HIDE_TIME )
