@@ -13,5 +13,6 @@ export const GlobalContext = react.createContext({
     isShowMobileMenu: false,
     isShowMobileMenuAnimation: false,
     isHideMobileMenuAnimation:false,
-    handleShowMobileMenu: () => {},
+    handleToggleMobileMenu: () => {},
+
 });

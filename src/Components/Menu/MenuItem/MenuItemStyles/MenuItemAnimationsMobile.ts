@@ -21,8 +21,8 @@ export const createMobileMenuItemAnimation = (inputParams:IcreateMobileMenuItemA
     } 
     if(isStart){
         const startAnimationParams:IcreateMobileMenuItemStartAnimation = {
-            topStartPosition:menuItemInitMarginTop,
-            leftStartPosition:menuItemInitMarginLeft,
+            topStartPosition: menuItemInitMarginTop,
+            leftStartPosition: menuItemInitMarginLeft,
             leftEndPosition: MOBILE_PAGE_MENU_CONSTANTS.RUN_MARGIN_LEFT,
             topEndPosition: menuItemRunMarginTop
         }
@@ -45,22 +45,18 @@ export interface IcreateMobileMenuItemStartAnimation {
 
 function createMobileMenuItemStartAnimation(inputParams:IcreateMobileMenuItemStartAnimation ): string{
     const { topStartPosition, leftStartPosition, leftEndPosition, topEndPosition} = inputParams;
-    const animation = keyframes`
+    return keyframes`
         0%{
             top: ${topStartPosition}px; 
             left: ${leftStartPosition}px;
         }
-        50%{
-            top: calc(${topStartPosition}px - ${topEndPosition}px + 50px): 
-            left: ${leftStartPosition}px;
-        }
+      
         100%{
             top:${topEndPosition}px; 
             left: ${leftEndPosition}px;
         }
 
     `
-    return animation;
 }
 const menuItemInitAnimation = keyframes`
     from{

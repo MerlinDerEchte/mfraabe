@@ -21,7 +21,7 @@ export const createMenuItemAnimation = (inputParams:IcreateMenuItemAnimation):st
             leftEndPosition: PAGE_MENU_CONSTANTS.RUN_MARGIN_LEFT,
             topEndPosition: menuItemRunMarginTop
         }
-        return `${createMenuItemStartAnimation(startAnimationParams)} ${ANIMATION_TIMINGS.START_TIME}ms ease-in-out backwards`
+        return `${createMobileMenuToggleActiveAnimation(startAnimationParams)} ${ANIMATION_TIMINGS.START_TIME}ms ease-in-out backwards`
     }
     return ''
 }
@@ -32,17 +32,14 @@ export interface IcreateMenuItemStartAnimation {
     topEndPosition:number 
 }
 
-function createMenuItemStartAnimation(inputParams:IcreateMenuItemStartAnimation ): string{
+function createMobileMenuToggleActiveAnimation(inputParams:IcreateMenuItemStartAnimation ): string{
     const { topStartPosition, leftStartPosition, leftEndPosition, topEndPosition} = inputParams;
     const animation = keyframes`
         0%{
             top: ${topStartPosition}px; 
             left: ${leftStartPosition}px;
         }
-        50%{
-            top: calc(${topStartPosition}px - ${topEndPosition}px + 50px): 
-            left: ${leftStartPosition}px;
-        }
+       
         100%{
             top:${topEndPosition}px; 
             left: ${leftEndPosition}px;

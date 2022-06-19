@@ -13,7 +13,8 @@ import { getIsMobile } from "../Utils/isMobile"
 import { getIsRun } from "../Utils/isRun"
 import { getIsStart } from "../Utils/isStart"
 import { MobileMenuBackground } from "./MobileMenuBackground/MobileMenuBackground"
-import { MobileMenuCancel } from "./MobileMenuCancel/MobileMenuCancel"
+import { MobileMenuToggle } from "./MobileMenuToggle/MobileMenuToggle"
+
 
 export interface IAppMobileProps {
     screenHeight:number,
@@ -23,7 +24,7 @@ export interface IAppMobileProps {
 export const AppMobile = (params:IAppMobileProps) => {
     const { screenHeight, screenWidth  } = params;
     const [ appStatus, setAppStatus] = useState(applicationStatus.INIT);
-    const [ isShowMobileMenu, setIsShowMobileMenu ] = useState(true);
+    const [ isShowMobileMenu, setIsShowMobileMenu ] = useState(false);
     const [ isShowMobileMenuAnimation, setIsShowMobileMenuAnimation ] = useState(false);
     const [ isHideMobileMenuAnimation, setIsHideMobileMenuAnimation ] = useState(false);
     const location = useLocation();
@@ -36,29 +37,41 @@ export const AppMobile = (params:IAppMobileProps) => {
         setAppStatus(applicationStatus.START); 
         setTimeout(()=> {
             setAppStatus(applicationStatus.RUN);
-            handleHideMobileMenu();
+            setIsShowMobileMenu(true);
+            handleToggleMobileMenu();
         },MOBILE_ANIMATION_TIMINGS.START_TIME );
         }
     }
-    const handleShowMobileMenu = () => {
-     
+    const handleToggleMobileMenu = () => {
+        
+        if(isShowMobileMenu){
+            hideMobileMenu();
+            return;
+        }else{
+            showMobileMenu();
+        }
+        
+    }
+
+    const showMobileMenu = () => {
         setIsShowMobileMenuAnimation(true);
-        setIsShowMobileMenu(true);
+       
         const timeout:any = setTimeout(() => {
+            setIsShowMobileMenu(true);
             setIsShowMobileMenuAnimation(false);
             clearTimeout(timeout);
         
-        }, MOBILE_ANIMATION_TIMINGS.MENU_SHOW_TIME );
-    
+        }, MOBILE_ANIMATION_TIMINGS.MENU_SHOW_TIME + 0.05 );
     }
-    const handleHideMobileMenu = () => {
+    const hideMobileMenu = () => {
+       
         setIsHideMobileMenuAnimation(true);
-        setIsShowMobileMenu(false);
         const timeout:any = setTimeout(()=> {
+            setIsShowMobileMenu(false);
+            setIsHideMobileMenuAnimation(false);
             
-            setIsHideMobileMenuAnimation(false)
             clearTimeout(timeout)
-        }, MOBILE_ANIMATION_TIMINGS.MENU_HIDE_TIME )
+        }, MOBILE_ANIMATION_TIMINGS.MENU_HIDE_TIME + 0.05 )
        
     }
 
@@ -77,8 +90,7 @@ export const AppMobile = (params:IAppMobileProps) => {
     isShowMobileMenu, 
     isShowMobileMenuAnimation,
     isHideMobileMenuAnimation,
-    handleShowMobileMenu, 
-    handleHideMobileMenu}); 
+    handleToggleMobileMenu}); 
 
   useEffect(()=>{
    
@@ -98,7 +110,7 @@ export const AppMobile = (params:IAppMobileProps) => {
             <div className={appStylesMobile}>
                 <Menu />
                 <MobileMenuBackground />
-                <MobileMenuCancel />
+                <MobileMenuToggle />
                 <CompanyLogo />
             </div>
         </GlobalContext.Provider>

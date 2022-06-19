@@ -45,9 +45,8 @@ export const AppDesktop = (params:IAppDesktopProps) => {
   const isShowMobileMenu = false;
   const isShowMobileMenuAnimation= false;
   const isHideMobileMenuAnimation= false;
-  const handleShowMobileMenu = () => {};
-  const handleHideMobileMenu = () => {};
-
+  const handleToggleMobileMenu = () => {};
+    
   const globalContextValue = ({ 
     isInit,
     isStart,
@@ -59,8 +58,9 @@ export const AppDesktop = (params:IAppDesktopProps) => {
     isShowMobileMenu,
     isShowMobileMenuAnimation,
     isHideMobileMenuAnimation,
-    handleShowMobileMenu,
-    handleHideMobileMenu}); 
+    handleToggleMobileMenu
+    
+    }); 
 
   useEffect(()=>{
    
