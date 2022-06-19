@@ -17,10 +17,10 @@ export const createBottomBarStyles = (params:IcreateBottomBarStyles) => {
             position:'absolute',
             zIndex: 16,
             content: `''`,
-            width: '100%',
+            width: MOBILE_PAGE_MENU_CANCEL_CONSTANTS.WIDTH,
             height: MOBILE_PAGE_MENU_CANCEL_CONSTANTS.LINE_HEIGHT,
             borderRadius: 10,
-            top: isShowMobileMenu ? '25%' : '80%',
+            top: isShowMobileMenu || isShowMobileMenuAnimation ? '50%' : '80%',
             left: isShowMobileMenu ? '50%' : '0%' ,
             transform: isShowMobileMenu ? `rotateZ(-45deg) `: `rotateZ(0deg)`,
             background: colors.DARKBLUE,
@@ -70,7 +70,7 @@ const showMobileMenuBottomBarAnimation =  keyframes`
     }
     to{
         transform: rotateZ(-45deg);
-        top: 25%;
+        top: 50%;
         left: 50%;
     }
 `
@@ -78,7 +78,7 @@ const showMobileMenuBottomBarAnimation =  keyframes`
 const hideMobileMenuBottomBarAnimation = keyframes`
     from{
         transform: rotateZ(-45deg);
-        top: 25%;
+        top: 50%;
         left: 50%;
     }
     to{

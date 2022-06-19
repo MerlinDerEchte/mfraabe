@@ -33,13 +33,12 @@ export const AppMobile = (params:IAppMobileProps) => {
  
     const initApp = () => {
         if(appStatus === applicationStatus.INIT){
-        
-        setAppStatus(applicationStatus.START); 
-        setTimeout(()=> {
-            setAppStatus(applicationStatus.RUN);
-            setIsShowMobileMenu(true);
-            handleToggleMobileMenu();
-        },MOBILE_ANIMATION_TIMINGS.START_TIME );
+            setAppStatus(applicationStatus.START); 
+            setTimeout(()=> {
+                setAppStatus(applicationStatus.RUN);
+                setIsShowMobileMenu(true);
+                hideMobileMenu();
+            },MOBILE_ANIMATION_TIMINGS.START_TIME );
         }
     }
     const handleToggleMobileMenu = () => {
@@ -55,9 +54,8 @@ export const AppMobile = (params:IAppMobileProps) => {
 
     const showMobileMenu = () => {
         setIsShowMobileMenuAnimation(true);
-       
+        setIsShowMobileMenu(true);
         const timeout:any = setTimeout(() => {
-            setIsShowMobileMenu(true);
             setIsShowMobileMenuAnimation(false);
             clearTimeout(timeout);
         
@@ -66,6 +64,7 @@ export const AppMobile = (params:IAppMobileProps) => {
     const hideMobileMenu = () => {
        
         setIsHideMobileMenuAnimation(true);
+        setIsShowMobileMenu(false);
         const timeout:any = setTimeout(()=> {
             setIsShowMobileMenu(false);
             setIsHideMobileMenuAnimation(false);
@@ -103,7 +102,7 @@ export const AppMobile = (params:IAppMobileProps) => {
       setAppStatus(applicationStatus.INIT)
       
     }
-    },[location.pathname, isRun, isStart, navigate]);
+    },[]);
     
     return(
         <GlobalContext.Provider value={globalContextValue}>

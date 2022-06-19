@@ -19,8 +19,8 @@ export const createTopBarStyles = (params:IcreateTopBarStyles) => {
             width:  MOBILE_PAGE_MENU_CANCEL_CONSTANTS.WIDTH,
             height: MOBILE_PAGE_MENU_CANCEL_CONSTANTS.LINE_HEIGHT,
             borderRadius: 10,
-            zIndex: 15,
-            top: isShowMobileMenu ? '25%' : '0%',
+            zIndex: 10,
+            top: isShowMobileMenu ? '50%' : '0%',
             left: isShowMobileMenu ? '50%' : '0%',
             transform:  isShowMobileMenu ? `rotateZ(45deg)` : 'rotateZ(0deg)',
             background: colors.DARKBLUE,
@@ -67,12 +67,12 @@ export const createTopBarAnimation = (params:IcreateTopBarAnimation) => {
 const showMobileMenuBottomBarAnimation =  keyframes`
     from{
         transform: rotateZ(0deg);
-        top: 25%;
+        top: 0%;
         left: 0%;
     }
     to{
         transform: rotateZ(45deg);
-        top: 0%;
+        top: 50%;
         left: 50%;
     }
 `
@@ -80,7 +80,7 @@ const showMobileMenuBottomBarAnimation =  keyframes`
 const hideMobileMenuBottomBarAnimation = keyframes`
     from{
         transform: rotateZ(45deg);
-        top: 25%;
+        top: 50%;
         left: 50%;
     }
     to{

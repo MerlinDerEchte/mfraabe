@@ -17,14 +17,14 @@ export const createMidBarStyles = (params:IcreateMidBarStyles) => {
             position:'absolute',
             zIndex: 16,
             content: `''`,
-            width: isShowMobileMenu ? '0%' :  MOBILE_PAGE_MENU_CANCEL_CONSTANTS.WIDTH - 10,
+            width:   MOBILE_PAGE_MENU_CANCEL_CONSTANTS.WIDTH - 10,
             opacity: isShowMobileMenu ? 0 : 1,
             height: MOBILE_PAGE_MENU_CANCEL_CONSTANTS.LINE_HEIGHT,
             borderRadius: 6,
             top: `40%`,
-            left: '10%',
+            left: 10 / 2,
             background: colors.DARKBLUE,
-            transfrom: isShowMobileMenu ? 'translateX(50px)': 'translateX(0px)',
+            transfrom: isShowMobileMenu ? 'translateX(-50px)': 'translateX(0px)',
             boxShadow: `0px 0px 3px 1px ${colors.LIGHTORANGE}`,
             '::before':{
                 content: `''`,
@@ -66,16 +66,15 @@ const showMobileMenuMidBarAnimation =  keyframes`
         transform: translateX(0px);
     }
     to{
-        opactiy:0;
-      
-        transform: translateX(50px);
+        opacity: 0;
+        transform: translateX(-50px);
     }
 `
 
 const hideMobileMenuMidBarAnimation = keyframes`
     from{
         opactiy:0;
-        transform: translateX(50px);
+        transform: translateX(-50px);
     }
     to{
         opacity: 1;
