@@ -73,7 +73,7 @@ const showMobileMenuMidBarAnimation =  keyframes`
 
 const hideMobileMenuMidBarAnimation = keyframes`
     from{
-        opactiy:0;
+        opacity: 0;
         transform: translateX(-50px);
     }
     to{
