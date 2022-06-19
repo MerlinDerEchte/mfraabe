@@ -1,0 +1,4 @@
+export const MOBILE_PAGE_CONSTANTS = {
+    MARGIN_TOP: 50,
+    MARGIN_BOTTOM: 50,
+}

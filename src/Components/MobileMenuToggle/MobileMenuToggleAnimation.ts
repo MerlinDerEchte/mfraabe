@@ -1,5 +1,5 @@
 import { keyframes } from "@emotion/css";
-import { MOBILE_ANIMATION_TIMINGS, MOBILE_PAGE_MENU_CANCEL_CONSTANTS } from "../GlobalConstantsMobile";
+import { MOBILE_ANIMATION_TIMINGS, MOBILE_PAGE_MENU_TOGGLE_CONSTANTS } from "../GlobalConstantsMobile";
 import { MOBILE_MENU_TOGGLE_CONSTANTS } from "./MobileMenuToggleConstants";
 
 
@@ -26,7 +26,7 @@ export const createMobileMenuToggleAnimation = (params:IcreateMobileMenuToggleAn
 }
 const createHideMobileMenuToggleAnimation = (screenWidth:number) =>  keyframes`
     from{
-        left: ${screenWidth - MOBILE_MENU_TOGGLE_CONSTANTS.SHOW_MENU_RIGHT - MOBILE_PAGE_MENU_CANCEL_CONSTANTS.WIDTH}px;
+        left: ${screenWidth - MOBILE_MENU_TOGGLE_CONSTANTS.SHOW_MENU_RIGHT - MOBILE_PAGE_MENU_TOGGLE_CONSTANTS.WIDTH}px;
       
     }   
     to{
@@ -43,7 +43,7 @@ const creteShowMobileMenuToggleAnimation = (screenWidth:number) =>  keyframes`
     }   
     to{
        
-        left: ${screenWidth - MOBILE_MENU_TOGGLE_CONSTANTS.SHOW_MENU_RIGHT - MOBILE_PAGE_MENU_CANCEL_CONSTANTS.WIDTH}px;
+        left: ${screenWidth - MOBILE_MENU_TOGGLE_CONSTANTS.SHOW_MENU_RIGHT - MOBILE_PAGE_MENU_TOGGLE_CONSTANTS.WIDTH}px;
    
     }
 `;

@@ -14,6 +14,7 @@ import { getIsRun } from "../Utils/isRun"
 import { getIsStart } from "../Utils/isStart"
 import { MobileMenuBackground } from "./MobileMenuBackground/MobileMenuBackground"
 import { MobileMenuToggle } from "./MobileMenuToggle/MobileMenuToggle"
+import { RoutingWrapper } from "./RoutingWrapper/RoutingWrapper"
 
 
 export interface IAppMobileProps {
@@ -111,6 +112,7 @@ export const AppMobile = (params:IAppMobileProps) => {
                 <MobileMenuBackground />
                 <MobileMenuToggle />
                 <CompanyLogo />
+                <RoutingWrapper />
             </div>
         </GlobalContext.Provider>
     )

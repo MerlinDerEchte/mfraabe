@@ -1,5 +1,5 @@
 export const MOBILE_MENU_TOGGLE_CONSTANTS = {
     SHOW_MENU_RIGHT: 30,
-    HIDE_MENU_LEFT:30,
+    HIDE_MENU_LEFT: 30,
     TOP: 30,
 }

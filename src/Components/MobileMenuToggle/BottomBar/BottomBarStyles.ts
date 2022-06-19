@@ -1,6 +1,6 @@
 import { keyframes, css } from "@emotion/css";
 import { colors } from "../../../constants/css/colors";
-import { MOBILE_ANIMATION_TIMINGS, MOBILE_PAGE_MENU_CANCEL_CONSTANTS } from "../../GlobalConstantsMobile";
+import { MOBILE_ANIMATION_TIMINGS, MOBILE_PAGE_MENU_TOGGLE_CONSTANTS } from "../../GlobalConstantsMobile";
 
 interface IcreateBottomBarStyles {
     isRun:boolean, 
@@ -17,14 +17,13 @@ export const createBottomBarStyles = (params:IcreateBottomBarStyles) => {
             position:'absolute',
             zIndex: 16,
             content: `''`,
-            width: MOBILE_PAGE_MENU_CANCEL_CONSTANTS.WIDTH,
-            height: MOBILE_PAGE_MENU_CANCEL_CONSTANTS.LINE_HEIGHT,
+            width: MOBILE_PAGE_MENU_TOGGLE_CONSTANTS.WIDTH,
+            height: MOBILE_PAGE_MENU_TOGGLE_CONSTANTS.LINE_HEIGHT,
             borderRadius: 10,
-            top: isShowMobileMenu || isShowMobileMenuAnimation ? '50%' : '80%',
-            left: isShowMobileMenu ? '50%' : '0%' ,
+            top: isShowMobileMenu || isShowMobileMenuAnimation ? '33%' : '80%',
+            left: '0%' ,
             transform: isShowMobileMenu ? `rotateZ(-45deg) `: `rotateZ(0deg)`,
-            background: colors.DARKBLUE,
-            boxShadow: `0px 0px 3px 1px ${colors.LIGHTORANGE}`,
+            boxShadow: !isShowMobileMenu ? `0px 0px 3px 1px ${colors.LIGHTORANGE}` : '',
             animation: createBottomBarAnimation({
                 isRun,
                 isShowMobileMenuAnimation,
@@ -32,7 +31,7 @@ export const createBottomBarStyles = (params:IcreateBottomBarStyles) => {
             }),
             '::before':{
                 content: `''`,
-                background: colors.DARKBLUE,
+                background:  isShowMobileMenu ? colors.LIGHTORANGE : colors.DARKBLUE,
                 position: 'absolute',
                 borderRadius: 10,
                 top: '1%',
@@ -66,24 +65,23 @@ const showMobileMenuBottomBarAnimation =  keyframes`
     from{
         transform: rotateZ(0deg);
         top: 80%;
-        left: 0%;
+        
     }
     to{
         transform: rotateZ(-45deg);
-        top: 50%;
-        left: 50%;
+        top: 33%;
     }
 `
 
 const hideMobileMenuBottomBarAnimation = keyframes`
     from{
         transform: rotateZ(-45deg);
-        top: 50%;
-        left: 50%;
+        top: 33%;
+       
     }
     to{
         transform: rotateZ(0deg);
         top: 80%;
-        legt: 0%;
+       
     }
 `

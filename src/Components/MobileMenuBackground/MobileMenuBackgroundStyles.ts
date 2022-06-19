@@ -18,10 +18,12 @@ export const createMobileMenuBackgroundStyles = (params:IcreateMobileMenuItemBac
         css({
             position: 'absolute',
             height: screenHeight,
+            zIndex: 10,
             opacity: isInit ? 0 : 1,
-            left: isShowMobileMenu ? MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH -3 : -3,
-            width: 3,
-            background: colors.LIGHTORANGE,
+            left: 0,
+            width: isShowMobileMenu ? MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH -3 :  0 ,
+            borderRight: isShowMobileMenu ? `3px solid ${colors.LIGHTORANGE}` :  `0px solid ${colors.LIGHTORANGE}`,
+            background: colors.DARKBLUE,
             animation: createMobileMenuBackgroundAnimtaion({
                 isStart,
                 isRun,
@@ -58,26 +60,32 @@ const createMobileMenuBackgroundAnimtaion = (params:IcreateMobileMenuBackgroundA
 const startMenuBackgroundAnimation = keyframes`
     from{
         opacity:0;
-        left: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH + 50}px;
+        width: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH + 50}px;
+        border-right: 0px solid ${colors.DARKBLUE};
     }
     to{
         opacity:1;
-        left: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH}px;
+        width: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH -3}px;
+        border-right: 3px solid ${colors.LIGHTORANGE};
     }
 `
 const showMenuBackgroundAnimation = keyframes`
     from{
-        left: -3px;
+        width: 0px ;
+        border-right: 0px solid ${colors.DARKBLUE};
     } 
     to{
-        left: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH -3}px;
+        width: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH -3}px;
+        border-right: 3px solid ${colors.LIGHTORANGE};
     }
 `
 const hideMenuBackgroundAnimation = keyframes`
 from{
-    left: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH -3}px;
+    width: ${MOBILE_PAGE_MENU_CONSTANTS.RUN_WIDTH -3}px;
+    border-right: 3px solid ${colors.LIGHTORANGE};
 } 
 to{
-    left: -3px;
+    width: 0px;
+    border-right: 0 px solid ${colors.DARKBLUE};
 }
 `

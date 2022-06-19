@@ -59,7 +59,7 @@ export const createMobileMenuItemStyles = ( params:IcreateMobileMenuItemStyles )
             justifyContent:'center',
             alignItems:'start',
             position: 'absolute',
-            zIndex: 10,
+            zIndex: 12,
             top: isInit && isStartPath ? mobileMenuItemInitMarginTop : mobileMenuItemRunMarginTop,
             left: isInit && isStartPath ? 
                 mobileMenuItemInitMarginLeft
