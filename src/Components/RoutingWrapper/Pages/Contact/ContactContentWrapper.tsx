@@ -10,7 +10,7 @@ import { MailLogo } from './MailLogo';
 
 
 const createContactContentWrapperStyles= (screenWidth:number) => css({
-    marginLeft: Math.max(100,(screenWidth / 2) - PAGE_MENU_CONSTANTS.RUN_WIDTH - (CONTACT_CONTENT_CONSTANTS.WIDTH / 2)),
+    marginLeft: 0,
     height: CONTACT_CONTENT_CONSTANTS.HEIGHT,
     width: CONTACT_CONTENT_CONSTANTS.WIDTH,
     display: 'flex',
