@@ -1,12 +1,12 @@
 import {css,keyframes } from '@emotion/react';
 
-import { colors } from '../../../../../../constants/css/colors';
+import { colors } from '../../../../../../../constants/css/colors';
 import { 
     SERVICE_CARD_DESELECTION_ANIMATION_DELAY,
     SERVICE_CARD_DESELECTION_ANIMATION_TIME,
    
-     } from '../../../../../../constants/timings';
-import { DEVELOPMENT_ANIMATION_TIMINGS } from '../../DevelopmentConstants';
+     } from '../../../../../../../constants/timings';
+import { DEVELOPMENT_ANIMATION_TIMINGS } from '../DevelopmentConstants';
 
 
 const SERVICE_DESELECT_WIDTH = '50px';

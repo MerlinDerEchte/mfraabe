@@ -1,38 +1,38 @@
 import react, { useState } from 'react';
-import { Page } from '../Page';
+import { Page } from '../../../Page';
 import { DevelopmentContext } from './DevelopmentContext';
-import { EDevelopmentType } from './EDevelopmentType';
+import { EDevelopmentType } from '../../EDevelopmentType';
 import { getIsNoService, getIsSelected } from './DevelopmentUtils';
 import { DEVELOPMENT_ANIMATION_TIMINGS } from './DevelopmentConstants';
-import { DevelopmentWrapper } from './Components/DevelopmentWrapper';
+import { DevelopmentWrapper } from './DevelopmentWrapper';
 
 export const DevelopmentDesktop:react.FC<{}> = () => {
 
-    const [selectedService, setSelectedService] = useState(EDevelopmentType.NONE); 
+    const [selectedDevelopmentType, setSelectedDevelopmentType] = useState(EDevelopmentType.NONE); 
     const [isSelecting, setIsSelecting] = useState(false)
     const [isDeselecting, setIsDeselecting] = useState(false);
 
-    const handleDeselectService = (service:EDevelopmentType) => {
-        if(getIsSelected(service, selectedService)){
+    const handleDeselectDevelopmentType = (developmentType:EDevelopmentType) => {
+        if(getIsSelected(developmentType, selectedDevelopmentType)){
             setIsDeselecting(true);
             setTimeout(()=> {
                 setIsDeselecting(false);
-                setSelectedService(EDevelopmentType.NONE);
+                setSelectedDevelopmentType(EDevelopmentType.NONE);
             },DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_DELAY + DEVELOPMENT_ANIMATION_TIMINGS.CARD_DESELECTION_TIME)
         }
     }
-    const handleSelectService = (service:EDevelopmentType) => {
-        if(getIsSelected(service, selectedService) || getIsNoService(service)){
+    const handleSelectDevelopmentType = (developmentType:EDevelopmentType) => {
+        if(getIsSelected(developmentType, selectedDevelopmentType) || getIsNoService(developmentType)){
             return;
         };
         setIsSelecting(true);
-        setSelectedService(service);
+        setSelectedDevelopmentType(developmentType);
         setTimeout(()=> {
             setIsSelecting(false);
         }, DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_DELAY +  DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME);
     }
 
-    const value= ({selectedService, handleSelectService, handleDeselectService, isSelecting, isDeselecting})
+    const value= ({selectedDevelopmentType, handleSelectDevelopmentType, handleDeselectDevelopmentType, isSelecting, isDeselecting})
     return(
         <>
         <Page>

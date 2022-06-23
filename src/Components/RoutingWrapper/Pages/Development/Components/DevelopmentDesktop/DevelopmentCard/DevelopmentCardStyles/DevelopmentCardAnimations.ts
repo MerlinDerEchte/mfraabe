@@ -1,6 +1,6 @@
 import { keyframes } from "@emotion/css";
-import { colors } from "../../../../../../../constants/css/colors";
-import { DEVELOPMENT_CARD_CONSTANTS } from "../../../DevelopmentConstants";
+import { colors } from "../../../../../../../../constants/css/colors";
+import { DEVELOPMENT_CARD_CONSTANTS } from "../../DevelopmentConstants";
 
 
 export const DevelopmentCardStartAnimation = keyframes`

@@ -1,8 +1,8 @@
 import {css, keyframes} from '@emotion/react';
-import { colors } from '../../../../../../constants/css/colors';
-import { fontSizes } from '../../../../../../constants/css/fontSizes';
-import { PAGE_CONSTANTS } from '../../../PageConstants';
-import { DEVELOPMENT_ANIMATION_TIMINGS, DEVELOPMENT_CARD_CONSTANTS, DEVELOPMENT_CONTENT_CONSTANTS } from '../../DevelopmentConstants';
+import { colors } from '../../../../../../../constants/css/colors';
+import { fontSizes } from '../../../../../../../constants/css/fontSizes';
+import { PAGE_CONSTANTS } from '../../../../PageConstants';
+import { DEVELOPMENT_ANIMATION_TIMINGS, DEVELOPMENT_CARD_CONSTANTS, DEVELOPMENT_CONTENT_CONSTANTS } from '../DevelopmentConstants';
 
 
 export const getDevelopmentContentStyles = (isSelected:boolean, isSelecting:boolean, isSelectedAndDeselecting:boolean,isOtherSelectedAndDeselecting:boolean, screenHeight:number) => {
@@ -24,9 +24,8 @@ export const getDevelopmentContentStyles = (isSelected:boolean, isSelecting:bool
         background:colors.DARKBLUE,
         color: colors.DARKWHITE,
         fontSize: fontSizes.SMALL,
-       
         overflowY:'auto',
-
+        padding: '20px 0px 20px 0px',
         'h1':{
             fontSize: fontSizes.BIG,
             fontWeight: 100,
@@ -36,7 +35,7 @@ export const getDevelopmentContentStyles = (isSelected:boolean, isSelecting:bool
             marginTop: 40,
             marginBottom:15,
             '&:first-of-type':{
-                marginTop: 20,
+                marginTop: 0,
             }
         },
         'h2':{
@@ -81,7 +80,21 @@ export const getDevelopmentContentStyles = (isSelected:boolean, isSelecting:bool
             display:'flex',
             justifyContent: 'center',
             alignContent: 'center',
-        } 
+        },
+        '.cvWrapper':{
+
+            width: '100%',
+            height: 80,
+            display: 'flex',
+            justifyContent:'start',
+            marginLeft: 30,
+            cursor: 'pointer',
+            'svg':{
+                height:80,
+                widht:80,
+                fill: colors.LIGHTORANGE
+            }
+        }
         
     })
 }

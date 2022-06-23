@@ -1,6 +1,6 @@
 import react from 'react';
 
-export const WebsiteIcon:react.FC<{}> = () => {
+export const MonitorIcon:react.FC<{}> = () => {
 
 	return(
 		<svg viewBox="0 0 122.88 95.51">

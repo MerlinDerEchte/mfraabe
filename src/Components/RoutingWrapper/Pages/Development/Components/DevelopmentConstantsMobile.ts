@@ -1,0 +1,22 @@
+export const MOBILE_DEVELOPMENT_CARD_CONSTANTS = {
+    WIDTH: 200,
+    HEIGHT: 200,
+    GAP: 50,
+    MARGIN_TOP: 50,
+    INNER_MARGIN_TOP: 50,
+    TRANSLATE_Y: 0,
+    SELECTED_TRANSLATE_Y: -50,
+    SELECTED_INNER_MARGIN_TOP: 10,
+}
+
+export const MOBILE_DEVELOPMENT_SECTION_CONSTANTS = {
+    HEADER:{
+        TEXT_WIDTH: 200,
+        SVG_WIDTH: 100,
+        SVG_HEIGHT: 100,
+    },
+    GAP: 10,
+}
+
+
+

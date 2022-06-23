@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import { colors } from '../../../../../../../constants/css/colors';
-import { fontSizes } from '../../../../../../../constants/css/fontSizes';
-import { DEVELOPMENT_CARD_CONSTANTS, DEVELOPMENT_ANIMATION_TIMINGS } from '../../../DevelopmentConstants';
+import { colors } from '../../../../../../../../constants/css/colors';
+import { fontSizes } from '../../../../../../../../constants/css/fontSizes';
+import { DEVELOPMENT_CARD_CONSTANTS, DEVELOPMENT_ANIMATION_TIMINGS } from '../../DevelopmentConstants';
 import { createDevelopmentCardDeselectAnimation, createDevelopmentCardSelectionAnimation,DevelopmentCardStartUnderlineAnimation, DevelopmentCardContentDeselectionAnimation, DevelopmentCardContentSelectionAnimation, DevelopmentCardHoverAnimation, DevelopmentCardHoverIconAnimation, DevelopmentCardOtherDevelopmentDeselectionAnimation, DevelopmentCardOtherDevelopmentSelectionAnimation, DevelopmentCardStartAnimation, DevelopmentCardTitleUnderlineHoverAnimation } from './DevelopmentCardAnimations';
 
 export interface IcreateDevelopmentCardStyles {

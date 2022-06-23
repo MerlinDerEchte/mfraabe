@@ -1,6 +1,6 @@
 export enum EDevelopmentType{
-    DEVELOPMENT_IN_TEAMS='Professional Web Development',
-    WEBSITES='Solo projects',
+    PROFESSIONAL='Professional Web Development',
+    SOLO='Solo projects',
     RECOMMENDATIONS='Recommended learning sources',
     NONE=''
 }
