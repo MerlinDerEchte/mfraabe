@@ -23,7 +23,7 @@ export const CurriculumVitaeWrapper:react.FC<{}> = () => {
 
     return(
         <div className={cvWrapperStyles}>
-            <a href="/mfraabe/images/Merlin_Raabe_CV_2022.pdf" download="Merlin_Raabe_CV_2022">
+            <a href="/images/Merlin_Raabe_CV_2022.pdf" download="Merlin_Raabe_CV_2022">
             <DocumentIcon />
             </a>
         </div>  

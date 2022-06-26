@@ -2,7 +2,6 @@
   "name": "Merlin Raabe",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://merlinDerEchte.github.io/mfraabe",
   "dependencies": {
     "@emotion/css": "^11.7.1",
     "@emotion/react": "^11.8.2",

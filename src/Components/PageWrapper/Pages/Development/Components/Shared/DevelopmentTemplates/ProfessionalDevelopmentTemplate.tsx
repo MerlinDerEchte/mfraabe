@@ -18,7 +18,7 @@ export const ProfessionalDevelopmentTemplate:react.FC<{}> = () => {
             </ul>
             <h1>CV</h1>
             <div className="cvWrapper">
-                <a href="/mfraabe/images/Merlin_Raabe_CV_2022.pdf" download="Merlin_Raabe_CV_2022">
+                <a href="images/Merlin_Raabe_CV_2022.pdf" download="Merlin_Raabe_CV_2022">
                  <DocumentIcon />
                 </a>
             </div>

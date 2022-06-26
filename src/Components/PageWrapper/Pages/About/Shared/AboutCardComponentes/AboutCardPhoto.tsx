@@ -8,7 +8,7 @@ export const AboutCardPhoto:react.FC<{}> = () => {
 
     return(
         <div className={photoStyles}>
-            <img src='/mfraabe/images/MerlinBalkon.jpg'></img>  
+            <img src='/images/MerlinBalkon.jpg'></img>  
         </div>
     )
 }
