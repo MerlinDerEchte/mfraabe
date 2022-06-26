@@ -12,7 +12,7 @@ export interface IMenuItem {
 }
 export const MenuItem:react.FC<IMenuItem> = ({path,index}) => {
 
-    const { isInit, isStart, isRun, isShowMobileMenu, isShowMobileMenuAnimation, isHideMobileMenuAnimation, isMobile, initApp, screenWidth, screenHeight} = useContext(GlobalContext);
+    const { isInit, isStart, isRun, isShowMobileMenu, isShowMobileMenuAnimation, isHideMobileMenuAnimation, isMobile, handleMenuItemClick, screenWidth, screenHeight} = useContext(GlobalContext);
     const location = useLocation();
     const isSelected = path === location.pathname;
     const isStartPath = location.pathname === EPaths.NONE;
@@ -34,7 +34,7 @@ export const MenuItem:react.FC<IMenuItem> = ({path,index}) => {
     
     return(
        <div className={isMobile ? itemStylesMobile : itemStyles} >
-           <Link onClick={initApp} to={path}>{getPathName(path)}</Link>    
+           <Link onClick={handleMenuItemClick} to={path}>{getPathName(path)}</Link>    
         </div> 
     )
 }

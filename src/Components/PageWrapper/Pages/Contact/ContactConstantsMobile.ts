@@ -1,7 +1,7 @@
 export const MOBILE_CONTACT_CONTENT_CONSTANTS = {
     HEIGHT: 80,
     WIDTH: 200,
-    GAP: 50,
+    GAP: 20,
     ICON_WIDTH: 80,
     ICON_HEIGHT: 80,
 }

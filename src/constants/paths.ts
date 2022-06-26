@@ -1,8 +1,8 @@
 export enum EPaths {
-    DEVELOPMENT='/mfraabe/Development',
-    ABOUT='/mfraabe/About',
-    CONTACT='/mfraabe/Contact',
-    NONE='/mfraabe/'
+    DEVELOPMENT='/Development',
+    ABOUT='/About',
+    CONTACT='/Contact',
+    NONE='/'
 }
 
 

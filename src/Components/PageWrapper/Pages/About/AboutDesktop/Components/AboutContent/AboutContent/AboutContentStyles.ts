@@ -22,6 +22,7 @@ export const createAboutContentStyles = (params:IcreateAboutContentStyles) => {
         opacity: isSelected &&!isDeselecting ? 1 : 0 ,
         width: ABOUT_CONTENT_CONSTANTS.WIDTH,
         left: ABOUT_CONTENT_CONSTANTS.LEFT,
+        lineHeight: 1.2,
         zIndex: 14,
         overflowY: 'scroll',
         height: screenHeight - PAGE_CONSTANTS.MARGIN_BOTTOM - PAGE_CONSTANTS.MARGIN_TOP - ABOUT_MENU_CONSTANTS.HEIGHT,
@@ -43,57 +44,56 @@ export const createAboutContentStyles = (params:IcreateAboutContentStyles) => {
             ` 
                 :
                 '',
-    
-
-    'h1':{
-        fontSize: fontSizes.BIG,
-        fontWeight: 100,
-        textAlign: 'left',
-        marginLeft:30,
-        marginRight:20,
-        marginTop: 40,
-        marginBottom:15,
-        '&:first-of-type':{
-            marginTop: 20,
-        }
-    },
-    'h2':{
-        fontSize: fontSizes.NORMAL,
-        fontWeight: 50,
-        textDecoration:'underline',
-        textAlign: 'left',
-        marginLeft:30,
-        marginRight:20,
-        marginTop: 40,
-        marginBottom:15,
-        '&:first-of-type':{
-            marginTop: 20,
-        }
-    },
-    'p':{
-        textAlign: 'left',
-        fontSize: fontSizes.SMALL,
-        marginLeft: 40,
-        marginRight:30,
-        marginTop:10,
-    },
-    'ul':{
-        margin:'15px 30px 0 0px',
-        textAlign: 'left',
-        listStyleType: 'none',
-        'li':{
-           
-        }
-    },
-    'a':{
-        textDecoration: `underline`,
-        textDecorationColor: colors.LIGHTORANGE,
-        textDecorationThickness: 1,
-        lineHeight: `${fontSizes.SMALL}px`,
-        cursor: 'pointer',
-    },
+        'h1':{
+            fontSize: fontSizes.BIG,
+            fontWeight: 100,
+            textAlign: 'left',
+            marginLeft:30,
+            marginRight:20,
+            marginTop: 40,
+            marginBottom:15,
+            '&:first-of-type':{
+                marginTop: 20,
+            }
+        },
+        'h2':{
+            fontSize: fontSizes.NORMAL,
+            fontWeight: 50,
+            textDecoration:'underline',
+            textAlign: 'left',
+            marginLeft:30,
+            marginRight:20,
+            marginTop: 40,
+            marginBottom:15,
+            '&:first-of-type':{
+                marginTop: 20,
+            }
+        },
+        'p':{
+            textAlign: 'left',
+            fontSize: fontSizes.SMALL,
+            marginLeft: 40,
+            marginRight:30,
+            marginTop:10,
+        },
+        'ul':{
+            margin:'15px 30px 0 0px',
+            textAlign: 'left',
+            listStyleType: 'none',
+            'li':{
+            marginTop: 15,
+            
+            }
+        },
+        'a':{
+            textDecoration: `underline`,
+            textDecorationColor: colors.LIGHTORANGE,
+            textDecorationThickness: 1,
+            lineHeight: `${fontSizes.SMALL}px`,
+            cursor: 'pointer',
+        },
     })
-    )}
+)}
 
 
 const aboutContentSelectingAnimation = keyframes`

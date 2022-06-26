@@ -4,6 +4,7 @@ import { createContactStyles } from './ContactStyles';
 import { ContactContentWrapper } from './ContactContentWrapper';
 import { GlobalContext } from '../../../GlobalContext';
 import { createMobileContactStyles } from './ContactStylesMobile';
+import { ContactContentWrapperMobile } from './ContactContentWrapperMobile';
 export const Contact:react.FC = () => {
     const { isInit, isStart, isMobile, screenWidth, screenHeight } = useContext(GlobalContext);
     
@@ -12,7 +13,7 @@ export const Contact:react.FC = () => {
         return(
             <Page>
                 <div className={mobileContactStyles}>
-                    <ContactContentWrapper />
+                    <ContactContentWrapperMobile />
                 </div>
             </Page>
         )

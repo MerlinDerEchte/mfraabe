@@ -3,7 +3,7 @@ import { EPaths } from '../constants/paths';
 import { appStyles } from './AppStyles';
 import { CompanyLogo } from './CompanyLogo/CompanyLogo'
 import { Menu} from './Menu/Menu';
-import { RoutingWrapper } from './RoutingWrapper/RoutingWrapper';
+import { RoutingWrapper } from './PageWrapper/RoutingWrapper';
 import { applicationStatus } from '../constants/ApplicationStatus';
 import { useLocation, useNavigate } from 'react-router-dom'
 import { getIsMobile } from '../Utils/isMobile';
@@ -26,13 +26,16 @@ export const AppDesktop = (params:IAppDesktopProps) => {
   // rename
 
     const initApp = () => {
-        if(appStatus === applicationStatus.INIT){
-        
+                
         setAppStatus(applicationStatus.START); 
         setTimeout(()=> {
             setAppStatus(applicationStatus.RUN);
         },ANIMATION_TIMINGS.START_TIME + 0.05);
-        }
+    }
+    const handleMenuItemClick  = () => {
+      if(appStatus === applicationStatus.INIT){
+        initApp();
+      }
     }
 
   const isStart = getIsStart(appStatus);
@@ -53,7 +56,7 @@ export const AppDesktop = (params:IAppDesktopProps) => {
     isRun,
     screenWidth,
     screenHeight,
-    initApp,
+    handleMenuItemClick,
     isMobile,
     isShowMobileMenu,
     isShowMobileMenuAnimation,

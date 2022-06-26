@@ -9,7 +9,7 @@ export const GlobalContext = react.createContext({
     screenWidth: 0,
     screenHeight: 0,
     isMobile: false,
-    initApp: ()=> {},
+    handleMenuItemClick: ()=> {},
     isShowMobileMenu: false,
     isShowMobileMenuAnimation: false,
     isHideMobileMenuAnimation:false,

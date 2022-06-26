@@ -15,6 +15,7 @@ const createContactContentWrapperStyles= (screenWidth:number) => css({
     width: CONTACT_CONTENT_CONSTANTS.WIDTH,
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
     gap: CONTACT_CONTENT_CONSTANTS.GAP,
 })
 

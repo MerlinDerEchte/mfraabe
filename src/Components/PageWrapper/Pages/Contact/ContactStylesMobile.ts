@@ -17,10 +17,13 @@ export const createMobileContactStyles = (params:IcreateMobileContactStyles) => 
             position:'absolute',
             top: 0,
             left: 0,
-            width: screenWidth - PAGE_MENU_CONSTANTS.RUN_WIDTH,
-            height: screenHeight - PAGE_CONSTANTS.MARGIN_TOP,
+            width: '100%',
+            height:'100%',
             lineHeight: 1,
             marginLeft: 0, 
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
         })
     )
 }

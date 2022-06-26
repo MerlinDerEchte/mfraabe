@@ -3,7 +3,7 @@ import react, { useContext } from 'react';
 import { colors } from '../../../../constants/css/colors';
 import { PAGE_MENU_CONSTANTS } from '../../../GlobalConstants';
 import { GlobalContext } from '../../../GlobalContext';
-import { CONTACT_CONTENT_CONSTANTS } from './ContactConstants';
+import { MOBILE_CONTACT_CONTENT_CONSTANTS } from './ContactConstantsMobile';
 import { LinkedInLogo } from './LinkedInLogo';
 import { MailLogo } from './MailLogo';
 
@@ -16,13 +16,13 @@ const createMobileContactContentWrapperStyles= (screenWidth:number) => css({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: CONTACT_CONTENT_CONSTANTS.GAP,
+    gap: MOBILE_CONTACT_CONTENT_CONSTANTS.GAP,
 })
 
 const iconWrapperStyles= css({
     flex:'0 0 auto',
-    width: CONTACT_CONTENT_CONSTANTS.ICON_WIDTH,
-    height: CONTACT_CONTENT_CONSTANTS.ICON_HEIGHT,
+    width: MOBILE_CONTACT_CONTENT_CONSTANTS.ICON_WIDTH,
+    height: MOBILE_CONTACT_CONTENT_CONSTANTS.ICON_HEIGHT,
    
     'svg':{
         fill: colors.LIGHTORANGE,

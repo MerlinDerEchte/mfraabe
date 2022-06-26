@@ -14,7 +14,7 @@ import { getIsRun } from "../Utils/isRun"
 import { getIsStart } from "../Utils/isStart"
 import { MobileMenuBackground } from "./MobileMenuBackground/MobileMenuBackground"
 import { MobileMenuToggle } from "./MobileMenuToggle/MobileMenuToggle"
-import { RoutingWrapper } from "./RoutingWrapper/RoutingWrapper"
+import { RoutingWrapper } from "./PageWrapper/RoutingWrapper"
 
 
 export interface IAppMobileProps {
@@ -33,23 +33,33 @@ export const AppMobile = (params:IAppMobileProps) => {
     const isMobile = getIsMobile(screenWidth);
  
     const initApp = () => {
-        if(appStatus === applicationStatus.INIT){
             setAppStatus(applicationStatus.START); 
             setTimeout(()=> {
                 setAppStatus(applicationStatus.RUN);
                 setIsShowMobileMenu(true);
                 hideMobileMenu();
             },MOBILE_ANIMATION_TIMINGS.START_TIME );
-        }
+
     }
     const handleToggleMobileMenu = () => {
-        
         if(isShowMobileMenu){
             hideMobileMenu();
             return;
         }else{
             showMobileMenu();
         }
+        
+    }
+
+    const handleMenuItemClick = () => {
+        if(appStatus === applicationStatus.INIT){
+            initApp();
+            return;
+        }
+        if(isShowMobileMenu){
+            hideMobileMenu();
+        }
+        
         
     }
 
@@ -86,7 +96,7 @@ export const AppMobile = (params:IAppMobileProps) => {
     isMobile,
     screenWidth, 
     screenHeight, 
-    initApp, 
+    handleMenuItemClick, 
     isShowMobileMenu, 
     isShowMobileMenuAnimation,
     isHideMobileMenuAnimation,
