@@ -15,9 +15,9 @@ export const RecommandationsDevelopmentTemplate:react.FC<{}> = ( )=>{
             </ul>
             <h1>Websites</h1>
             <ul>
-                <li><a href="https://www.w3schools.com">w3schools</a></li>
-                <li><a href="https://medium.com/">Medium</a></li>
-                <li><a href="https://www.theodinproject.com/">The Odin Project</a></li>
+                <li><a href="https://www.w3schools.com">w3schools</a> - (good documentation espacially for html)</li>
+                <li><a href="https://medium.com/">Medium</a> - (short inspirement reads)</li>
+                <li><a href="https://www.theodinproject.com/">The Odin Project</a> - (a free guide to Web Development)</li>
             </ul>
             <h1>Youtube channels</h1>
             <ul>

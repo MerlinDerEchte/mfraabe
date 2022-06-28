@@ -20,13 +20,13 @@ export const SoloDevelopmentTemplate:react.FC<{}> = () => {
             <h1>Websites for small Businesses:</h1>
             <p>
                 I create website for people around me.<br/>
-                For some of them i design the websites too, but i wouldn't consider myself to be a web designer.
+                For some of them I design the websites too, but I wouldn't consider myself to be a web designer.
                 Right now the websites for Sc München Süd and Florian Kuhn (<a href="https://merlinderechte.github.io/florian-kuhn/#/work">Live demo</a>) are in the making.
             </p>
             <h1>Excel and Googlesheets scripting</h1>
             <p>
                 I actually don't use Excel or Googlesheets that much for my work but Excel makros have been my first touch with programming and
-                i still enjoy to solve some problems with a makro whenever someone reaches out to me.
+                I still enjoy to solve some problems with a makro whenever someone reaches out to me.
             </p>
             <h1>
                 Raspberry Pi Projects

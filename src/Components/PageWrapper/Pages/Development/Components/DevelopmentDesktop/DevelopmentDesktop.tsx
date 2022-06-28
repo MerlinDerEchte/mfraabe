@@ -29,7 +29,7 @@ export const DevelopmentDesktop:react.FC<{}> = () => {
         setSelectedDevelopmentType(developmentType);
         setTimeout(()=> {
             setIsSelecting(false);
-        }, DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_DELAY +  DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME);
+        }, DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_DELAY +  DEVELOPMENT_ANIMATION_TIMINGS.CARD_SELECTION_TIME + 0.05);
     }
 
     const value= ({selectedDevelopmentType, handleSelectDevelopmentType, handleDeselectDevelopmentType, isSelecting, isDeselecting})
